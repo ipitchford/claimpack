@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from copy import deepcopy
 from pathlib import Path
 
@@ -16,6 +17,14 @@ BASE_ARCHIVE_SHA256 = (
 )
 VR2_CLAIM_ID = "ni:///sha-256;cDwAiv3p8UiaXGlcLfx5Ef_2Kgf1NM3j9XhkxGxFkis"
 FIXED_CORE_CLAIM_ID = "ni:///sha-256;XZiVDafrILfPSxDvR1kHHCr5Cfk_gEKmC-WAOzVi9xg"
+PROVIDER_UNSUPPORTED_SCHEMA_KEYS = {
+    "maxItems",
+    "maxLength",
+    "minItems",
+    "minLength",
+    "pattern",
+    "uniqueItems",
+}
 
 
 def _digest(path: Path) -> str:
@@ -32,6 +41,51 @@ def _entry(
         "sha256": _digest(repository_root / source),
         "source": source,
     }
+
+
+def _provider_schema_projection(value: object) -> object:
+    if isinstance(value, list):
+        return [_provider_schema_projection(item) for item in value]
+    if not isinstance(value, dict):
+        return value
+    projected = {
+        key: _provider_schema_projection(item)
+        for key, item in value.items()
+        if key not in PROVIDER_UNSUPPORTED_SCHEMA_KEYS
+    }
+    if "type" not in projected:
+        candidates = projected.get("enum")
+        if (
+            isinstance(candidates, list)
+            and candidates
+            and all(isinstance(item, str) for item in candidates)
+        ):
+            projected["type"] = "string"
+        elif isinstance(projected.get("const"), str):
+            projected["type"] = "string"
+    return projected
+
+
+def _generate_provider_schema(
+    repository_root: Path,
+    output_root: Path,
+) -> Path:
+    source = json.loads(
+        (
+            repository_root / "evaluation/schemas/trial-answer-v0.1.schema.json"
+        ).read_text(encoding="utf-8")
+    )
+    projection = _provider_schema_projection(source)
+    if not isinstance(projection, dict):
+        raise RuntimeError("provider schema projection must be an object")
+    projection["$id"] = (
+        "https://example.invalid/claimpack/trial-answer-provider-v0.1.schema.json"
+    )
+    projection["title"] = "ClaimPack provider-compatible arm-neutral TrialAnswer v0.1"
+    path = output_root / "evaluation/schemas/trial-answer-provider-v0.1.schema.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(pretty_bytes(projection))
+    return path
 
 
 def _catalogue_projection(repository_root: Path) -> dict:
@@ -61,6 +115,10 @@ def generate(repository_root: Path, output_root: Path) -> list[Path]:
     generated_case_root = output_root / CASE_ROOT
     overlay_root = generated_case_root / "overlay"
     overlay_root.mkdir(parents=True, exist_ok=True)
+    provider_schema_path = _generate_provider_schema(
+        repository_root,
+        output_root,
+    )
 
     catalogue_path = overlay_root / "STATIC_CATALOG.json"
     catalogue_path.write_bytes(pretty_bytes(_catalogue_projection(repository_root)))
@@ -186,7 +244,27 @@ def generate(repository_root: Path, output_root: Path) -> list[Path]:
     validate_case(case)
     case_path = generated_case_root / "case.json"
     case_path.write_bytes(pretty_bytes(case))
-    return [case_path, catalogue_path]
+
+    provider_case = deepcopy(case)
+    provider_case["case_id"] = "C001-vr2-k4-candidate-provider-v2"
+    response_schema = next(
+        item
+        for item in provider_case["common_files"]
+        if item["destination"] == "RESPONSE_SCHEMA.json"
+    )
+    response_schema["source"] = (
+        "evaluation/schemas/trial-answer-provider-v0.1.schema.json"
+    )
+    response_schema["sha256"] = _digest(provider_schema_path)
+    validate_case(provider_case)
+    provider_case_path = generated_case_root / "case-provider-v2.json"
+    provider_case_path.write_bytes(pretty_bytes(provider_case))
+    return [
+        case_path,
+        provider_case_path,
+        catalogue_path,
+        provider_schema_path,
+    ]
 
 
 def main() -> int:

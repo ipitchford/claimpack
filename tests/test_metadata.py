@@ -13,12 +13,18 @@ class MetadataTests(unittest.TestCase):
             ROOT / "badclaims/cases.json",
             ROOT / "catalog/catalog.json",
             ROOT / "evaluation/cases/C001-vr2-k4/case.json",
+            ROOT / "evaluation/cases/C001-vr2-k4/case-provider-v2.json",
             ROOT / "evaluation/cases/C001-vr2-k4/common/SOURCE_IDENTITY.json",
             ROOT / "evaluation/cases/C001-vr2-k4/gold.json",
             ROOT / "evaluation/cases/C001-vr2-k4/overlay/STATIC_CATALOG.json",
             ROOT / "evaluation/preregistration/plan-template.json",
             ROOT / "evaluation/preregistration/plan.json",
+            ROOT / "evaluation/preregistration/bundle-commitment.json",
+            ROOT / "evaluation/preregistration/bundle-commitment-provider-v2.json",
+            ROOT / "evaluation/preregistration/plan-provider-v2-template.json",
+            ROOT / "evaluation/preregistration/plan-provider-v2.json",
             ROOT / "evaluation/schemas/trial-answer-v0.1.schema.json",
+            ROOT / "evaluation/schemas/trial-answer-provider-v0.1.schema.json",
             ROOT / "policies/cautious-scientific-use-v0.1.json",
             *sorted((ROOT / "schemas").glob("*.json")),
         ]
@@ -26,6 +32,32 @@ class MetadataTests(unittest.TestCase):
             with self.subTest(path=path.relative_to(ROOT)):
                 with path.open("r", encoding="utf-8") as handle:
                     self.assertIsInstance(json.load(handle), dict)
+
+    def test_provider_schema_uses_supported_projection(self) -> None:
+        path = ROOT / "evaluation/schemas/trial-answer-provider-v0.1.schema.json"
+        with path.open("r", encoding="utf-8") as handle:
+            schema = json.load(handle)
+        unsupported = {
+            "maxItems",
+            "maxLength",
+            "minItems",
+            "minLength",
+            "pattern",
+            "uniqueItems",
+        }
+
+        def walk(value: object) -> None:
+            if isinstance(value, dict):
+                self.assertTrue(unsupported.isdisjoint(value))
+                if "enum" in value or "const" in value:
+                    self.assertIn("type", value)
+                for item in value.values():
+                    walk(item)
+            elif isinstance(value, list):
+                for item in value:
+                    walk(item)
+
+        walk(schema)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,27 @@
+{
+  "commitment_id": "ni:///sha-256;DuWBZY7idfPpR7Paub7aLcxSwEX33kcgIKKMrZjaoOc",
+  "entries": [
+    {
+      "bundle_id": "ni:///sha-256;tM7Pb4uBXzI_h7p9NdwVUZqBlsb1gG6Ddv2XA0559tQ",
+      "case_id": "C001-vr2-k4-candidate-provider-v2",
+      "trial_id": "trial-ab19cf8dbd2b0a8f"
+    },
+    {
+      "bundle_id": "ni:///sha-256;Yaia2CGFZ203V97UJtHTRUr93ULyw0bD4hHsjAuLHOg",
+      "case_id": "C001-vr2-k4-candidate-provider-v2",
+      "trial_id": "trial-b546669a36e1a178"
+    },
+    {
+      "bundle_id": "ni:///sha-256;3S285_vPikDJY6lGfLtWoFM_AZdAbV_ZStXPX8hFqNY",
+      "case_id": "C001-vr2-k4-candidate-provider-v2",
+      "trial_id": "trial-cbfe56aa92352f15"
+    },
+    {
+      "bundle_id": "ni:///sha-256;6MeUBXHDSO-qZasyz4ivMNZw2xYckchaRVKnnMhw8Qg",
+      "case_id": "C001-vr2-k4-candidate-provider-v2",
+      "trial_id": "trial-eeb1dfd8fd346792"
+    }
+  ],
+  "plan_id": "ni:///sha-256;8Oqf6inAS7U9581s4IKYvq_cNRdbUNNXBcGWDjzeZ7E",
+  "schema_version": "claimpack-experiment-bundle-commitment/0.1"
+}
