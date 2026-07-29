@@ -7,7 +7,11 @@ from copy import deepcopy
 from pathlib import Path
 
 from claimpack.canonical import canonical_bytes, pretty_bytes, strict_loads
-from claimpack.experiment import CASE_VERSION, validate_case
+from claimpack.experiment import (
+    CASE_VERSION,
+    TRIAL_ID_SCHEMA_PLACEHOLDER,
+    validate_case,
+)
 from claimpack.ids import ni_sha256, sha256_label
 
 CASE_ROOT = Path("evaluation/cases/C001-vr2-k4")
@@ -66,10 +70,10 @@ def _provider_schema_projection(value: object) -> object:
     return projected
 
 
-def _generate_provider_schema(
+def _generate_provider_schemas(
     repository_root: Path,
     output_root: Path,
-) -> Path:
+) -> tuple[Path, Path]:
     source = json.loads(
         (
             repository_root / "evaluation/schemas/trial-answer-v0.1.schema.json"
@@ -82,10 +86,23 @@ def _generate_provider_schema(
         "https://example.invalid/claimpack/trial-answer-provider-v0.1.schema.json"
     )
     projection["title"] = "ClaimPack provider-compatible arm-neutral TrialAnswer v0.1"
-    path = output_root / "evaluation/schemas/trial-answer-provider-v0.1.schema.json"
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_bytes(pretty_bytes(projection))
-    return path
+    v1_path = output_root / "evaluation/schemas/trial-answer-provider-v0.1.schema.json"
+    v1_path.parent.mkdir(parents=True, exist_ok=True)
+    v1_path.write_bytes(pretty_bytes(projection))
+
+    bound_projection = deepcopy(projection)
+    bound_projection["$id"] = (
+        "https://example.invalid/claimpack/trial-answer-provider-v0.2.schema.json"
+    )
+    bound_projection["title"] = (
+        "ClaimPack provider-compatible, trial-bound TrialAnswer v0.2"
+    )
+    trial_schema = bound_projection["properties"]["trial_id"]
+    trial_schema["const"] = TRIAL_ID_SCHEMA_PLACEHOLDER
+    trial_schema["type"] = "string"
+    v2_path = output_root / "evaluation/schemas/trial-answer-provider-v0.2.schema.json"
+    v2_path.write_bytes(pretty_bytes(bound_projection))
+    return v1_path, v2_path
 
 
 def _catalogue_projection(repository_root: Path) -> dict:
@@ -115,7 +132,7 @@ def generate(repository_root: Path, output_root: Path) -> list[Path]:
     generated_case_root = output_root / CASE_ROOT
     overlay_root = generated_case_root / "overlay"
     overlay_root.mkdir(parents=True, exist_ok=True)
-    provider_schema_path = _generate_provider_schema(
+    provider_schema_path, bound_provider_schema_path = _generate_provider_schemas(
         repository_root,
         output_root,
     )
@@ -259,11 +276,28 @@ def generate(repository_root: Path, output_root: Path) -> list[Path]:
     validate_case(provider_case)
     provider_case_path = generated_case_root / "case-provider-v2.json"
     provider_case_path.write_bytes(pretty_bytes(provider_case))
+
+    bound_provider_case = deepcopy(provider_case)
+    bound_provider_case["case_id"] = "C001-vr2-k4-candidate-provider-v3"
+    response_schema = next(
+        item
+        for item in bound_provider_case["common_files"]
+        if item["destination"] == "RESPONSE_SCHEMA.json"
+    )
+    response_schema["source"] = (
+        "evaluation/schemas/trial-answer-provider-v0.2.schema.json"
+    )
+    response_schema["sha256"] = _digest(bound_provider_schema_path)
+    validate_case(bound_provider_case)
+    bound_provider_case_path = generated_case_root / "case-provider-v3.json"
+    bound_provider_case_path.write_bytes(pretty_bytes(bound_provider_case))
     return [
         case_path,
         provider_case_path,
+        bound_provider_case_path,
         catalogue_path,
         provider_schema_path,
+        bound_provider_schema_path,
     ]
 
 

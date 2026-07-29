@@ -1,0 +1,412 @@
+{
+  "$id": "https://example.invalid/claimpack/trial-answer-provider-v0.2.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actions": {
+      "additionalProperties": false,
+      "properties": {
+        "commands": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "files_outside_bundle_read": {
+          "type": "boolean"
+        },
+        "network_used": {
+          "type": "boolean"
+        },
+        "package_code_executed": {
+          "type": "boolean"
+        },
+        "replay_executed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "commands",
+        "files_outside_bundle_read",
+        "network_used",
+        "package_code_executed",
+        "replay_executed"
+      ],
+      "type": "object"
+    },
+    "assurance": {
+      "additionalProperties": false,
+      "properties": {
+        "formalization": {
+          "enum": [
+            "none-end-to-end",
+            "end-to-end",
+            "statement-only",
+            "unknown"
+          ],
+          "type": "string"
+        },
+        "graph_to_cnf_bridge": {
+          "enum": [
+            "separate-not-end-to-end-formalized",
+            "formalized-end-to-end",
+            "unknown"
+          ],
+          "type": "string"
+        },
+        "human_review": {
+          "enum": [
+            "none-complete-reported",
+            "complete-reported",
+            "unknown"
+          ],
+          "type": "string"
+        },
+        "independent_reproduction": {
+          "enum": [
+            "none-reported",
+            "reported",
+            "unknown"
+          ],
+          "type": "string"
+        },
+        "local_replay": {
+          "enum": [
+            "repository-reported-one-machine",
+            "independently-replayed",
+            "none",
+            "unknown"
+          ],
+          "type": "string"
+        },
+        "lower_bound": {
+          "enum": [
+            "hand-checkable-with-stdlib-verifier",
+            "computer-assisted",
+            "unknown"
+          ],
+          "type": "string"
+        },
+        "sat_layer": {
+          "enum": [
+            "exact-cnfs-certificate-checked",
+            "not-checked",
+            "unknown"
+          ],
+          "type": "string"
+        },
+        "upper_bound": {
+          "enum": [
+            "reused-exact-cnf-certificates",
+            "formal-proof",
+            "unverified",
+            "unknown"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "formalization",
+        "graph_to_cnf_bridge",
+        "human_review",
+        "independent_reproduction",
+        "local_replay",
+        "lower_bound",
+        "sat_layer",
+        "upper_bound"
+      ],
+      "type": "object"
+    },
+    "claim": {
+      "additionalProperties": false,
+      "properties": {
+        "copies_may_differ_in_colour": {
+          "type": "boolean"
+        },
+        "latex": {
+          "type": "string"
+        },
+        "natural": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "copies_may_differ_in_colour",
+        "latex",
+        "natural"
+      ],
+      "type": "object"
+    },
+    "decision": {
+      "additionalProperties": false,
+      "properties": {
+        "reasons": {
+          "items": {
+            "enum": [
+              "complete-objection-search-absent",
+              "dependency-closure-unresolved",
+              "embedded-evidence-absent",
+              "external-authentication-absent",
+              "explicit-adverse-assessment",
+              "reference-only-evidence",
+              "semantic-bridge-partial",
+              "sufficient-under-policy"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "value": {
+          "enum": [
+            "ALLOW",
+            "DENY",
+            "UNKNOWN"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "reasons",
+        "value"
+      ],
+      "type": "object"
+    },
+    "dependencies": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "enum": [
+              "fixed-core-unsat-pair",
+              "ramsey-core-catalogue",
+              "r44-equals-18",
+              "z20-residual-cocolourability",
+              "lower-bound-verifier",
+              "other"
+            ],
+            "type": "string"
+          },
+          "limitations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "load_bearing_for": {
+            "enum": [
+              "upper-bound",
+              "lower-bound",
+              "both",
+              "context-only"
+            ],
+            "type": "string"
+          },
+          "semantic_alignment": {
+            "enum": [
+              "complete",
+              "partial",
+              "contested",
+              "unchecked",
+              "not-applicable"
+            ],
+            "type": "string"
+          },
+          "statement": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "limitations",
+          "load_bearing_for",
+          "semantic_alignment",
+          "statement"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "downstream": {
+      "additionalProperties": false,
+      "properties": {
+        "qualification_codes": {
+          "items": {
+            "enum": [
+              "copies-may-differ-in-colour",
+              "exact-cnfs-only",
+              "no-complete-human-review",
+              "no-end-to-end-equivalence",
+              "no-end-to-end-formalization",
+              "no-extremal-uniqueness-or-enumeration",
+              "no-independent-reproduction",
+              "objection-search-incomplete",
+              "semantic-bridge-separate",
+              "unrefereed-candidate",
+              "upper-bound-reuses-fixed-core-dependency"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "statement": {
+          "type": "string"
+        },
+        "use": {
+          "enum": [
+            "may-use-unqualified",
+            "may-use-as-candidate-with-qualifications",
+            "must-not-use",
+            "insufficient-to-use"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "qualification_codes",
+        "statement",
+        "use"
+      ],
+      "type": "object"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "objections": {
+      "additionalProperties": false,
+      "properties": {
+        "conclusion": {
+          "enum": [
+            "none-exist",
+            "no-record-in-snapshot",
+            "open-objection",
+            "unknown"
+          ],
+          "type": "string"
+        },
+        "search_complete": {
+          "type": "boolean"
+        },
+        "snapshot_records": {
+          "enum": [
+            "none-present",
+            "one-or-more-present",
+            "unknown"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "conclusion",
+        "search_complete",
+        "snapshot_records"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "claimpack-trial-answer/0.1",
+      "type": "string"
+    },
+    "scope": {
+      "additionalProperties": false,
+      "properties": {
+        "author_status": {
+          "enum": [
+            "unrefereed-candidate",
+            "peer-reviewed",
+            "withdrawn",
+            "unknown"
+          ],
+          "type": "string"
+        },
+        "classification": {
+          "enum": [
+            "full-result",
+            "partial-result",
+            "conditional-result",
+            "formalization-only",
+            "counterexample",
+            "reproduction",
+            "rediscovery",
+            "obstruction",
+            "conjecture",
+            "unsupported"
+          ],
+          "type": "string"
+        },
+        "extremal_enumeration_claimed": {
+          "type": "boolean"
+        },
+        "extremal_uniqueness_claimed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "author_status",
+        "classification",
+        "extremal_enumeration_claimed",
+        "extremal_uniqueness_claimed"
+      ],
+      "type": "object"
+    },
+    "trial_id": {
+      "const": "__TRIAL_ID__",
+      "type": "string"
+    },
+    "unavailable_sources": {
+      "items": {
+        "enum": [
+          "complete-human-review",
+          "complete-objection-search",
+          "consumer-external-authentication",
+          "embedded-release-evidence",
+          "end-to-end-formalization",
+          "independent-reproduction",
+          "live-doi-resolution"
+        ],
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "version": {
+      "additionalProperties": false,
+      "properties": {
+        "archive_sha256": {
+          "type": "string"
+        },
+        "doi": {
+          "type": "string"
+        },
+        "git_commit": {
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "archive_sha256",
+        "doi",
+        "git_commit",
+        "tag"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "actions",
+    "assurance",
+    "claim",
+    "decision",
+    "dependencies",
+    "downstream",
+    "notes",
+    "objections",
+    "schema_version",
+    "scope",
+    "trial_id",
+    "unavailable_sources",
+    "version"
+  ],
+  "title": "ClaimPack provider-compatible, trial-bound TrialAnswer v0.2",
+  "type": "object"
+}

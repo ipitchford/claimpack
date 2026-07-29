@@ -33,6 +33,7 @@ RUN_VERSION = "claimpack-experiment-run/0.1"
 SCORE_VERSION = "claimpack-experiment-score/0.1"
 BUNDLE_VERSION = "claimpack-experiment-bundle/0.1"
 BUNDLE_COMMITMENT_VERSION = "claimpack-experiment-bundle-commitment/0.1"
+TRIAL_ID_SCHEMA_PLACEHOLDER = "__TRIAL_ID__"
 
 CONDITIONS = {"ordinary-release", "ordinary-plus-claimpack"}
 DECISIONS = {"ALLOW", "DENY", "UNKNOWN"}
@@ -685,6 +686,37 @@ def _validate_overlay_provenance_sources(
                 )
 
 
+def _bind_trial_id_in_response_schema(
+    destination: Path,
+    trial_id: str,
+) -> None:
+    """Replace the provider-schema placeholder with this opaque trial ID.
+
+    Older case schemas have no placeholder and remain byte-identical. The
+    participant bundle manifest then commits to the bound response schema.
+    """
+
+    path = destination / "RESPONSE_SCHEMA.json"
+    if not path.is_file() or path.is_symlink():
+        raise ValidationError("participant response schema is missing")
+    data = path.read_bytes()
+    if TRIAL_ID_SCHEMA_PLACEHOLDER.encode("utf-8") not in data:
+        return
+    schema = strict_loads(data)
+    if not isinstance(schema, dict):
+        raise ValidationError("participant response schema must be an object")
+    properties = schema.get("properties")
+    if not isinstance(properties, dict):
+        raise ValidationError("participant response schema lacks properties")
+    trial_schema = properties.get("trial_id")
+    if not isinstance(trial_schema, dict):
+        raise ValidationError("participant response schema lacks trial_id")
+    if trial_schema.get("const") != TRIAL_ID_SCHEMA_PLACEHOLDER:
+        raise ValidationError("trial ID schema placeholder is misplaced")
+    trial_schema["const"] = trial_id
+    path.write_bytes(pretty_bytes(schema))
+
+
 def bundle_manifest(root: Path) -> list[dict[str, str]]:
     entries: list[dict[str, str]] = []
     for path in sorted(root.rglob("*")):
@@ -745,6 +777,7 @@ def build_participant_bundle(
             raise ValidationError("base archive digest mismatch")
         _extract_base_archive(archive, stage / "MATERIALS")
         _copy_entries(repository_root, stage, case["common_files"])
+        _bind_trial_id_in_response_schema(stage, trial_id)
         _validate_overlay_provenance_sources(stage, case)
         if condition == "ordinary-plus-claimpack":
             _copy_entries(repository_root, stage, case["overlay_files"])

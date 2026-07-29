@@ -34,6 +34,7 @@ from claimpack.ids import ni_sha256, sha256_label
 
 ROOT = Path(__file__).resolve().parents[1]
 CASE_PATH = ROOT / "evaluation/cases/C001-vr2-k4/case.json"
+PROVIDER_V3_CASE_PATH = ROOT / "evaluation/cases/C001-vr2-k4/case-provider-v3.json"
 GOLD_PATH = ROOT / "evaluation/cases/C001-vr2-k4/gold.json"
 SCORED_AT = "2026-07-29T15:00:00+00:00"
 STARTED_AT = "2026-07-29T14:58:00+00:00"
@@ -293,6 +294,27 @@ class ExperimentFixtureTests(unittest.TestCase):
             descriptor = _load(root / "BUNDLE.json")
             self.assertEqual(descriptor, returned)
             self.assertEqual(descriptor["files"], bundle_manifest(root))
+
+    def test_ab01_provider_schema_binds_exact_trial_id_in_bundle(self) -> None:
+        case = _load(PROVIDER_V3_CASE_PATH)
+        trial_id = "trial-0123456789abcdef"
+        with tempfile.TemporaryDirectory() as temporary:
+            destination = Path(temporary) / trial_id
+            returned = build_participant_bundle(
+                ROOT,
+                case,
+                condition="ordinary-release",
+                trial_id=trial_id,
+                destination=destination,
+            )
+            schema = _load(destination / "RESPONSE_SCHEMA.json")
+            self.assertEqual(
+                schema["properties"]["trial_id"],
+                {"const": trial_id, "type": "string"},
+            )
+            self.assertEqual(returned["files"], bundle_manifest(destination))
+            descriptor = _load(destination / "BUNDLE.json")
+            self.assertEqual(descriptor, returned)
 
     def test_ab03_base_and_common_materials_are_byte_identical(self) -> None:
         ordinary_files = _relative_file_bytes(self.ordinary)
