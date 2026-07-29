@@ -44,3 +44,19 @@ This establishes only the observed tool surface for the corrected empty-task
 preflight. It does not prove exclusive filesystem visibility, network
 isolation, the behavior of later scientific trials, ClaimPack effectiveness,
 or the truth of any research claim.
+
+## Exact-launch follow-up after provider-v3
+
+Provider-v3 then exposed two operator-launch defects: an unsupported `-a`
+shorthand and starting the outer guard from a path that the guard denies. Both
+affected scheduled outcomes and are retained in the provider-v3 result.
+
+Before registering provider-v4, the exact corrected invocation shape was
+preflighted from `/tmp`, including the output-schema and output-last-message
+arguments. A minimal constant-bound schema required
+`{"trial_id":"preflight-exact-launch"}`. The client exited 0, returned that
+exact object, and the JSONL trace contained one completed local command,
+`cat TASK.md`, with no MCP or web event.
+
+This follow-up is still a transport check only. It neither repairs nor removes
+the provider-v3 outcomes and provides no scientific evidence.
