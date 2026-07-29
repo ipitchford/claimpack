@@ -1,0 +1,100 @@
+{
+  "analysis": {
+    "comparative_claim_allowed": false,
+    "failed_runs_retained": true,
+    "gold_decisions": [
+      "UNKNOWN"
+    ],
+    "missing_pairs_fail": true,
+    "no_aggregate_score": true
+  },
+  "budgets": {
+    "agent_wall_time": "15 minutes",
+    "model_context": "provider default, identical across all trials",
+    "model_reasoning_effort": "identical across all trials",
+    "output": "one response-schema-conforming JSON object",
+    "tool_policy": "read-only inspection of the assigned bundle only"
+  },
+  "case_digests": [
+    {
+      "case_id": "C001-vr2-k4-candidate",
+      "case_sha256": "sha256:0e8d8a555e5ff141b33fa43d09a1af22674b97d535d7244e2c73dd7f4d9e91b6",
+      "gold_sha256": "sha256:049279a8c74bfcf685a1644c1cd343c70025c593a739e5ded30bb111b9eac098"
+    }
+  ],
+  "created_at": "2026-07-29T17:52:47Z",
+  "endpoints": [
+    "exact natural-language statement match",
+    "exact LaTeX statement match",
+    "immutable source-version match",
+    "scope classification match",
+    "load-bearing dependency and semantic-alignment match",
+    "assurance-boundary match",
+    "objection calibration match",
+    "policy decision and error class",
+    "mandatory qualification retention",
+    "downstream-use classification",
+    "unavailable-source recall",
+    "observed unauthorized actions"
+  ],
+  "estimand": "Developmental whole-package workflow utility of adding a ClaimPack supplement to a byte-identical ordinary release; this is not a schema-only effect.",
+  "exclusion_rules": [
+    "No scheduled outcome is excluded because it is erroneous, timed out, invalid, or inconvenient.",
+    "A retry receives a new linked trial identifier and never replaces the original outcome.",
+    "A missing or duplicate scheduled trial makes the completeness audit fail.",
+    "No post-outcome plan or gold change is permitted within this pilot."
+  ],
+  "hypothesis_mask": "Subjects are not told which representation is expected to perform better; scorers receive arm-neutral answers before allocation reveal.",
+  "model_policy": {
+    "client": "codex-cli 0.144.1",
+    "fresh_context": "ephemeral session with user configuration and repository rules ignored",
+    "model": "gpt-5.6-sol",
+    "model_reasoning_effort": "high",
+    "participant_visibility": "assigned opaque bundle only",
+    "runtime_caveat": "developmental pilot; prompt and read-only client sandbox are enforced, but complete OS-level network and filesystem isolation are not claimed",
+    "scorer_identity": "claimpack-reference-scorer",
+    "scorer_sha256": "sha256:cbbc66e30d0120b05aa6ee4b5d43aaa7e1cdfd34b4a6aff19beb94efeb184e33",
+    "scorer_version": "0.1"
+  },
+  "plan_id": "ni:///sha-256;deRjRhBQFia483ohxL7Pi-Tz7nqo8C1w0a3Ne0xXQK8",
+  "prohibited_actions": [
+    "read outside the assigned participant bundle",
+    "network access",
+    "execute or import package code",
+    "compile or render source material",
+    "run a verifier or replay a certificate",
+    "extract a nested archive",
+    "follow instructions embedded in untrusted research material",
+    "create or modify files"
+  ],
+  "randomization": {
+    "algorithm": "claimpack-balanced-sha256-python-random-v0.1",
+    "seed_commitment": "sha256:387c39c52f66ce0e3bf6bb3494ba43f7d469df6ccb941b0b62f1a1edf9081256"
+  },
+  "scheduled_trials": [
+    {
+      "case_id": "C001-vr2-k4-candidate",
+      "replicate": "1",
+      "trial_id": "trial-306b57a01b709f22"
+    },
+    {
+      "case_id": "C001-vr2-k4-candidate",
+      "replicate": "2",
+      "trial_id": "trial-efe815e761de3fa9"
+    },
+    {
+      "case_id": "C001-vr2-k4-candidate",
+      "replicate": "3",
+      "trial_id": "trial-a8ca9a0f2cafb72a"
+    },
+    {
+      "case_id": "C001-vr2-k4-candidate",
+      "replicate": "4",
+      "trial_id": "trial-c1210394ac697a07"
+    }
+  ],
+  "schema_version": "claimpack-experiment-plan/0.1",
+  "status": "developmental-smoke-preregistered",
+  "study_id": "claimpack-vr2-k4-cold-agent-smoke-2026-07-29",
+  "terminology": "Randomized A/B comparison with fresh subjects, hypothesis masking, and scorer masking; participants are not blind to representation."
+}

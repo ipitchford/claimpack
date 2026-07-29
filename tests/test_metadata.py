@@ -12,6 +12,13 @@ class MetadataTests(unittest.TestCase):
         paths = [
             ROOT / "badclaims/cases.json",
             ROOT / "catalog/catalog.json",
+            ROOT / "evaluation/cases/C001-vr2-k4/case.json",
+            ROOT / "evaluation/cases/C001-vr2-k4/common/SOURCE_IDENTITY.json",
+            ROOT / "evaluation/cases/C001-vr2-k4/gold.json",
+            ROOT / "evaluation/cases/C001-vr2-k4/overlay/STATIC_CATALOG.json",
+            ROOT / "evaluation/preregistration/plan-template.json",
+            ROOT / "evaluation/preregistration/plan.json",
+            ROOT / "evaluation/schemas/trial-answer-v0.1.schema.json",
             ROOT / "policies/cautious-scientific-use-v0.1.json",
             *sorted((ROOT / "schemas").glob("*.json")),
         ]

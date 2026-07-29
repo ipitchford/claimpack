@@ -1,0 +1,18 @@
+{
+  "base_git_archive": {
+    "format": "tar.gz",
+    "prefix": "release/",
+    "sha256": "c8ecfb13541ef1dad7016b00fbdcbf676f797451317adb28d7f93c9e30e04996"
+  },
+  "release": {
+    "archive_file": "z20-vr2-k4-v0.1-candidate.zip",
+    "archive_sha256": "e14178610233f9e5960da06162e07f3a0ce9aa65799dff3d456958a417997f4f",
+    "doi": "10.5281/zenodo.21647654",
+    "git_commit": "b303d7d61d1a4cdf6ff0f1c18eee40eded0583cc",
+    "git_tree": "436a6da8390a558357c5aac11a00de1fd2b12c7e",
+    "repository": "https://github.com/ipitchford/z20-cochromatic",
+    "tag": "vr2-k4-v0.1-candidate"
+  },
+  "schema_version": "claimpack-evaluator-source-identity/0.1",
+  "status": "Evaluator-supplied immutable identity card, identical in both experimental arms. Identifiers establish version binding, not mathematical truth."
+}

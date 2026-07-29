@@ -3,7 +3,7 @@
 The prototype’s main empirical question is whether it improves downstream
 agent behavior, not whether agents like its schema.
 
-## Blinded comparison
+## Defensible comparison design
 
 For each research result, prepare two conditions with the same underlying
 public material:
@@ -12,8 +12,14 @@ public material:
 - **B — ClaimPack:** the same release plus exact records, policy, catalogue
   entry, and consumer skill.
 
-Assign fresh agents randomly and do not reveal which condition is expected to
-perform better.
+Assign fresh subjects randomly and do not reveal which condition is expected
+to perform better. Freeze the gold answer before allocation, conceal the
+allocation from the arm-neutral scorer until raw outputs and scores are locked,
+and reveal it only for the comparison.
+
+The accurate design label is a **randomized A/B comparison with fresh subjects,
+hypothesis masking, and scorer masking**. It is not fully blinded: participants
+can see whether a ClaimPack supplement is present.
 
 ## Tasks
 
@@ -67,19 +73,40 @@ Use the three checked-in candidate-mathematics seeds plus:
 Publish anonymized prompts, outputs, scoring rubric, failures, and protocol
 revision lineage where rights and privacy permit.
 
+## Developmental randomized smoke
+
+The checked-in `evaluation/` harness prepares opaque participant bundles from
+an exact pinned release, records a committed allocation plan, accepts one
+strict arm-neutral answer format, and produces separate-dimension run and score
+receipts. Its first schedule uses one candidate-mathematics case with two fresh
+runs per arm.
+
+That schedule tests the experiment machinery only: bundle parity, allocation,
+capture, contamination checks, scoring, and receipt lineage. It cannot estimate
+population-level effectiveness, cannot defeat an always-`UNKNOWN` strategy, and
+does not assess whether the underlying mathematical claim is true. No
+comparative ClaimPack efficacy claim should be drawn from it.
+
+Subjects are instructed not to access the network, credentials, the parent
+repository, gold answers, sibling arms, prior memory, or package executables.
+Those restrictions are part of the auditable trial policy. Unless the runtime
+also supplies and records hard isolation, they are not an operating-system-level
+network or filesystem guarantee.
+
 ## Preliminary cold-agent trial
 
-One local, non-blinded, context-free consumer trial was run before the initial
-commit. The agent found the exact \(z(20)=6\) ClaimVersion, archive hash,
+One local, non-randomized, non-blinded, context-free consumer trial was run
+before the initial commit. The agent found the exact \(z(20)=6\) ClaimVersion,
+archive hash,
 load-bearing fixed-core claim, semantic bridge boundary, and cautious-policy
 `UNKNOWN` result without executing replay text. It also found three usability
 defects: forced receipt persistence, insufficient trust-boundary detail in
 `inspect`, and ambiguous replay-command labelling. Those defects were fixed
 before this commit.
 
-This is design feedback, not the blinded comparison above and not evidence
-that the scientific seed claim is correct or that independent agents can
-reimplement the protocol from the specification.
+This is design feedback, not the randomized comparison above, not an efficacy
+result, and not evidence that the scientific seed claim is correct or that
+independent agents can reimplement the protocol from the specification.
 
 ## Pre-commit adversarial review
 

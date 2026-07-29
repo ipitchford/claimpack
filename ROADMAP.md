@@ -2,7 +2,12 @@
 
 ## v0.1 candidate gate
 
-- run blinded cold-agent comparisons described in `EVALUATION.md`;
+- complete the developmental randomized A/B smoke described in
+  `evaluation/README.md`, retaining invalid outputs, timeouts, and contamination
+  attempts as outcomes;
+- before making a comparative efficacy claim, add genuine `ALLOW` and `DENY`
+  controls, wrong-encoding and retraction cases, replicated fresh subjects,
+  hard runtime isolation, and independent scorers;
 - add full descriptive JSON Schemas without weakening the Python validator;
 - expand badclaims with retraction races, duplicate routes, and empirical
   estimand/data cases;
@@ -10,6 +15,11 @@
 - record every observed false `ALLOW`, qualifier loss, unsafe tool action, and
   interoperability failure; and
 - revise identifiers and schemas only through explicit version lineage.
+
+The developmental smoke is a harness-validation gate, not a ClaimPack
+effectiveness study, a scientific-truth assessment, or a fully blinded
+experiment. Participant network prohibitions do not count as operating-system
+network isolation unless the runtime enforces and records them.
 
 ## Optional profiles after the gate
 

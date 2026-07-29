@@ -1,0 +1,80 @@
+{
+  "assurance": {
+    "formalization": "none-end-to-end",
+    "graph_to_cnf_bridge": "separate-not-end-to-end-formalized",
+    "human_review": "none-complete-reported",
+    "independent_reproduction": "none-reported",
+    "local_replay": "repository-reported-one-machine",
+    "lower_bound": "hand-checkable-with-stdlib-verifier",
+    "sat_layer": "exact-cnfs-certificate-checked",
+    "upper_bound": "reused-exact-cnf-certificates"
+  },
+  "claim": {
+    "copies_may_differ_in_colour": true,
+    "latex": "\\mathrm{VR}_2(K_4)=20",
+    "natural": "The least n such that every red-blue edge-colouring of K_n contains two vertex-disjoint monochromatic copies of K_4 is 20; the copies need not have the same colour."
+  },
+  "decision": "UNKNOWN",
+  "dependency": {
+    "code": "fixed-core-unsat-pair",
+    "load_bearing_for": "upper-bound",
+    "mandatory_limitations": [
+      "Supports the upper bound only.",
+      "The semantic bridge remains separate."
+    ],
+    "prohibited_load_bearing_codes": [
+      "z20-residual-cocolourability"
+    ],
+    "semantic_alignment": "partial",
+    "statement": "For each of the two order-16 Ramsey cores, the exact pinned fixed-core CNF is unsatisfiable."
+  },
+  "downstream_statement": "Use VR_2(K_4)=20 only as an unrefereed candidate result with the stated scope and all listed qualifications; do not present it as independently reproduced, completely human-reviewed, end-to-end formalized, or as proving more than the exact pinned certificate and bridge obligations support.",
+  "downstream_use": "may-use-as-candidate-with-qualifications",
+  "mandatory_qualification_codes": [
+    "copies-may-differ-in-colour",
+    "exact-cnfs-only",
+    "no-complete-human-review",
+    "no-end-to-end-equivalence",
+    "no-end-to-end-formalization",
+    "no-extremal-uniqueness-or-enumeration",
+    "no-independent-reproduction",
+    "objection-search-incomplete",
+    "semantic-bridge-separate",
+    "unrefereed-candidate",
+    "upper-bound-reuses-fixed-core-dependency"
+  ],
+  "objections": {
+    "conclusion": "no-record-in-snapshot",
+    "search_complete": false,
+    "snapshot_records": "none-present"
+  },
+  "required_decision_reasons": [
+    "complete-objection-search-absent",
+    "dependency-closure-unresolved",
+    "embedded-evidence-absent",
+    "external-authentication-absent",
+    "reference-only-evidence",
+    "semantic-bridge-partial"
+  ],
+  "schema_version": "claimpack-experiment-gold/0.1",
+  "scope": {
+    "author_status": "unrefereed-candidate",
+    "classification": "full-result",
+    "extremal_enumeration_claimed": false,
+    "extremal_uniqueness_claimed": false
+  },
+  "unavailable_source_codes": [
+    "complete-human-review",
+    "complete-objection-search",
+    "consumer-external-authentication",
+    "embedded-release-evidence",
+    "end-to-end-formalization",
+    "independent-reproduction"
+  ],
+  "version": {
+    "archive_sha256": "e14178610233f9e5960da06162e07f3a0ce9aa65799dff3d456958a417997f4f",
+    "doi": "10.5281/zenodo.21647654",
+    "git_commit": "b303d7d61d1a4cdf6ff0f1c18eee40eded0583cc",
+    "tag": "vr2-k4-v0.1-candidate"
+  }
+}

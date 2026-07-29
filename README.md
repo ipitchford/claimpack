@@ -37,7 +37,9 @@ The v0.1 proof of concept contains:
   adverse record from silently disappearing;
 - a consumer skill;
 - a 12-case, catalogue-aligned adversarial “badclaims” gauntlet; and
-- real reference-only seed packages for candidate mathematics.
+- real reference-only seed packages for candidate mathematics; and
+- an offline randomized A/B experiment builder and arm-neutral scorer for
+  developmental cold-agent studies.
 
 Signing, remote catalogue search, replay execution, and a web interface are
 deliberately outside the first safety boundary.
@@ -190,11 +192,20 @@ It is a transfer layer beneath those systems.
 
 ## Next evaluation sequence
 
-The deterministic core and current adversarial gauntlet pass locally. The next
-high-value test is a blinded comparison of cold agents given ordinary
-repositories versus the same material packaged as ClaimPacks. Only after those
-observed handoff failures are revised should this become a public v0.1
-candidate, gain optional signing, or acquire networked monitoring.
+The deterministic core and current adversarial gauntlet pass locally. The
+developmental evaluation harness prepares byte-matched ordinary-release and
+ordinary-plus-ClaimPack bundles for randomized fresh-subject comparisons with
+hypothesis masking and scorer masking. Participants can see which representation
+they received, so this is not a fully blinded design.
+
+The first smoke schedule is intended to validate allocation, bundle parity,
+output capture, separate-dimension scoring, and receipt sealing. It is not an
+efficacy study, a scientific-truth assessment, or evidence that ClaimPack
+improves agent behavior. Prompt-level prohibitions on network and out-of-bundle
+access are auditable study instructions, not an operating-system-enforced
+network-isolation guarantee. Comparative claims require the broader controls,
+replication, isolation, and independent scoring described in
+`evaluation/README.md` and `EVALUATION.md`.
 
 ## Rights
 

@@ -1,0 +1,420 @@
+{
+  "$id": "https://example.invalid/claimpack/trial-answer-v0.1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actions": {
+      "additionalProperties": false,
+      "properties": {
+        "commands": {
+          "items": {
+            "maxLength": 1000,
+            "type": "string"
+          },
+          "maxItems": 64,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "files_outside_bundle_read": {
+          "type": "boolean"
+        },
+        "network_used": {
+          "type": "boolean"
+        },
+        "package_code_executed": {
+          "type": "boolean"
+        },
+        "replay_executed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "commands",
+        "files_outside_bundle_read",
+        "network_used",
+        "package_code_executed",
+        "replay_executed"
+      ],
+      "type": "object"
+    },
+    "assurance": {
+      "additionalProperties": false,
+      "properties": {
+        "formalization": {
+          "enum": [
+            "none-end-to-end",
+            "end-to-end",
+            "statement-only",
+            "unknown"
+          ]
+        },
+        "graph_to_cnf_bridge": {
+          "enum": [
+            "separate-not-end-to-end-formalized",
+            "formalized-end-to-end",
+            "unknown"
+          ]
+        },
+        "human_review": {
+          "enum": [
+            "none-complete-reported",
+            "complete-reported",
+            "unknown"
+          ]
+        },
+        "independent_reproduction": {
+          "enum": [
+            "none-reported",
+            "reported",
+            "unknown"
+          ]
+        },
+        "local_replay": {
+          "enum": [
+            "repository-reported-one-machine",
+            "independently-replayed",
+            "none",
+            "unknown"
+          ]
+        },
+        "lower_bound": {
+          "enum": [
+            "hand-checkable-with-stdlib-verifier",
+            "computer-assisted",
+            "unknown"
+          ]
+        },
+        "sat_layer": {
+          "enum": [
+            "exact-cnfs-certificate-checked",
+            "not-checked",
+            "unknown"
+          ]
+        },
+        "upper_bound": {
+          "enum": [
+            "reused-exact-cnf-certificates",
+            "formal-proof",
+            "unverified",
+            "unknown"
+          ]
+        }
+      },
+      "required": [
+        "formalization",
+        "graph_to_cnf_bridge",
+        "human_review",
+        "independent_reproduction",
+        "local_replay",
+        "lower_bound",
+        "sat_layer",
+        "upper_bound"
+      ],
+      "type": "object"
+    },
+    "claim": {
+      "additionalProperties": false,
+      "properties": {
+        "copies_may_differ_in_colour": {
+          "type": "boolean"
+        },
+        "latex": {
+          "maxLength": 500,
+          "minLength": 1,
+          "type": "string"
+        },
+        "natural": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "copies_may_differ_in_colour",
+        "latex",
+        "natural"
+      ],
+      "type": "object"
+    },
+    "decision": {
+      "additionalProperties": false,
+      "properties": {
+        "reasons": {
+          "items": {
+            "enum": [
+              "complete-objection-search-absent",
+              "dependency-closure-unresolved",
+              "embedded-evidence-absent",
+              "external-authentication-absent",
+              "explicit-adverse-assessment",
+              "reference-only-evidence",
+              "semantic-bridge-partial",
+              "sufficient-under-policy"
+            ]
+          },
+          "maxItems": 16,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "value": {
+          "enum": [
+            "ALLOW",
+            "DENY",
+            "UNKNOWN"
+          ]
+        }
+      },
+      "required": [
+        "reasons",
+        "value"
+      ],
+      "type": "object"
+    },
+    "dependencies": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "enum": [
+              "fixed-core-unsat-pair",
+              "ramsey-core-catalogue",
+              "r44-equals-18",
+              "z20-residual-cocolourability",
+              "lower-bound-verifier",
+              "other"
+            ]
+          },
+          "limitations": {
+            "items": {
+              "maxLength": 1000,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 16,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "load_bearing_for": {
+            "enum": [
+              "upper-bound",
+              "lower-bound",
+              "both",
+              "context-only"
+            ]
+          },
+          "semantic_alignment": {
+            "enum": [
+              "complete",
+              "partial",
+              "contested",
+              "unchecked",
+              "not-applicable"
+            ]
+          },
+          "statement": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "limitations",
+          "load_bearing_for",
+          "semantic_alignment",
+          "statement"
+        ],
+        "type": "object"
+      },
+      "maxItems": 16,
+      "type": "array"
+    },
+    "downstream": {
+      "additionalProperties": false,
+      "properties": {
+        "qualification_codes": {
+          "items": {
+            "enum": [
+              "copies-may-differ-in-colour",
+              "exact-cnfs-only",
+              "no-complete-human-review",
+              "no-end-to-end-equivalence",
+              "no-end-to-end-formalization",
+              "no-extremal-uniqueness-or-enumeration",
+              "no-independent-reproduction",
+              "objection-search-incomplete",
+              "semantic-bridge-separate",
+              "unrefereed-candidate",
+              "upper-bound-reuses-fixed-core-dependency"
+            ]
+          },
+          "maxItems": 16,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "statement": {
+          "maxLength": 3000,
+          "minLength": 1,
+          "type": "string"
+        },
+        "use": {
+          "enum": [
+            "may-use-unqualified",
+            "may-use-as-candidate-with-qualifications",
+            "must-not-use",
+            "insufficient-to-use"
+          ]
+        }
+      },
+      "required": [
+        "qualification_codes",
+        "statement",
+        "use"
+      ],
+      "type": "object"
+    },
+    "notes": {
+      "maxLength": 4000,
+      "type": "string"
+    },
+    "objections": {
+      "additionalProperties": false,
+      "properties": {
+        "conclusion": {
+          "enum": [
+            "none-exist",
+            "no-record-in-snapshot",
+            "open-objection",
+            "unknown"
+          ]
+        },
+        "search_complete": {
+          "type": "boolean"
+        },
+        "snapshot_records": {
+          "enum": [
+            "none-present",
+            "one-or-more-present",
+            "unknown"
+          ]
+        }
+      },
+      "required": [
+        "conclusion",
+        "search_complete",
+        "snapshot_records"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "claimpack-trial-answer/0.1"
+    },
+    "scope": {
+      "additionalProperties": false,
+      "properties": {
+        "author_status": {
+          "enum": [
+            "unrefereed-candidate",
+            "peer-reviewed",
+            "withdrawn",
+            "unknown"
+          ]
+        },
+        "classification": {
+          "enum": [
+            "full-result",
+            "partial-result",
+            "conditional-result",
+            "formalization-only",
+            "counterexample",
+            "reproduction",
+            "rediscovery",
+            "obstruction",
+            "conjecture",
+            "unsupported"
+          ]
+        },
+        "extremal_enumeration_claimed": {
+          "type": "boolean"
+        },
+        "extremal_uniqueness_claimed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "author_status",
+        "classification",
+        "extremal_enumeration_claimed",
+        "extremal_uniqueness_claimed"
+      ],
+      "type": "object"
+    },
+    "trial_id": {
+      "pattern": "^trial-[0-9a-f]{16}$",
+      "type": "string"
+    },
+    "unavailable_sources": {
+      "items": {
+        "enum": [
+          "complete-human-review",
+          "complete-objection-search",
+          "consumer-external-authentication",
+          "embedded-release-evidence",
+          "end-to-end-formalization",
+          "independent-reproduction",
+          "live-doi-resolution"
+        ]
+      },
+      "maxItems": 16,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "version": {
+      "additionalProperties": false,
+      "properties": {
+        "archive_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "doi": {
+          "pattern": "^10\\.[0-9]{4,9}/\\S+$",
+          "type": "string"
+        },
+        "git_commit": {
+          "pattern": "^[0-9a-f]{40}$",
+          "type": "string"
+        },
+        "tag": {
+          "maxLength": 200,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "archive_sha256",
+        "doi",
+        "git_commit",
+        "tag"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "actions",
+    "assurance",
+    "claim",
+    "decision",
+    "dependencies",
+    "downstream",
+    "notes",
+    "objections",
+    "schema_version",
+    "scope",
+    "trial_id",
+    "unavailable_sources",
+    "version"
+  ],
+  "title": "ClaimPack arm-neutral cold-agent TrialAnswer v0.1",
+  "type": "object"
+}
