@@ -657,7 +657,7 @@ class ExperimentPlanAndReceiptTests(unittest.TestCase):
             )
         return runs, scores
 
-    def test_plan_commitment_is_deterministic_balanced_and_opaque(self) -> None:
+    def test_plan_commitment_is_deterministic_balanced_and_unlabelled(self) -> None:
         repeated_plan, repeated_allocation = prepare_plan(
             _plan_template(self.case),
             seed_hex=self.seed,
