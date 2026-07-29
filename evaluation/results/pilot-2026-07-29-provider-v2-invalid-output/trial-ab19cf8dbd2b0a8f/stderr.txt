@@ -1,0 +1,15 @@
+2026-07-29T18:26:46.855525Z ERROR codex_models_manager::cache: failed to load models cache: missing field `supports_reasoning_summaries` at line 86 column 5
+2026-07-29T18:26:47.329183Z ERROR codex_core_skills::loader: failed to stat skills root file:///Users/admin/.agents/skills: Operation not permitted (os error 1)
+2026-07-29T18:26:47.661736Z ERROR codex_core_skills::loader: failed to stat skills root file:///Users/admin/.agents/skills: Operation not permitted (os error 1)
+2026-07-29T18:26:47.662368Z ERROR codex_core_skills::loader: failed to stat skills root file:///Users/admin/.agents/skills: Operation not permitted (os error 1)
+2026-07-29T18:27:06.231536Z ERROR codex_models_manager::manager: failed to renew cache TTL: missing field `supports_reasoning_summaries` at line 86 column 5
+2026-07-29T18:27:10.290306Z ERROR codex_models_manager::manager: failed to renew cache TTL: missing field `supports_reasoning_summaries` at line 86 column 5
+2026-07-29T18:27:15.867343Z ERROR codex_models_manager::manager: failed to renew cache TTL: missing field `supports_reasoning_summaries` at line 86 column 5
+2026-07-29T18:27:22.394388Z ERROR codex_models_manager::manager: failed to renew cache TTL: missing field `supports_reasoning_summaries` at line 86 column 5
+2026-07-29T18:27:33.957330Z ERROR codex_models_manager::manager: failed to renew cache TTL: missing field `supports_reasoning_summaries` at line 86 column 5
+2026-07-29T18:27:38.327727Z ERROR codex_models_manager::manager: failed to renew cache TTL: missing field `supports_reasoning_summaries` at line 86 column 5
+2026-07-29T18:27:42.425805Z ERROR codex_models_manager::manager: failed to renew cache TTL: missing field `supports_reasoning_summaries` at line 86 column 5
+2026-07-29T18:28:06.945867Z ERROR codex_models_manager::manager: failed to renew cache TTL: missing field `supports_reasoning_summaries` at line 86 column 5
+2026-07-29T18:28:11.070004Z ERROR codex_core::tools::router: error=unable to locate image at `/tmp/claimpack-pilot-20260729-provider-v2-bundles/trial-ab19cf8dbd2b0a8f/TASK.md`: fs sandbox helper failed with status exit status: 71: sandbox-exec: sandbox_apply: Operation not permitted
+2026-07-29T18:28:11.140323Z ERROR codex_models_manager::manager: failed to renew cache TTL: missing field `supports_reasoning_summaries` at line 86 column 5
+2026-07-29T18:28:16.210864Z ERROR codex_models_manager::manager: failed to renew cache TTL: missing field `supports_reasoning_summaries` at line 86 column 5
