@@ -1,0 +1,18 @@
+{
+  "answer_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "bundle_id": "ni:///sha-256;8Y39hMz5gcfiBiVcS3v2z-pidj_P8JgiHJYcUHwcK3M",
+  "finished_at": "2026-07-29T18:12:30Z",
+  "model": "gpt-5.6-sol",
+  "notes": [
+    "Provider rejected the response schema before a model answer was produced.",
+    "The error outcome is retained and is not semantically scored."
+  ],
+  "observed_actions": [],
+  "plan_id": "ni:///sha-256;deRjRhBQFia483ohxL7Pi-Tz7nqo8C1w0a3Ne0xXQK8",
+  "run_id": "ni:///sha-256;btInbpcGIvlsUdrC_5SVt8xusYcN2uCwjpFiwbizyEc",
+  "schema_version": "claimpack-experiment-run/0.1",
+  "started_at": "2026-07-29T18:12:26Z",
+  "termination": "error",
+  "trace_sha256": "sha256:691fcc31c9ed88e3b434be86bdec4883483c43315c5e2813d615fa992313dc03",
+  "trial_id": "trial-306b57a01b709f22"
+}
