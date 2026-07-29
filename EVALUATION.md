@@ -14,12 +14,14 @@ public material:
 
 Assign fresh subjects randomly and do not reveal which condition is expected
 to perform better. Freeze the gold answer before allocation, conceal the
-allocation from the arm-neutral scorer until raw outputs and scores are locked,
-and reveal it only for the comparison.
+allocation from the condition-field-free scorer until raw outputs and scores
+are locked, and reveal it only for the comparison.
 
-The accurate design label is a **randomized A/B comparison with fresh subjects,
+The target design label is a **randomized A/B comparison with fresh subjects,
 hypothesis masking, and scorer masking**. It is not fully blinded: participants
-can see whether a ClaimPack supplement is present.
+can see whether a ClaimPack supplement is present. The current smoke
+implementation did not achieve the scorer-masking component because its
+unkeyed bundle identifiers reveal the arm by reconstruction.
 
 ## Tasks
 
@@ -77,9 +79,9 @@ revision lineage where rights and privacy permit.
 
 The checked-in `evaluation/` harness prepares opaque participant bundles from
 an exact pinned release, records a committed allocation plan, accepts one
-strict arm-neutral answer format, and produces separate-dimension run and score
-receipts. Its first schedule uses one candidate-mathematics case with two fresh
-runs per arm.
+strict condition-field-free answer format, and produces separate-dimension run
+and score receipts. Its first schedule uses one candidate-mathematics case with
+two fresh runs per arm.
 
 That schedule tests the experiment machinery only: bundle parity, allocation,
 capture, contamination checks, scoring, and receipt lineage. It cannot estimate
@@ -92,6 +94,52 @@ repository, gold answers, sibling arms, prior memory, or package executables.
 Those restrictions are part of the auditable trial policy. Unless the runtime
 also supplies and records hard isolation, they are not an operating-system-level
 network or filesystem guarantee.
+
+## Recorded developmental lineage
+
+Four preregistered smoke iterations are retained rather than overwritten:
+
+1. the initial response schema was rejected by the provider before answers
+   were produced;
+2. the provider-compatible projection produced four answers that failed the
+   trusted exact-trial-ID contract, while every trace exposed unintended MCP
+   enumeration and a `file://` web-tool event;
+3. exact per-bundle trial-ID constants and a restricted local-shell surface
+   worked, but two scheduled outcomes were lost to operator-launch errors; and
+4. the exact launcher reached all four fresh sessions, three outputs passed the
+   trusted validator, and one provider-conforming output failed the trusted
+   uniqueness rule for self-reported commands.
+
+For iterations 3 and 4, raw outputs and applicable scores created without an
+explicit condition field were committed before the allocation seed and
+explicit arm map entered the repository. Both mechanical audits report
+complete recording and successful receipt-to-commitment joins, but
+`semantically_scorable: false` and `comparative_claim_allowed: false`.
+
+The latest traces contain only local read commands within participant bundles;
+no MCP, web, package execution, replay, compilation, or write event was
+observed from participant commands. Client bootstrap stderr records attempted
+model-cache and skill-root reads; the skill-root access was denied, while trace
+warnings say global skill descriptions remained visible. The outer macOS guard
+denied the source repository and agent-state paths, but complete network
+isolation, exclusive filesystem visibility, and bundle-only model context were
+not established.
+
+The score-lock commits precede the allocation-reveal commits, and the scorer is
+deterministic and receives no explicit condition field. However, answer
+content can disclose representation-specific evidence, and the published
+bundle IDs are unkeyed content hashes. Reconstructing both candidate arms
+recovers the allocation
+before seed reveal. Scorer masking was therefore not enforced, regardless of
+the Git ordering or the operator's reported procedure. See
+`evaluation/COMMITMENT_MASKING_ERRATUM.md`.
+
+This failure lineage is useful evidence about the harness, not about ClaimPack
+effectiveness. Before another comparative run, derive action evidence from the
+supervisor trace or compare self-reported commands set-semantically, align the
+remaining provider output contract with trusted scoring invariants, add
+genuine `ALLOW`, `DENY`, wrong-encoding, and retraction cases, and have an
+independent operator and scorer reproduce the sealed workflow.
 
 ## Preliminary cold-agent trial
 

@@ -4,6 +4,11 @@ The allocation seed and arm map were revealed only after commit
 `557f7474c06915f56a2898140fca6b0782b4d722` locked all four RunReceipts and
 both applicable ScoreReceipts.
 
+Post-reveal review found that the public, unkeyed bundle IDs already disclosed
+the arms to anyone reconstructing both candidate bundles. The commit ordering
+therefore establishes explicit-file reveal order, not enforced scorer masking.
+See `evaluation/COMMITMENT_MASKING_ERRATUM.md`.
+
 The revealed allocation was balanced:
 
 | Trial | Arm | Termination |

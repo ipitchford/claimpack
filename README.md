@@ -38,8 +38,9 @@ The v0.1 proof of concept contains:
 - a consumer skill;
 - a 12-case, catalogue-aligned adversarial “badclaims” gauntlet; and
 - real reference-only seed packages for candidate mathematics; and
-- an offline randomized A/B experiment builder and arm-neutral scorer for
-  developmental cold-agent studies.
+- an offline randomized A/B experiment builder and deterministic scorer that
+  receives no explicit condition field, with a documented commitment-masking
+  defect that must be fixed before comparative use.
 
 Signing, remote catalogue search, replay execution, and a web interface are
 deliberately outside the first safety boundary.
@@ -173,6 +174,8 @@ claim.
 - `PUBLISH_SKILL.md` — producer-agent packaging procedure;
 - `catalog/catalog.json` — immutable static discovery snapshot;
 - `badclaims/` and `gauntlet/` — adversarial behavior contract; and
+- `evaluation/COMMITMENT_MASKING_ERRATUM.md` — known experiment commitment
+  leak and required correction; and
 - `DESIGN_INPUTS.md` — provenance and unverified-input boundary.
 
 ## Non-goals
@@ -195,17 +198,28 @@ It is a transfer layer beneath those systems.
 The deterministic core and current adversarial gauntlet pass locally. The
 developmental evaluation harness prepares byte-matched ordinary-release and
 ordinary-plus-ClaimPack bundles for randomized fresh-subject comparisons with
-hypothesis masking and scorer masking. Participants can see which representation
-they received, so this is not a fully blinded design.
+hypothesis masking and intended scorer masking. Participants can see which
+representation they received, so this is not a fully blinded design. The
+current unkeyed bundle commitments also allow a repository-aware scorer to
+reconstruct the arm before seed reveal; current runs therefore did not enforce
+scorer masking.
 
-The first smoke schedule is intended to validate allocation, bundle parity,
-output capture, separate-dimension scoring, and receipt sealing. It is not an
-efficacy study, a scientific-truth assessment, or evidence that ClaimPack
-improves agent behavior. Prompt-level prohibitions on network and out-of-bundle
-access are auditable study instructions, not an operating-system-enforced
-network-isolation guarantee. Comparative claims require the broader controls,
-replication, isolation, and independent scoring described in
-`evaluation/README.md` and `EVALUATION.md`.
+Four developmental smoke iterations are now preserved under
+`evaluation/results/`. They exposed, in sequence, a provider-schema rejection,
+an exact-identifier/output mismatch, two operator-launch failures, and a
+provider-versus-trusted-validator uniqueness mismatch. The latest iteration
+reached four fresh model sessions; three outputs were strictly valid and one
+was retained as invalid. Every explicit allocation file entered the repository
+only after the applicable raw outputs and scores were committed, but the
+published bundle IDs already leaked the arms by candidate reconstruction.
+
+These runs exercise important failure-retention, receipt-to-commitment binding,
+output capture, separate-dimension scoring, and receipt-sealing paths. None is
+semantically scorable as a complete A/B study, and none is an efficacy study,
+a scientific-truth assessment, or evidence that ClaimPack improves agent
+behavior. Comparative claims require the broader controls, cases, replication,
+isolation, and independent scoring described in `evaluation/README.md` and
+`EVALUATION.md`. See `evaluation/COMMITMENT_MASKING_ERRATUM.md`.
 
 ## Rights
 

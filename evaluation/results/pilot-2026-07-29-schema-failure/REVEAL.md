@@ -19,3 +19,7 @@ The completeness audit reports:
 There are no missing scheduled runs. There are no semantic ScoreReceipts
 because the provider rejected the common output schema before any model answer
 was produced.
+
+Later post-reveal review established that the unkeyed bundle IDs were not
+arm-hiding: reconstructing both candidate bundles reveals the assignments
+without the seed. See `evaluation/COMMITMENT_MASKING_ERRATUM.md`.

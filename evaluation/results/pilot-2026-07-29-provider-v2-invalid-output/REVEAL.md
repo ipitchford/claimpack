@@ -13,3 +13,7 @@ identifiers, and exact balanced assignment. The audit reports:
 
 All four answers remain invalid outputs. No semantic scores or arm comparison
 are reported.
+
+Later post-reveal review established that the unkeyed bundle IDs were not
+arm-hiding: reconstructing both candidate bundles reveals the assignments
+without the seed. See `evaluation/COMMITMENT_MASKING_ERRATUM.md`.

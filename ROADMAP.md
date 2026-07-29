@@ -2,9 +2,21 @@
 
 ## v0.1 candidate gate
 
-- complete the developmental randomized A/B smoke described in
-  `evaluation/README.md`, retaining invalid outputs, timeouts, and contamination
-  attempts as outcomes;
+- retain the completed developmental smoke lineage described in
+  `evaluation/README.md`; its failed and invalid outcomes are part of the
+  protocol record, not discardable pretests;
+- align every provider-compatible output constraint with the trusted validator,
+  or remove non-load-bearing participant self-report fields that the provider
+  cannot enforce;
+- derive action evidence from supervisor traces, or compare participant command
+  self-reports set-semantically, rather than using duplicate prose entries as a
+  transport-level exclusion;
+- replace unkeyed bundle IDs in preregistration and score-lock records with a
+  specified hiding commitment, such as a salted hash or HMAC whose reveal can
+  be verified after scores are locked;
+- make the audit rehash raw answers and traces, bind the registered
+  client/reasoning/sandbox/runtime fields, and reject a ScoreReceipt for every
+  non-completed run rather than merely making the study non-scorable;
 - before making a comparative efficacy claim, add genuine `ALLOW` and `DENY`
   controls, wrong-encoding and retraction cases, replicated fresh subjects,
   hard runtime isolation, and independent scorers;
@@ -20,6 +32,14 @@ The developmental smoke is a harness-validation gate, not a ClaimPack
 effectiveness study, a scientific-truth assessment, or a fully blinded
 experiment. Participant network prohibitions do not count as operating-system
 network isolation unless the runtime enforces and records them.
+
+The current four smoke iterations exercised the full commit-before-reveal
+workflow but did not produce a semantically scorable complete comparison.
+That is a recorded gate result, not a reason to weaken exclusions or replace
+failed trials. They also exposed that withholding the seed does not hide arms
+when public bundle IDs are reconstructable. The next comparative schedule
+begins only after the hiding-commitment, output-contract, multi-case controls,
+hard-isolation, and independent-scoring requirements above are met.
 
 ## Optional profiles after the gate
 
