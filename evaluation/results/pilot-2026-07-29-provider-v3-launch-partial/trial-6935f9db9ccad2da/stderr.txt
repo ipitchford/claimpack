@@ -1,0 +1,11 @@
+Reading additional input from stdin...
+2026-07-29T18:40:56.823794Z ERROR codex_models_manager::cache: failed to load models cache: missing field `supports_reasoning_summaries` at line 86 column 5
+2026-07-29T18:40:57.667542Z ERROR codex_core_skills::loader: failed to stat skills root file:///Users/admin/.agents/skills: Operation not permitted (os error 1)
+2026-07-29T18:41:09.098297Z ERROR codex_models_manager::manager: failed to renew cache TTL: missing field `supports_reasoning_summaries` at line 86 column 5
+2026-07-29T18:41:13.173264Z ERROR codex_models_manager::manager: failed to renew cache TTL: missing field `supports_reasoning_summaries` at line 86 column 5
+2026-07-29T18:41:19.053474Z ERROR codex_models_manager::manager: failed to renew cache TTL: missing field `supports_reasoning_summaries` at line 86 column 5
+2026-07-29T18:41:24.780574Z ERROR codex_models_manager::manager: failed to renew cache TTL: missing field `supports_reasoning_summaries` at line 86 column 5
+2026-07-29T18:41:31.444702Z ERROR codex_models_manager::manager: failed to renew cache TTL: missing field `supports_reasoning_summaries` at line 86 column 5
+2026-07-29T18:41:41.236468Z ERROR codex_models_manager::manager: failed to renew cache TTL: missing field `supports_reasoning_summaries` at line 86 column 5
+2026-07-29T18:41:59.346772Z ERROR codex_models_manager::manager: failed to renew cache TTL: missing field `supports_reasoning_summaries` at line 86 column 5
+2026-07-29T18:43:21.641814Z  WARN codex_core::shell_snapshot: Failed to delete shell snapshot at AbsolutePathBuf("/Users/admin/.codex/shell_snapshots/019faf2e-0738-7e43-be05-628a6aac794c.1785350457185336000.sh"): Os { code: 2, kind: NotFound, message: "No such file or directory" }

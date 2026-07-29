@@ -1,0 +1,18 @@
+{
+  "answer_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "bundle_id": "ni:///sha-256;EOPkOd8pHzU_0tNfdsjkI0utte5CKm8349Y1e6mHBS8",
+  "finished_at": "2026-07-29T18:39:28Z",
+  "model": "gpt-5.6-sol",
+  "notes": [
+    "Client invocation failed before a model session started.",
+    "The orchestration error is retained and is not semantically scored."
+  ],
+  "observed_actions": [],
+  "plan_id": "ni:///sha-256;rHTVCC966_ZvYpQxSqMo0VZ5GAqINg9Wu2FlEj9cRH0",
+  "run_id": "ni:///sha-256;FlOSrfQTg93gFZNZXtRgnGnWg1fIMk8ze8c_kyHluEw",
+  "schema_version": "claimpack-experiment-run/0.1",
+  "started_at": "2026-07-29T18:39:28Z",
+  "termination": "error",
+  "trace_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "trial_id": "trial-04d2735488a6c3c7"
+}

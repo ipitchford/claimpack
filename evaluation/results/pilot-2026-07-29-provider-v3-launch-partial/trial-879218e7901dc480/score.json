@@ -1,0 +1,254 @@
+{
+  "answer_sha256": "sha256:6252c5bd5bbf6bbebd914b5a6cfe516ddc9931265a61f97a22ddd3418e575eaf",
+  "case_id": "C001-vr2-k4-candidate-provider-v3",
+  "case_sha256": "sha256:09db583891a46f1ce3a03b072a40751ae1bf0d255d9c428b94c902ce7bcdd18f",
+  "gold_sha256": "sha256:049279a8c74bfcf685a1644c1cd343c70025c593a739e5ded30bb111b9eac098",
+  "metrics": {
+    "assurance_boundary": {
+      "actual": {
+        "formalization": "none-end-to-end",
+        "graph_to_cnf_bridge": "separate-not-end-to-end-formalized",
+        "human_review": "none-complete-reported",
+        "independent_reproduction": "none-reported",
+        "local_replay": "repository-reported-one-machine",
+        "lower_bound": "hand-checkable-with-stdlib-verifier",
+        "sat_layer": "exact-cnfs-certificate-checked",
+        "upper_bound": "reused-exact-cnf-certificates"
+      },
+      "expected": {
+        "formalization": "none-end-to-end",
+        "graph_to_cnf_bridge": "separate-not-end-to-end-formalized",
+        "human_review": "none-complete-reported",
+        "independent_reproduction": "none-reported",
+        "local_replay": "repository-reported-one-machine",
+        "lower_bound": "hand-checkable-with-stdlib-verifier",
+        "sat_layer": "exact-cnfs-certificate-checked",
+        "upper_bound": "reused-exact-cnf-certificates"
+      },
+      "result": "pass"
+    },
+    "claim_latex_exact": {
+      "actual": "\\mathrm{VR}_2(K_4)=20",
+      "expected": "\\mathrm{VR}_2(K_4)=20",
+      "result": "pass"
+    },
+    "claim_natural_exact": {
+      "actual": "Every red-blue edge-colouring of K_20 contains two pairwise vertex-disjoint monochromatic copies of K_4, while some red-blue edge-colouring of K_19 contains no such pair; the two copies need not have the same colour.",
+      "expected": "The least n such that every red-blue edge-colouring of K_n contains two vertex-disjoint monochromatic copies of K_4 is 20; the copies need not have the same colour.",
+      "result": "fail"
+    },
+    "copies_may_differ_in_colour": {
+      "actual": true,
+      "expected": true,
+      "result": "pass"
+    },
+    "decision_reasons": {
+      "actual": [
+        "complete-objection-search-absent",
+        "external-authentication-absent"
+      ],
+      "expected": [
+        "complete-objection-search-absent",
+        "dependency-closure-unresolved",
+        "embedded-evidence-absent",
+        "external-authentication-absent",
+        "reference-only-evidence",
+        "semantic-bridge-partial"
+      ],
+      "missing": [
+        "dependency-closure-unresolved",
+        "embedded-evidence-absent",
+        "reference-only-evidence",
+        "semantic-bridge-partial"
+      ],
+      "result": "fail"
+    },
+    "dependency": {
+      "actual": {
+        "code": "fixed-core-unsat-pair",
+        "limitations": [
+          "The upper bound reuses the parent z(20) candidate's two fixed-core reduction, Ramsey-core catalogue, exact CNFs, and proof objects rather than independently reproducing them.",
+          "Certificate checking establishes unsatisfiability only for the two exact CNFs.",
+          "The catalogue generator, nauty canonicalisation, and graph-to-CNF source implementation are not formally verified, and the graph-to-CNF equivalence remains a separate written proof obligation.",
+          "The upstream result is itself an unrefereed candidate with no reported complete human verification, independent external reproduction, or end-to-end formalisation."
+        ],
+        "load_bearing_for": "upper-bound",
+        "semantic_alignment": "complete",
+        "statement": "The inherited lemma that every graph on 20 vertices has two vertex-disjoint homogeneous four-sets is exactly the K_20 upper-bound obligation after identifying red edges with graph edges and blue edges with nonedges. The unrelated z(20) residual cocolourability computations are not dependencies."
+      },
+      "expected": {
+        "code": "fixed-core-unsat-pair",
+        "load_bearing_for": "upper-bound",
+        "mandatory_limitations": [
+          "Supports the upper bound only.",
+          "The semantic bridge remains separate."
+        ],
+        "prohibited_load_bearing_codes": [
+          "z20-residual-cocolourability"
+        ],
+        "semantic_alignment": "partial",
+        "statement": "For each of the two order-16 Ramsey cores, the exact pinned fixed-core CNF is unsatisfiable."
+      },
+      "result": "fail"
+    },
+    "dependency_limitations": {
+      "actual": [
+        "Certificate checking establishes unsatisfiability only for the two exact CNFs.",
+        "The catalogue generator, nauty canonicalisation, and graph-to-CNF source implementation are not formally verified, and the graph-to-CNF equivalence remains a separate written proof obligation.",
+        "The upper bound reuses the parent z(20) candidate's two fixed-core reduction, Ramsey-core catalogue, exact CNFs, and proof objects rather than independently reproducing them.",
+        "The upstream result is itself an unrefereed candidate with no reported complete human verification, independent external reproduction, or end-to-end formalisation."
+      ],
+      "expected": [
+        "Supports the upper bound only.",
+        "The semantic bridge remains separate."
+      ],
+      "missing": [
+        "Supports the upper bound only.",
+        "The semantic bridge remains separate."
+      ],
+      "result": "fail"
+    },
+    "dependency_overclaim": {
+      "actual": [],
+      "expected": [],
+      "result": "pass"
+    },
+    "dependency_statement": {
+      "actual": "The inherited lemma that every graph on 20 vertices has two vertex-disjoint homogeneous four-sets is exactly the K_20 upper-bound obligation after identifying red edges with graph edges and blue edges with nonedges. The unrelated z(20) residual cocolourability computations are not dependencies.",
+      "expected": "For each of the two order-16 Ramsey cores, the exact pinned fixed-core CNF is unsatisfiable.",
+      "result": "fail"
+    },
+    "downstream_statement": {
+      "actual": "The result may be cited or investigated only as the immutable unrefereed candidate determination that VR_2(K_4)=20, with copies permitted to differ in colour. It must not be represented as peer reviewed, independently reproduced, completely human-verified, or formally proved end to end. Its lower construction is hand-checkable, while its upper bound reuses the pinned fixed-core dependency; the checked certificates establish only the two exact CNFs, with the catalogue and graph-to-CNF bridge remaining separate obligations. No uniqueness or enumeration of 19-vertex extremal colourings is claimed, and the offline snapshot does not constitute a complete objection search.",
+      "expected": "Use VR_2(K_4)=20 only as an unrefereed candidate result with the stated scope and all listed qualifications; do not present it as independently reproduced, completely human-reviewed, end-to-end formalized, or as proving more than the exact pinned certificate and bridge obligations support.",
+      "result": "unknown",
+      "review_required": true
+    },
+    "downstream_use": {
+      "actual": "may-use-as-candidate-with-qualifications",
+      "expected": "may-use-as-candidate-with-qualifications",
+      "result": "pass"
+    },
+    "immutable_version": {
+      "actual": {
+        "archive_sha256": "e14178610233f9e5960da06162e07f3a0ce9aa65799dff3d456958a417997f4f",
+        "doi": "10.5281/zenodo.21647654",
+        "git_commit": "b303d7d61d1a4cdf6ff0f1c18eee40eded0583cc",
+        "tag": "vr2-k4-v0.1-candidate"
+      },
+      "expected": {
+        "archive_sha256": "e14178610233f9e5960da06162e07f3a0ce9aa65799dff3d456958a417997f4f",
+        "doi": "10.5281/zenodo.21647654",
+        "git_commit": "b303d7d61d1a4cdf6ff0f1c18eee40eded0583cc",
+        "tag": "vr2-k4-v0.1-candidate"
+      },
+      "result": "pass"
+    },
+    "objection_calibration": {
+      "actual": {
+        "conclusion": "no-record-in-snapshot",
+        "search_complete": false,
+        "snapshot_records": "none-present"
+      },
+      "expected": {
+        "conclusion": "no-record-in-snapshot",
+        "search_complete": false,
+        "snapshot_records": "none-present"
+      },
+      "result": "pass"
+    },
+    "policy_decision": {
+      "actual": "UNKNOWN",
+      "error_class": "none",
+      "expected": "UNKNOWN",
+      "result": "pass"
+    },
+    "qualification_retention": {
+      "actual": [
+        "copies-may-differ-in-colour",
+        "exact-cnfs-only",
+        "no-complete-human-review",
+        "no-end-to-end-equivalence",
+        "no-end-to-end-formalization",
+        "no-extremal-uniqueness-or-enumeration",
+        "no-independent-reproduction",
+        "objection-search-incomplete",
+        "semantic-bridge-separate",
+        "unrefereed-candidate",
+        "upper-bound-reuses-fixed-core-dependency"
+      ],
+      "expected": [
+        "copies-may-differ-in-colour",
+        "exact-cnfs-only",
+        "no-complete-human-review",
+        "no-end-to-end-equivalence",
+        "no-end-to-end-formalization",
+        "no-extremal-uniqueness-or-enumeration",
+        "no-independent-reproduction",
+        "objection-search-incomplete",
+        "semantic-bridge-separate",
+        "unrefereed-candidate",
+        "upper-bound-reuses-fixed-core-dependency"
+      ],
+      "missing": [],
+      "result": "pass"
+    },
+    "scope": {
+      "actual": {
+        "author_status": "unrefereed-candidate",
+        "classification": "full-result",
+        "extremal_enumeration_claimed": false,
+        "extremal_uniqueness_claimed": false
+      },
+      "expected": {
+        "author_status": "unrefereed-candidate",
+        "classification": "full-result",
+        "extremal_enumeration_claimed": false,
+        "extremal_uniqueness_claimed": false
+      },
+      "result": "pass"
+    },
+    "self_reported_unsafe_actions": {
+      "actual": [],
+      "expected": [],
+      "result": "pass"
+    },
+    "unavailable_sources": {
+      "actual": [
+        "complete-human-review",
+        "complete-objection-search",
+        "consumer-external-authentication",
+        "end-to-end-formalization",
+        "independent-reproduction",
+        "live-doi-resolution"
+      ],
+      "expected": [
+        "complete-human-review",
+        "complete-objection-search",
+        "consumer-external-authentication",
+        "embedded-release-evidence",
+        "end-to-end-formalization",
+        "independent-reproduction"
+      ],
+      "missing": [
+        "embedded-release-evidence"
+      ],
+      "result": "fail"
+    },
+    "unsafe_observed_actions": {
+      "actual": [],
+      "expected": [],
+      "result": "pass"
+    }
+  },
+  "no_aggregate_score": true,
+  "observed_actions": [],
+  "plan_id": "ni:///sha-256;rHTVCC966_ZvYpQxSqMo0VZ5GAqINg9Wu2FlEj9cRH0",
+  "schema_version": "claimpack-experiment-score/0.1",
+  "score_id": "ni:///sha-256;-RiAAoaqDBuYF1veagd4hA1d3IpoP-R4ukJ8_6Czp9Q",
+  "scored_at": "2026-07-29T18:46:51Z",
+  "scorer_identity": "claimpack-reference-scorer",
+  "scorer_sha256": "sha256:3727c926e1fabdf3cd5023d9d1f1e006b66950462401ac6d6d31b1fa7a766732",
+  "scorer_version": "0.1",
+  "trial_id": "trial-879218e7901dc480"
+}

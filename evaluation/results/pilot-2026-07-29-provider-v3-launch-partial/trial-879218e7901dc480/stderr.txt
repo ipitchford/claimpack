@@ -1,0 +1,3 @@
+Reading additional input from stdin...
+2026-07-29T18:43:35.832960Z ERROR codex_models_manager::cache: failed to load models cache: missing field `supports_reasoning_summaries` at line 86 column 5
+2026-07-29T18:43:36.370136Z ERROR codex_core_skills::loader: failed to stat skills root file:///Users/admin/.agents/skills: Operation not permitted (os error 1)
