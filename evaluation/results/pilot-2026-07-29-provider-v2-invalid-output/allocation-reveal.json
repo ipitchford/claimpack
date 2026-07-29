@@ -1,0 +1,24 @@
+{
+  "allocation_id": "ni:///sha-256;nFVQui0qnuiPnO2SCdz7Cx0cMBaP7IMVlsTb6q9l9Jw",
+  "assignments": [
+    {
+      "condition": "ordinary-release",
+      "trial_id": "trial-b546669a36e1a178"
+    },
+    {
+      "condition": "ordinary-plus-claimpack",
+      "trial_id": "trial-eeb1dfd8fd346792"
+    },
+    {
+      "condition": "ordinary-release",
+      "trial_id": "trial-cbfe56aa92352f15"
+    },
+    {
+      "condition": "ordinary-plus-claimpack",
+      "trial_id": "trial-ab19cf8dbd2b0a8f"
+    }
+  ],
+  "plan_id": "ni:///sha-256;8Oqf6inAS7U9581s4IKYvq_cNRdbUNNXBcGWDjzeZ7E",
+  "schema_version": "claimpack-experiment-allocation/0.1",
+  "seed": "360d9ad92083dc7e51e78837ed3888fb3925a065cd16079c193f11aba720dac7"
+}
