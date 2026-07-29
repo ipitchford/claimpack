@@ -1,0 +1,43 @@
+{
+  "always_unknown_baseline_exposed": false,
+  "bundle_binding_verified": true,
+  "comparative_claim_allowed": false,
+  "complete": true,
+  "extra_runs": [],
+  "extra_scores": [],
+  "missing_runs": [],
+  "missing_scores": [],
+  "outcomes": [
+    {
+      "condition": "ordinary-plus-claimpack",
+      "run_id": "ni:///sha-256;FlOSrfQTg93gFZNZXtRgnGnWg1fIMk8ze8c_kyHluEw",
+      "score_id": "",
+      "termination": "error",
+      "trial_id": "trial-04d2735488a6c3c7"
+    },
+    {
+      "condition": "ordinary-plus-claimpack",
+      "run_id": "ni:///sha-256;I7imq1o048u91y9WYT2CpUsRWpyy9kbKrwFMslyZR40",
+      "score_id": "ni:///sha-256;qWyjmRNwBC4H1DsXQZef1T8Yg4r-uaF_YM7ndVDpRsU",
+      "termination": "completed",
+      "trial_id": "trial-6935f9db9ccad2da"
+    },
+    {
+      "condition": "ordinary-release",
+      "run_id": "ni:///sha-256;KlWli0lSptHGbSrmhOOxCPMiqPxLrzefyBRViNwke68",
+      "score_id": "ni:///sha-256;-RiAAoaqDBuYF1veagd4hA1d3IpoP-R4ukJ8_6Czp9Q",
+      "termination": "completed",
+      "trial_id": "trial-879218e7901dc480"
+    },
+    {
+      "condition": "ordinary-release",
+      "run_id": "ni:///sha-256;Lai0PBUTBmRrDxJOFB2oJ3uFQG_M6bsC7vzRHnGoJgI",
+      "score_id": "",
+      "termination": "error",
+      "trial_id": "trial-f6e33577480b3d5f"
+    }
+  ],
+  "recording_complete": true,
+  "schema_version": "claimpack-experiment-audit/0.1",
+  "semantically_scorable": false
+}
