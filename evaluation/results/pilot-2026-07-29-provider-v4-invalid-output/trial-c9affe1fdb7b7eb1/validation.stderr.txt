@@ -1,0 +1,3 @@
+usage: python3.14 -m claimpack.experiment [-h]
+                                          {prepare,bundle,materialize,score,run-receipt,audit,validate-answer} ...
+python3.14 -m claimpack.experiment: error: answer.actions.commands must not contain duplicates

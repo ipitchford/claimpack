@@ -1,0 +1,6 @@
+{
+  "answer_sha256": "sha256:93685ca933baa1f3fd01363c6328c9ce53eccd49f9a7072c968a33803311a0a7",
+  "schema_version": "claimpack-trial-answer/0.1",
+  "trial_id": "trial-5fceea97ea462ccf",
+  "valid": true
+}
