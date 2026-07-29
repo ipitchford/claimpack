@@ -1,0 +1,152 @@
+{
+  "$id": "urn:claimpack:schema:policy:0.1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "dimensionRule": {
+      "additionalProperties": false,
+      "properties": {
+        "accepted_issuers": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "required": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "accepted_issuers",
+        "required"
+      ],
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "adverse_issuers": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dimensions": {
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "canonical-problem-correspondence": {
+          "$ref": "#/$defs/dimensionRule"
+        },
+        "dependency-closure": {
+          "$ref": "#/$defs/dimensionRule"
+        },
+        "formal-or-certificate-verification": {
+          "$ref": "#/$defs/dimensionRule"
+        },
+        "independent-reproduction": {
+          "$ref": "#/$defs/dimensionRule"
+        },
+        "known-objections": {
+          "$ref": "#/$defs/dimensionRule"
+        },
+        "novelty-audit": {
+          "$ref": "#/$defs/dimensionRule"
+        },
+        "proof-completeness": {
+          "$ref": "#/$defs/dimensionRule"
+        },
+        "provenance-quality": {
+          "$ref": "#/$defs/dimensionRule"
+        },
+        "reproducibility": {
+          "$ref": "#/$defs/dimensionRule"
+        },
+        "semantic-scope-match": {
+          "$ref": "#/$defs/dimensionRule"
+        },
+        "statement-precision": {
+          "$ref": "#/$defs/dimensionRule"
+        },
+        "version-stability": {
+          "$ref": "#/$defs/dimensionRule"
+        }
+      },
+      "type": "object"
+    },
+    "limits": {
+      "additionalProperties": false,
+      "properties": {
+        "assessment_count": {
+          "pattern": "^[1-9][0-9]*$",
+          "type": "string"
+        },
+        "dependency_depth": {
+          "pattern": "^[1-9][0-9]*$",
+          "type": "string"
+        },
+        "dependency_nodes": {
+          "pattern": "^[1-9][0-9]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "assessment_count",
+        "dependency_depth",
+        "dependency_nodes"
+      ],
+      "type": "object"
+    },
+    "max_assessment_age_days": {
+      "pattern": "^[0-9]+$",
+      "type": "string"
+    },
+    "open_objection_effect": {
+      "enum": [
+        "deny",
+        "unknown"
+      ]
+    },
+    "policy_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "policy_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "require_authenticated_positive": {
+      "type": "boolean"
+    },
+    "require_complete_objection_search": {
+      "type": "boolean"
+    },
+    "require_embedded_evidence_for_positive": {
+      "type": "boolean"
+    },
+    "require_evidence_for_positive": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "adverse_issuers",
+    "dimensions",
+    "limits",
+    "max_assessment_age_days",
+    "open_objection_effect",
+    "policy_digest",
+    "policy_id",
+    "policy_version",
+    "require_authenticated_positive",
+    "require_complete_objection_search",
+    "require_embedded_evidence_for_positive",
+    "require_evidence_for_positive"
+  ],
+  "title": "ClaimPack v0.1 policy preflight",
+  "type": "object"
+}

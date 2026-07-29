@@ -1,0 +1,34 @@
+{
+  "issued_at": "2026-07-29T12:00:00+00:00",
+  "issuer": {
+    "display_name": "ipitchford/erdos-848-all-n",
+    "id": "repository:ipitchford/erdos-848-all-n",
+    "kind": "organization"
+  },
+  "load_bearing": true,
+  "protocol_version": "0.1.0",
+  "record_id": "ni:///sha-256;IwR4uDIirNa8PszviYR-2UO5btNmlTFN0oKMqWHTZ4s",
+  "record_type": "relation",
+  "relation": "depends-on",
+  "semantic_alignment": {
+    "definition_map": [
+      {
+        "note": "Repository-reported dependency mapping.",
+        "source_term": "imported result",
+        "target_term": "exact dependency ClaimVersion"
+      }
+    ],
+    "limitations": [
+      "The all-N conclusion imports the source-pinned analytic high-threshold theorem."
+    ],
+    "status": "partial"
+  },
+  "source": {
+    "record_id": "ni:///sha-256;-MUohLpChLnBM6VZlDD8Tilw1ufDjferUkZvrUWEg34",
+    "record_type": "claim-version"
+  },
+  "target": {
+    "record_id": "ni:///sha-256;MK31Eb9d1biD_ui3A4200UYdJsO4oQ9iyegKG00oflY",
+    "record_type": "claim-version"
+  }
+}

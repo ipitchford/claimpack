@@ -1,0 +1,131 @@
+{
+  "aliases": [
+    "VR2(K4)=20",
+    "two vertex-disjoint monochromatic K4s"
+  ],
+  "claim_id": "ni:///sha-256;cDwAiv3p8UiaXGlcLfx5Ef_2Kgf1NM3j9XhkxGxFkis",
+  "claim_version": "0.1-candidate",
+  "dependency_targets": [
+    {
+      "record_id": "ni:///sha-256;c8vx_FwTuRdgffinQn-EndbsZP3gtZGwIBtTiVAdeK0",
+      "record_type": "claim-version"
+    }
+  ],
+  "formal_statements": [],
+  "issued_at": "2026-07-29T12:00:00+00:00",
+  "lineage": [],
+  "problem_refs": [
+    {
+      "id": "VR_2(K_4)",
+      "scheme": "vertex-ramsey"
+    }
+  ],
+  "protocol_version": "0.1.0",
+  "provenance": {
+    "actors": [
+      {
+        "display_name": "Ian Pitchford",
+        "id": "human:ian-pitchford",
+        "kind": "human"
+      },
+      {
+        "display_name": "GPT 5.6 Sol",
+        "id": "ai:gpt-5.6-sol",
+        "kind": "ai-system",
+        "model_family": "GPT 5.6 Sol",
+        "model_provider": "OpenAI"
+      },
+      {
+        "display_name": "Claude Opus 4.8 / 5",
+        "id": "ai:claude-opus-4.8-5",
+        "kind": "ai-system",
+        "model_family": "Claude Opus 4.8 / 5",
+        "model_provider": "Anthropic"
+      },
+      {
+        "display_name": "OpenAI Codex",
+        "id": "software:openai-codex",
+        "kind": "software"
+      }
+    ],
+    "roles": [
+      {
+        "actor_id": "human:ian-pitchford",
+        "date": "2026-07-28T00:00:00+00:00",
+        "role": "research mediation, maintenance, and publication"
+      },
+      {
+        "actor_id": "ai:gpt-5.6-sol",
+        "date": "2026-07-28T00:00:00+00:00",
+        "role": "mathematical and computational contribution"
+      },
+      {
+        "actor_id": "ai:claude-opus-4.8-5",
+        "date": "2026-07-28T00:00:00+00:00",
+        "role": "mathematical and computational contribution"
+      },
+      {
+        "actor_id": "software:openai-codex",
+        "date": "2026-07-29T12:00:00+00:00",
+        "role": "release audit and ClaimPack encoding"
+      }
+    ]
+  },
+  "record_id": "ni:///sha-256;Jjoy1p3I8qSMqdLADk0J-22POPmczuNN_aQo4YCMTRY",
+  "record_type": "claim-version",
+  "rights": {
+    "exclusions": [],
+    "license": "CC0-1.0",
+    "scope": "This ClaimPack record and original source-repository content only to the extent the rights holder may dedicate it."
+  },
+  "scope": {
+    "claim_kind": "full-result",
+    "conditions": [
+      "The two monochromatic copies may have different colours."
+    ],
+    "exclusions": [
+      "No enumeration or uniqueness claim for extremal colourings."
+    ],
+    "non_implications": [],
+    "scope_note": "",
+    "structured_scope": {
+      "clique": "K_4",
+      "copy_count": "2",
+      "value": "20"
+    },
+    "targets": [
+      "exact two-copy vertex Ramsey number for K_4"
+    ]
+  },
+  "sources": [
+    {
+      "digest": "sha256:e14178610233f9e5960da06162e07f3a0ce9aa65799dff3d456958a417997f4f",
+      "immutable": true,
+      "kind": "doi-version",
+      "locator": "https://doi.org/10.5281/zenodo.21647654",
+      "rights": "Repository original content is CC0-1.0; third-party inputs excluded.",
+      "version": "0.1-candidate"
+    },
+    {
+      "immutable": true,
+      "kind": "git-commit",
+      "locator": "https://github.com/ipitchford/z20-cochromatic/commit/b303d7d61d1a4cdf6ff0f1c18eee40eded0583cc",
+      "rights": "Repository original content is CC0-1.0; third-party inputs excluded.",
+      "version": "b303d7d61d1a4cdf6ff0f1c18eee40eded0583cc"
+    }
+  ],
+  "statement": {
+    "definitions": [
+      {
+        "meaning": "The least n such that every red-blue edge-colouring of K_n has two pairwise vertex-disjoint monochromatic K_4 subgraphs.",
+        "term": "VR_2(K_4)"
+      }
+    ],
+    "language": "en",
+    "latex": "\\mathrm{VR}_2(K_4)=20",
+    "natural": "The least n such that every red-blue edge-colouring of K_n contains two vertex-disjoint monochromatic copies of K_4 is 20; the copies need not have the same colour.",
+    "quantifiers": [
+      "for every red-blue edge-colouring of K_n"
+    ]
+  }
+}

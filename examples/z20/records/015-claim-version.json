@@ -1,0 +1,136 @@
+{
+  "aliases": [
+    "z(20)=6",
+    "20-vertex cochromatic number"
+  ],
+  "claim_id": "ni:///sha-256;Z-cg7u8IqgNBCzyBxktrKSXpD7XWXhkiYwHAPVza6aQ",
+  "claim_version": "0.1-candidate",
+  "dependency_targets": [
+    {
+      "record_id": "ni:///sha-256;c8vx_FwTuRdgffinQn-EndbsZP3gtZGwIBtTiVAdeK0",
+      "record_type": "claim-version"
+    }
+  ],
+  "formal_statements": [],
+  "issued_at": "2026-07-29T12:00:00+00:00",
+  "lineage": [],
+  "problem_refs": [
+    {
+      "id": "758",
+      "locator": "https://www.erdosproblems.com/758",
+      "scheme": "erdos-problems"
+    }
+  ],
+  "protocol_version": "0.1.0",
+  "provenance": {
+    "actors": [
+      {
+        "display_name": "Ian Pitchford",
+        "id": "human:ian-pitchford",
+        "kind": "human"
+      },
+      {
+        "display_name": "GPT-5.6 Sol",
+        "id": "ai:gpt-5.6-sol",
+        "kind": "ai-system",
+        "model_family": "GPT-5.6 Sol",
+        "model_provider": "OpenAI"
+      },
+      {
+        "display_name": "Claude Opus 5",
+        "id": "ai:claude-opus-5",
+        "kind": "ai-system",
+        "model_family": "Claude Opus 5",
+        "model_provider": "Anthropic"
+      },
+      {
+        "display_name": "OpenAI Codex",
+        "id": "software:openai-codex",
+        "kind": "software"
+      }
+    ],
+    "roles": [
+      {
+        "actor_id": "human:ian-pitchford",
+        "date": "2026-07-26T00:00:00+00:00",
+        "role": "problem selection and research mediation"
+      },
+      {
+        "actor_id": "ai:gpt-5.6-sol",
+        "date": "2026-07-26T00:00:00+00:00",
+        "role": "two-core reduction, CNF generator, solver, and certificates"
+      },
+      {
+        "actor_id": "ai:claude-opus-5",
+        "date": "2026-07-26T00:00:00+00:00",
+        "role": "verification, enumeration, lower bound, and exposition"
+      },
+      {
+        "actor_id": "software:openai-codex",
+        "date": "2026-07-29T12:00:00+00:00",
+        "role": "release audit and ClaimPack encoding"
+      }
+    ]
+  },
+  "record_id": "ni:///sha-256;WxeUJp9uXJEjKkxuyUKJmy3y_Gku57eV058jEQu3vfY",
+  "record_type": "claim-version",
+  "rights": {
+    "exclusions": [],
+    "license": "CC0-1.0",
+    "scope": "This ClaimPack record and original source-repository content only to the extent the rights holder may dedicate it."
+  },
+  "scope": {
+    "claim_kind": "full-result",
+    "conditions": [
+      "Finite simple undirected graphs."
+    ],
+    "exclusions": [
+      "No uniqueness assertion is made for extremal graphs or partitions."
+    ],
+    "non_implications": [],
+    "scope_note": "",
+    "structured_scope": {
+      "domain": "graph theory",
+      "n": "20",
+      "value": "6"
+    },
+    "targets": [
+      "exact value at n=20"
+    ]
+  },
+  "sources": [
+    {
+      "digest": "sha256:2b92e5febf5deaeb86db96ef37ddd7df33ac4022453090291c72633fda0310e5",
+      "immutable": true,
+      "kind": "doi-version",
+      "locator": "https://doi.org/10.5281/zenodo.21647645",
+      "rights": "Repository original content is CC0-1.0; third-party inputs excluded.",
+      "version": "candidate-2026-07-26"
+    },
+    {
+      "immutable": true,
+      "kind": "git-commit",
+      "locator": "https://github.com/ipitchford/z20-cochromatic/commit/3c7e520fdc0615f5c700761c2b1e5108dcc836e7",
+      "rights": "Repository original content is CC0-1.0; third-party inputs excluded.",
+      "version": "3c7e520fdc0615f5c700761c2b1e5108dcc836e7"
+    }
+  ],
+  "statement": {
+    "definitions": [
+      {
+        "meaning": "The least number of vertex classes partitioning V(G), each inducing a clique or an independent set.",
+        "term": "z(G)"
+      },
+      {
+        "meaning": "The maximum of z(G) over all graphs G with n vertices.",
+        "term": "z(n)"
+      }
+    ],
+    "language": "en",
+    "latex": "z(20)=6",
+    "natural": "The maximum cochromatic number among graphs on 20 vertices is 6.",
+    "quantifiers": [
+      "maximum over every finite simple graph G with |V(G)|=20"
+    ]
+  }
+}

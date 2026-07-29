@@ -1,0 +1,46 @@
+{
+  "assessment_kind": "author-status",
+  "authentication": {
+    "status": "unverified"
+  },
+  "dimension": "semantic-scope-match",
+  "evidence_refs": [
+    "ni:///sha-256;2ng7RogqpTbQx8a_YZLUoiZms34QHR2zlhjWd-DhoZ8"
+  ],
+  "independence": {
+    "actor": "same as repository-reported producer",
+    "code": "not independently reimplemented",
+    "communication_exposure": "shared release materials",
+    "coordination_parent": "repository publication workflow",
+    "data": "same release artifacts",
+    "environment": "repository-reported local environment",
+    "method": "repository self-report",
+    "model_provider": "not an independence claim",
+    "organization": "not independent"
+  },
+  "issued_at": "2026-07-29T12:00:00+00:00",
+  "issuer": {
+    "display_name": "ipitchford/erdos-848-all-n",
+    "id": "repository:ipitchford/erdos-848-all-n",
+    "kind": "organization"
+  },
+  "method": "Repository-reported status; not independent verification.",
+  "outcome": "unknown",
+  "protocol_version": "0.1.0",
+  "qualifications": [
+    "Repository-reported assessment; no external authentication.",
+    "A passing self-assessment is not an independent verification."
+  ],
+  "record_id": "ni:///sha-256;_bmaT3eHsVZ1KzQiwQoo4VmpBJY20EG5x0K5cvZ721M",
+  "record_type": "assessment",
+  "responds_to": [],
+  "stance": "neutral",
+  "summary": "Repository-reported semantic-scope-match status is unknown.",
+  "supersedes": [],
+  "target": {
+    "record_id": "ni:///sha-256;MK31Eb9d1biD_ui3A4200UYdJsO4oQ9iyegKG00oflY",
+    "record_type": "claim-version"
+  },
+  "target_claim_id": "ni:///sha-256;Av5awzyq6wrhnkFKVpCt3D7wPAvIRRjszuYVUnIGKL4",
+  "withdraws": []
+}

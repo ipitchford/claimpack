@@ -1,0 +1,221 @@
+{
+  "artifacts": [],
+  "created_at": "2026-07-29T12:00:00+00:00",
+  "extensions": {
+    "primary_claim_record_id": "ni:///sha-256;WxeUJp9uXJEjKkxuyUKJmy3y_Gku57eV058jEQu3vfY"
+  },
+  "package_root": "ni:///sha-256;qMJxdeZaeOoJ0NiWTJoHhSOPEPI5055jRP7E0x14Ce8",
+  "records": [
+    {
+      "media_type": "application/json",
+      "path": "records/001-claim-version.json",
+      "record_id": "ni:///sha-256;c8vx_FwTuRdgffinQn-EndbsZP3gtZGwIBtTiVAdeK0",
+      "record_type": "claim-version",
+      "sha256": "sha256:efd723fdb8a29b770b356bbe91ff570f59dbd9dad3cd4c9f4249d475c404ec33"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/002-evidence.json",
+      "record_id": "ni:///sha-256;DyNZBfWLsJN7dYwF3E9ZuaQrpd3G6LxbeuB3Kwid3aw",
+      "record_type": "evidence",
+      "sha256": "sha256:e7120631fe8fb8aa6fc1fc93c14e00affb028fcaa5e986ddae557e4f8c43cb56"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/003-assessment.json",
+      "record_id": "ni:///sha-256;9J7-ZypukTKSPCuQygsMNW6SM8B285mdSRp1eTJaq2o",
+      "record_type": "assessment",
+      "sha256": "sha256:f61223c0902765fa9eda89dd431bc042bd2abbabc56cbff912ae43dcb135d0fe"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/004-assessment.json",
+      "record_id": "ni:///sha-256;O-f3Ah6H1v2YcL3xJrnaR46ojP5uixJtf8E_kH-HBXw",
+      "record_type": "assessment",
+      "sha256": "sha256:81df49423a6df227562ad4ae4d5d642a1656d70b7b39dc120a813e82a6bdc1af"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/005-assessment.json",
+      "record_id": "ni:///sha-256;evbJHQfFu4Hu-O2gEuXHlJQwvkg9VC6Au2DYPk6_t-o",
+      "record_type": "assessment",
+      "sha256": "sha256:537af73d5ceece8572ee210fd09843d72b363bf08c4c9ec28515eb325f0f40bb"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/006-assessment.json",
+      "record_id": "ni:///sha-256;eGCtF9YQ2a4KK9Jki4seObGQvlaTZotgCrTLXgJiGqI",
+      "record_type": "assessment",
+      "sha256": "sha256:9b80d8e86a8e0736f3e5708b68ce961850a59fd4f6c3dfbd6295950309e01c9b"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/007-assessment.json",
+      "record_id": "ni:///sha-256;nUcYJPfS5aUT-Is6mQ_RJrda5_kQh-6n4egabS40Zu0",
+      "record_type": "assessment",
+      "sha256": "sha256:78752685b53e798c1f0daee5b5ac1c5523a7bb0f3b013df4a065266cf791ef7a"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/008-assessment.json",
+      "record_id": "ni:///sha-256;jdHjR8L6VLpfJ2-GCkNhLzmBU2ReUTVOD75mjq46RBQ",
+      "record_type": "assessment",
+      "sha256": "sha256:76b21d108029dc1a13fd98ae71dc26b3a46fe45a000d90b761f82a6dc0c409e3"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/009-assessment.json",
+      "record_id": "ni:///sha-256;uLcW2yu9Xhz8y9GEHF5kC_MO2jkFMWaUGreLEOj4DRI",
+      "record_type": "assessment",
+      "sha256": "sha256:bc0e4f8baf1d7ab2416b5112445c7a0322c2b9d160fc4111d19d667ec0622351"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/010-assessment.json",
+      "record_id": "ni:///sha-256;vnKGGoGUUGL0MfynFWbRQV55uwG0QxWpLjAgmOJGxnk",
+      "record_type": "assessment",
+      "sha256": "sha256:a1875f934239bb6e132f9bc3ff6032a897c7e52e652539249d58b22c0f6120b8"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/011-assessment.json",
+      "record_id": "ni:///sha-256;YGY08_x-gemTfXgV5k_1xoHHl0TTO0fOcZ0yDLuAbV0",
+      "record_type": "assessment",
+      "sha256": "sha256:0d9d3dd9bfa61fb28cbcc338abb5132fa8fb3c6859ebcaf4e257774c1708ea89"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/012-assessment.json",
+      "record_id": "ni:///sha-256;DLJ8FST6im6nybCrK_-TA3gDrSqr0jKaXcG8EBu1OdY",
+      "record_type": "assessment",
+      "sha256": "sha256:c67f629baedca67898305da41d29e1430c4437e7c5e41711cbbbc84d5a9c36c9"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/013-assessment.json",
+      "record_id": "ni:///sha-256;2-RXPSEzDPaV8E9sFs965dqhnlRMyJnOhHydjWAMRuw",
+      "record_type": "assessment",
+      "sha256": "sha256:0e50bd5a8c81e4a17093766b8e987feb8dbbc6b65141c47c70b3e6f4deb1ac16"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/014-assessment.json",
+      "record_id": "ni:///sha-256;tXNmbNzG6c747Sr3YD9uxpFJNxINYU1iTXRiq9lF-6g",
+      "record_type": "assessment",
+      "sha256": "sha256:c1d5ef46b591fb33252bfb68fded00976629bb55f4798288e5274d81aa2ddd34"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/015-claim-version.json",
+      "record_id": "ni:///sha-256;WxeUJp9uXJEjKkxuyUKJmy3y_Gku57eV058jEQu3vfY",
+      "record_type": "claim-version",
+      "sha256": "sha256:ec964da0e4c4465ac0c84850bd54c8deef3d184d7227382f0a877282b796a273"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/016-relation.json",
+      "record_id": "ni:///sha-256;5qWc6Kpfd7C9AUqs7ovZBiDhWcRUqa4uUj0er9HMHGs",
+      "record_type": "relation",
+      "sha256": "sha256:594a65079cc01e81085d0c07e44050b20d8f9e7c28d5f4b92793b6fb1c20db1c"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/017-assessment.json",
+      "record_id": "ni:///sha-256;bMrtkmYc-x_Fz2ib43_tieh20uQgzC0Xb6mpdTqrt5s",
+      "record_type": "assessment",
+      "sha256": "sha256:8299c4315ad835095a8d658bf74ed13e4451c98c70aa84521007d30a0a81a9fc"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/018-evidence.json",
+      "record_id": "ni:///sha-256;02DJ6Fn4eJJwXpy4GHApWjlnhazJ3RlMd1LTxTU-JoA",
+      "record_type": "evidence",
+      "sha256": "sha256:a93afb398571ed3fbb8eddf61ca4cffa6a10e84e97492cee2e119495354d3b8d"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/019-assessment.json",
+      "record_id": "ni:///sha-256;XbnqJprHuPPATNslkVmWbG5M53JrizbbeOS0WEaM_8k",
+      "record_type": "assessment",
+      "sha256": "sha256:74a3cc66d4a01b2935e4a64d0a8b6e2ce3c23f943e8117b5010ed5e08bad2e07"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/020-assessment.json",
+      "record_id": "ni:///sha-256;OPfu-ifJYEP24EOf_JWR3SDcpvFw_ZitEy7036Ywzqg",
+      "record_type": "assessment",
+      "sha256": "sha256:aba6dc264ca34e97c50a2fdef7db42a2247e6f75e58d0aae0928e4a5157a0344"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/021-assessment.json",
+      "record_id": "ni:///sha-256;lJmmwLHysPSjmAqEPjhofBtUlJE2Sm8ZqWQ-pJ2Qfds",
+      "record_type": "assessment",
+      "sha256": "sha256:03c00cb11f193a77e2ff9e7c5f7d476fd540487b158aa133c5a84b9cf8ffa5ea"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/022-assessment.json",
+      "record_id": "ni:///sha-256;NrOwDwKbATOChuea4ij43YjcKniGudYj7AcVvh--3NE",
+      "record_type": "assessment",
+      "sha256": "sha256:245ecd9c9f548a558f77934569ea435fe6bfee311bf2128473f3c61d3f0afa13"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/023-assessment.json",
+      "record_id": "ni:///sha-256;oOF52Zzf71FsgI_vyby3q1RJfN2TwUXOhOMINH2J438",
+      "record_type": "assessment",
+      "sha256": "sha256:a48818df7ceecd7b768a405a268806a4f35d8ba4b6858a8bd757258f1e1d5013"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/024-assessment.json",
+      "record_id": "ni:///sha-256;pNZDK8ZboFWA-j4caNhnhGxq6n5ac7ra9SQaOLmKqyY",
+      "record_type": "assessment",
+      "sha256": "sha256:de5813ee38d214b7d4917c4f18f0c9c2d2fa13e135fc649a9d5f95a49557fae1"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/025-assessment.json",
+      "record_id": "ni:///sha-256;UALj2P7-pruhRGy4y8kPaHOGuC80v63L9FuVlTo2KHI",
+      "record_type": "assessment",
+      "sha256": "sha256:3d6bfb30cacff10a1066a27bb205a82e60d59ae2dddbe7615d07512d1ed95b43"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/026-assessment.json",
+      "record_id": "ni:///sha-256;NJsyyLkvDfKTffTGDVdzYNOE8Zz6SQbqGVQi5V6FO6I",
+      "record_type": "assessment",
+      "sha256": "sha256:8027c916148aa5f7359c899ae3489bde340ebd29cc7ccc0e64b15bd6bb66fb4d"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/027-assessment.json",
+      "record_id": "ni:///sha-256;pU7nONMEcDyHuVPrVlzj2_6t0hIC9JUbQM07XhvX79s",
+      "record_type": "assessment",
+      "sha256": "sha256:5fc8b32d7b734582e0f2f4ceeff84bb579b179f434b508e0a00bf46db8273210"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/028-assessment.json",
+      "record_id": "ni:///sha-256;2t_J0svlSPkMWn71wcsechasrFAv_3JvvRXPv1whnDE",
+      "record_type": "assessment",
+      "sha256": "sha256:15d544fa0b124b40808819cfa399b658a2dfdab5be2da75be8b7063c54c33a6a"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/029-assessment.json",
+      "record_id": "ni:///sha-256;aJD1PeAKEvYVINGkaNCADfnMsEwPahnacJHYQ57GaRg",
+      "record_type": "assessment",
+      "sha256": "sha256:9f8a77da8dcb89a4b6b5dadd7968ada86b9f6964b92b3a5d2d15a6a07bbe4607"
+    },
+    {
+      "media_type": "application/json",
+      "path": "records/030-assessment.json",
+      "record_id": "ni:///sha-256;sx4L16xoY-pA8W9IYDnmpDuUoxbC-ZN8_53H8jJbz-U",
+      "record_type": "assessment",
+      "sha256": "sha256:21688cddc4006482970bc52c9b228e62d72171bcd27c00ad8d1c4a36f7fafdfd"
+    }
+  ],
+  "schema_version": "claimpack-manifest/0.1"
+}

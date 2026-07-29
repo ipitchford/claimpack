@@ -1,0 +1,1135 @@
+#!/usr/bin/env python3
+"""Generate deterministic policies, seed packs, and the static catalogue."""
+
+from __future__ import annotations
+
+import argparse
+import re
+import unicodedata
+from pathlib import Path
+from typing import Any
+
+from claimpack.build import seal_record, write_pack
+from claimpack.canonical import canonical_bytes, pretty_bytes
+from claimpack.ids import ni_sha256, policy_digest_for, sha256_label
+from claimpack.records import DIMENSIONS
+from claimpack.validate import validate_pack
+
+CREATED = "2026-07-29T12:00:00+00:00"
+ISSUED = CREATED
+
+
+def actor(
+    actor_id: str,
+    display_name: str,
+    kind: str,
+    **optional: str,
+) -> dict[str, str]:
+    return {
+        "display_name": display_name,
+        "id": actor_id,
+        "kind": kind,
+        **optional,
+    }
+
+
+def provenance(
+    actors: list[dict[str, str]],
+    roles: list[tuple[str, str, str]],
+) -> dict[str, Any]:
+    return {
+        "actors": actors,
+        "roles": [
+            {"actor_id": actor_id, "date": date, "role": role}
+            for actor_id, role, date in roles
+        ],
+    }
+
+
+def source(
+    *,
+    kind: str,
+    locator: str,
+    immutable: bool,
+    rights: str,
+    version: str = "",
+    digest: str = "",
+) -> dict[str, Any]:
+    value: dict[str, Any] = {
+        "immutable": immutable,
+        "kind": kind,
+        "locator": locator,
+        "rights": rights,
+    }
+    if version:
+        value["version"] = version
+    if digest:
+        value["digest"] = digest
+    return value
+
+
+def claim(
+    *,
+    natural: str,
+    latex: str,
+    definitions: list[tuple[str, str]],
+    quantifiers: list[str],
+    claim_kind: str,
+    conditions: list[str],
+    exclusions: list[str],
+    non_implications: list[str],
+    targets: list[str],
+    structured_scope: dict[str, Any],
+    aliases: list[str],
+    problem_refs: list[dict[str, str]],
+    sources: list[dict[str, Any]],
+    claim_provenance: dict[str, Any],
+    dependency_targets: list[dict[str, str]] | None = None,
+    issued_at: str = ISSUED,
+    rights_exclusions: list[str] | None = None,
+) -> dict[str, Any]:
+    return seal_record(
+        {
+            "aliases": aliases,
+            "claim_version": "0.1-candidate",
+            "dependency_targets": dependency_targets or [],
+            "formal_statements": [],
+            "issued_at": issued_at,
+            "lineage": [],
+            "problem_refs": problem_refs,
+            "protocol_version": "0.1.0",
+            "provenance": claim_provenance,
+            "record_type": "claim-version",
+            "rights": {
+                "exclusions": rights_exclusions or [],
+                "license": "CC0-1.0",
+                "scope": (
+                    "This ClaimPack record and original source-repository "
+                    "content only to the extent the rights holder may dedicate it."
+                ),
+            },
+            "scope": {
+                "claim_kind": claim_kind,
+                "conditions": conditions,
+                "exclusions": exclusions,
+                "non_implications": non_implications,
+                "scope_note": "",
+                "structured_scope": structured_scope,
+                "targets": targets,
+            },
+            "sources": sources,
+            "statement": {
+                "definitions": [
+                    {"meaning": meaning, "term": term} for term, meaning in definitions
+                ],
+                "language": "en",
+                "latex": latex,
+                "natural": natural,
+                "quantifiers": quantifiers,
+            },
+        }
+    )
+
+
+def external_evidence(
+    *,
+    subject: dict[str, Any],
+    issuer_id: str,
+    issuer_name: str,
+    locator: str,
+    digest: str,
+    name: str,
+    coverage: list[str],
+    limitations: list[str],
+    replay_command: str,
+    expected_outputs: list[str],
+    rights: str,
+    media_type: str = "application/zip",
+) -> dict[str, Any]:
+    return seal_record(
+        {
+            "artifacts": [
+                {
+                    "digest": digest,
+                    "embedded": False,
+                    "locator": locator,
+                    "media_type": media_type,
+                    "name": name,
+                    "rights": rights,
+                }
+            ],
+            "coverage": coverage,
+            "evidence_kind": "manuscript",
+            "issued_at": ISSUED,
+            "issuer": {
+                "display_name": issuer_name,
+                "id": issuer_id,
+                "kind": "organization",
+            },
+            "limitations": limitations
+            + ["Referenced archive is not embedded in this seed ClaimPack."],
+            "method": (
+                "Reference-only binding to the exact public release archive "
+                "and its repository-reported assurance boundary."
+            ),
+            "protocol_version": "0.1.0",
+            "record_type": "evidence",
+            "replay": {
+                "command": replay_command,
+                "display_only": True,
+                "environment_digest": "",
+                "expected_outputs": expected_outputs,
+                "resource_budget": {
+                    "cpu": "source-repository dependent",
+                    "disk": "source-repository dependent",
+                    "network": "forbidden in core ClaimPack consumption",
+                    "wall_time": "source-repository dependent",
+                },
+            },
+            "subject": {
+                "record_id": subject["record_id"],
+                "record_type": subject["record_type"],
+            },
+        }
+    )
+
+
+def assessment(
+    *,
+    target: dict[str, Any],
+    issuer_id: str,
+    issuer_name: str,
+    dimension: str,
+    outcome: str,
+    summary: str,
+    qualifications: list[str],
+    evidence_refs: list[str],
+    kind: str = "author-status",
+) -> dict[str, Any]:
+    return seal_record(
+        {
+            "assessment_kind": kind,
+            "authentication": {"status": "unverified"},
+            "dimension": dimension,
+            "evidence_refs": evidence_refs,
+            "independence": {
+                "actor": "same as repository-reported producer",
+                "code": "not independently reimplemented",
+                "communication_exposure": "shared release materials",
+                "coordination_parent": "repository publication workflow",
+                "data": "same release artifacts",
+                "environment": "repository-reported local environment",
+                "method": "repository self-report",
+                "model_provider": "not an independence claim",
+                "organization": "not independent",
+            },
+            "issued_at": ISSUED,
+            "issuer": {
+                "display_name": issuer_name,
+                "id": issuer_id,
+                "kind": "organization",
+            },
+            "method": "Repository-reported status; not independent verification.",
+            "outcome": outcome,
+            "protocol_version": "0.1.0",
+            "qualifications": qualifications,
+            "record_type": "assessment",
+            "responds_to": [],
+            "stance": "supports" if outcome == "pass" else "neutral",
+            "summary": summary,
+            "supersedes": [],
+            "target": {
+                "record_id": target["record_id"],
+                "record_type": target["record_type"],
+            },
+            "target_claim_id": (
+                target["claim_id"] if target["record_type"] == "claim-version" else ""
+            ),
+            "withdraws": [],
+        }
+    )
+
+
+def status_vector(
+    target: dict[str, Any],
+    evidence: dict[str, Any],
+    *,
+    issuer_id: str,
+    issuer_name: str,
+    passing: set[str],
+    notes: dict[str, str],
+) -> list[dict[str, Any]]:
+    records = []
+    for dimension in sorted(DIMENSIONS):
+        outcome = "pass" if dimension in passing else "unknown"
+        kind = (
+            "automated-check"
+            if dimension
+            in {
+                "formal-or-certificate-verification",
+                "reproducibility",
+                "version-stability",
+            }
+            else "author-status"
+        )
+        records.append(
+            assessment(
+                target=target,
+                issuer_id=issuer_id,
+                issuer_name=issuer_name,
+                dimension=dimension,
+                outcome=outcome,
+                summary=notes.get(
+                    dimension,
+                    f"Repository-reported {dimension} status is {outcome}.",
+                ),
+                qualifications=[
+                    "Repository-reported assessment; no external authentication.",
+                    "A passing self-assessment is not an independent verification.",
+                ],
+                evidence_refs=[evidence["record_id"]],
+                kind=kind,
+            )
+        )
+    return records
+
+
+def depends_on(
+    source_claim: dict[str, Any],
+    target_claim: dict[str, Any],
+    *,
+    issuer_id: str,
+    issuer_name: str,
+    limitation: str,
+) -> dict[str, Any]:
+    return seal_record(
+        {
+            "issued_at": ISSUED,
+            "issuer": {
+                "display_name": issuer_name,
+                "id": issuer_id,
+                "kind": "organization",
+            },
+            "load_bearing": True,
+            "protocol_version": "0.1.0",
+            "record_type": "relation",
+            "relation": "depends-on",
+            "semantic_alignment": {
+                "definition_map": [
+                    {
+                        "note": "Repository-reported dependency mapping.",
+                        "source_term": "imported result",
+                        "target_term": "exact dependency ClaimVersion",
+                    }
+                ],
+                "limitations": [limitation],
+                "status": "partial",
+            },
+            "source": {
+                "record_id": source_claim["record_id"],
+                "record_type": "claim-version",
+            },
+            "target": {
+                "record_id": target_claim["record_id"],
+                "record_type": "claim-version",
+            },
+        }
+    )
+
+
+def relation_status(
+    relation: dict[str, Any],
+    *,
+    issuer_id: str,
+    issuer_name: str,
+) -> dict[str, Any]:
+    return assessment(
+        target=relation,
+        issuer_id=issuer_id,
+        issuer_name=issuer_name,
+        dimension="semantic-scope-match",
+        outcome="unknown",
+        summary=(
+            "The dependency mapping is repository-reported and has not been "
+            "independently audited."
+        ),
+        qualifications=[
+            "No independent semantic-correspondence assessment is supplied."
+        ],
+        evidence_refs=[],
+        kind="correspondence",
+    )
+
+
+def cautious_policy() -> dict[str, Any]:
+    policy: dict[str, Any] = {
+        "adverse_issuers": ["*"],
+        "dimensions": {
+            dimension: {
+                "accepted_issuers": ["independent-reviewer"],
+                "required": True,
+            }
+            for dimension in sorted(DIMENSIONS)
+        },
+        "limits": {
+            "assessment_count": "512",
+            "dependency_depth": "16",
+            "dependency_nodes": "128",
+        },
+        "max_assessment_age_days": "3650",
+        "open_objection_effect": "unknown",
+        "policy_digest": "",
+        "policy_id": "claimpack:cautious-scientific-use:v0.1",
+        "policy_version": "0.1",
+        "require_authenticated_positive": True,
+        "require_complete_objection_search": True,
+        "require_embedded_evidence_for_positive": True,
+        "require_evidence_for_positive": True,
+    }
+    policy["policy_digest"] = policy_digest_for(policy)
+    return policy
+
+
+def search_fingerprint(statement: str) -> str:
+    normalized = unicodedata.normalize("NFKC", statement).casefold()
+    normalized = re.sub(r"\s+", " ", normalized).strip()
+    return sha256_label(normalized.encode("utf-8"))
+
+
+def build(root: Path) -> None:
+    examples = root / "examples"
+    policies = root / "policies"
+    catalog_dir = root / "catalog"
+    for target in {examples, policies, catalog_dir}:
+        if target.exists():
+            raise SystemExit(f"refusing to overwrite generated path: {target}")
+    policies.mkdir(parents=True)
+    catalog_dir.mkdir(parents=True)
+    (policies / "cautious-scientific-use-v0.1.json").write_bytes(
+        pretty_bytes(cautious_policy())
+    )
+
+    z20_actors = [
+        actor("human:ian-pitchford", "Ian Pitchford", "human"),
+        actor(
+            "ai:gpt-5.6-sol",
+            "GPT-5.6 Sol",
+            "ai-system",
+            model_family="GPT-5.6 Sol",
+            model_provider="OpenAI",
+        ),
+        actor(
+            "ai:claude-opus-5",
+            "Claude Opus 5",
+            "ai-system",
+            model_family="Claude Opus 5",
+            model_provider="Anthropic",
+        ),
+        actor("software:openai-codex", "OpenAI Codex", "software"),
+    ]
+    z20_provenance = provenance(
+        z20_actors,
+        [
+            (
+                "human:ian-pitchford",
+                "problem selection and research mediation",
+                "2026-07-26T00:00:00+00:00",
+            ),
+            (
+                "ai:gpt-5.6-sol",
+                "two-core reduction, CNF generator, solver, and certificates",
+                "2026-07-26T00:00:00+00:00",
+            ),
+            (
+                "ai:claude-opus-5",
+                "verification, enumeration, lower bound, and exposition",
+                "2026-07-26T00:00:00+00:00",
+            ),
+            ("software:openai-codex", "release audit and ClaimPack encoding", CREATED),
+        ],
+    )
+    z20_repo = "https://github.com/ipitchford/z20-cochromatic"
+    z20_commit = "3c7e520fdc0615f5c700761c2b1e5108dcc836e7"
+    z20_digest = (
+        "sha256:2b92e5febf5deaeb86db96ef37ddd7df33ac4022453090291c72633fda0310e5"
+    )
+    z20_sources = [
+        source(
+            kind="doi-version",
+            locator="https://doi.org/10.5281/zenodo.21647645",
+            immutable=True,
+            version="candidate-2026-07-26",
+            digest=z20_digest,
+            rights="Repository original content is CC0-1.0; third-party inputs excluded.",
+        ),
+        source(
+            kind="git-commit",
+            locator=f"{z20_repo}/commit/{z20_commit}",
+            immutable=True,
+            version=z20_commit,
+            rights="Repository original content is CC0-1.0; third-party inputs excluded.",
+        ),
+    ]
+    fixed_core = claim(
+        natural=(
+            "For each of the two order-16 (4,4)-Ramsey cores used in the "
+            "pinned z(20) release, the exact fixed-core CNF over the 64 cross "
+            "edges is unsatisfiable."
+        ),
+        latex=(
+            r"\operatorname{UNSAT}(F_{\mathrm{core}\,0})\ \land\ "
+            r"\operatorname{UNSAT}(F_{\mathrm{core}\,1})"
+        ),
+        definitions=[
+            (
+                "fixed-core CNF",
+                "The exact core-specific formula generated and hash-pinned by the z(20) release.",
+            ),
+            (
+                "(4,4)-Ramsey core",
+                "A graph on 16 vertices with neither a 4-clique nor an independent 4-set.",
+            ),
+        ],
+        quantifiers=["for each core index i in {0,1}"],
+        claim_kind="finite-case",
+        conditions=["The claim concerns only the exact pinned CNF bytes."],
+        exclusions=[
+            "No end-to-end graph-theoretic semantic equivalence is asserted by this subclaim."
+        ],
+        non_implications=[],
+        targets=["two exact finite SAT instances"],
+        structured_scope={
+            "core_count": "2",
+            "cross_edge_variables": "64 per core",
+            "domain": "finite SAT",
+        },
+        aliases=["z20 fixed-core UNSAT pair", "two Ramsey-core refutations"],
+        problem_refs=[],
+        sources=z20_sources,
+        claim_provenance=z20_provenance,
+    )
+    fixed_evidence = external_evidence(
+        subject=fixed_core,
+        issuer_id="repository:ipitchford/z20-cochromatic",
+        issuer_name="ipitchford/z20-cochromatic",
+        locator="https://doi.org/10.5281/zenodo.21647645",
+        digest=z20_digest,
+        name="z20-candidate-2026-07-26.zip",
+        coverage=["exact CNFs", "DRUP and LRAT refutations", "local replay receipt"],
+        limitations=[
+            "Replay was local, not independent external reproduction.",
+            "Certificate checking establishes the exact SAT layer only.",
+        ],
+        replay_command="make verify",
+        expected_outputs=[
+            "drat-trim reports s VERIFIED for both cores",
+            "cake_lpr prints exact text s VERIFIED UNSAT for both cores",
+        ],
+        rights="CC0-1.0 for original repository content; see source exclusions.",
+    )
+    fixed_vector = status_vector(
+        fixed_core,
+        fixed_evidence,
+        issuer_id="repository:ipitchford/z20-cochromatic",
+        issuer_name="ipitchford/z20-cochromatic",
+        passing={
+            "formal-or-certificate-verification",
+            "provenance-quality",
+            "reproducibility",
+            "statement-precision",
+            "version-stability",
+        },
+        notes={
+            "formal-or-certificate-verification": (
+                "Repository reports exact CNFs accepted by multiple checkers, "
+                "including a formally verified checking core."
+            ),
+            "independent-reproduction": "No independent external reproduction is claimed.",
+            "semantic-scope-match": "The graph-to-CNF semantic bridge is a separate assurance layer.",
+        },
+    )
+
+    z20_claim = claim(
+        natural=("The maximum cochromatic number among graphs on 20 vertices is 6."),
+        latex=r"z(20)=6",
+        definitions=[
+            (
+                "z(G)",
+                "The least number of vertex classes partitioning V(G), each inducing a clique or an independent set.",
+            ),
+            ("z(n)", "The maximum of z(G) over all graphs G with n vertices."),
+        ],
+        quantifiers=["maximum over every finite simple graph G with |V(G)|=20"],
+        claim_kind="full-result",
+        conditions=["Finite simple undirected graphs."],
+        exclusions=[
+            "No uniqueness assertion is made for extremal graphs or partitions."
+        ],
+        non_implications=[],
+        targets=["exact value at n=20"],
+        structured_scope={"n": "20", "value": "6", "domain": "graph theory"},
+        aliases=["z(20)=6", "20-vertex cochromatic number"],
+        problem_refs=[
+            {
+                "id": "758",
+                "locator": "https://www.erdosproblems.com/758",
+                "scheme": "erdos-problems",
+            }
+        ],
+        sources=z20_sources,
+        claim_provenance=z20_provenance,
+        dependency_targets=[
+            {"record_id": fixed_core["record_id"], "record_type": "claim-version"}
+        ],
+    )
+    z20_evidence = external_evidence(
+        subject=z20_claim,
+        issuer_id="repository:ipitchford/z20-cochromatic",
+        issuer_name="ipitchford/z20-cochromatic",
+        locator="https://doi.org/10.5281/zenodo.21647645",
+        digest=z20_digest,
+        name="z20-candidate-2026-07-26.zip",
+        coverage=["candidate paper", "hand-checkable lower bound", "local full replay"],
+        limitations=[
+            "The complete result has no documented external human verification.",
+            "No independent external reproduction or end-to-end formalization is claimed.",
+        ],
+        replay_command="make verify",
+        expected_outputs=["source repository verification target completes"],
+        rights="CC0-1.0 for original repository content; see source exclusions.",
+    )
+    z20_vector = status_vector(
+        z20_claim,
+        z20_evidence,
+        issuer_id="repository:ipitchford/z20-cochromatic",
+        issuer_name="ipitchford/z20-cochromatic",
+        passing={
+            "canonical-problem-correspondence",
+            "formal-or-certificate-verification",
+            "provenance-quality",
+            "reproducibility",
+            "statement-precision",
+            "version-stability",
+        },
+        notes={
+            "proof-completeness": "Unrefereed candidate proof; complete correctness remains unestablished.",
+            "independent-reproduction": "No independent external reproduction is claimed.",
+            "known-objections": "No complete global objection search is claimed.",
+            "semantic-scope-match": "The graph-to-CNF semantic bridge is not end-to-end formalized.",
+        },
+    )
+    z20_relation = depends_on(
+        z20_claim,
+        fixed_core,
+        issuer_id="repository:ipitchford/z20-cochromatic",
+        issuer_name="ipitchford/z20-cochromatic",
+        limitation="The exact SAT subclaim is load-bearing, but the graph-to-CNF bridge remains separately assessed.",
+    )
+    z20_records = (
+        [fixed_core, fixed_evidence]
+        + fixed_vector
+        + [
+            z20_claim,
+            z20_relation,
+            relation_status(
+                z20_relation,
+                issuer_id="repository:ipitchford/z20-cochromatic",
+                issuer_name="ipitchford/z20-cochromatic",
+            ),
+            z20_evidence,
+        ]
+        + z20_vector
+    )
+    write_pack(
+        examples / "z20",
+        records=z20_records,
+        created_at=CREATED,
+        primary_claim_record_id=z20_claim["record_id"],
+    )
+
+    vr2_actors = [
+        actor("human:ian-pitchford", "Ian Pitchford", "human"),
+        actor(
+            "ai:gpt-5.6-sol",
+            "GPT 5.6 Sol",
+            "ai-system",
+            model_family="GPT 5.6 Sol",
+            model_provider="OpenAI",
+        ),
+        actor(
+            "ai:claude-opus-4.8-5",
+            "Claude Opus 4.8 / 5",
+            "ai-system",
+            model_family="Claude Opus 4.8 / 5",
+            model_provider="Anthropic",
+        ),
+        actor("software:openai-codex", "OpenAI Codex", "software"),
+    ]
+    vr2_provenance = provenance(
+        vr2_actors,
+        [
+            (
+                "human:ian-pitchford",
+                "research mediation, maintenance, and publication",
+                "2026-07-28T00:00:00+00:00",
+            ),
+            (
+                "ai:gpt-5.6-sol",
+                "mathematical and computational contribution",
+                "2026-07-28T00:00:00+00:00",
+            ),
+            (
+                "ai:claude-opus-4.8-5",
+                "mathematical and computational contribution",
+                "2026-07-28T00:00:00+00:00",
+            ),
+            ("software:openai-codex", "release audit and ClaimPack encoding", CREATED),
+        ],
+    )
+    vr2_digest = (
+        "sha256:e14178610233f9e5960da06162e07f3a0ce9aa65799dff3d456958a417997f4f"
+    )
+    vr2_commit = "b303d7d61d1a4cdf6ff0f1c18eee40eded0583cc"
+    vr2_sources = [
+        source(
+            kind="doi-version",
+            locator="https://doi.org/10.5281/zenodo.21647654",
+            immutable=True,
+            version="0.1-candidate",
+            digest=vr2_digest,
+            rights="Repository original content is CC0-1.0; third-party inputs excluded.",
+        ),
+        source(
+            kind="git-commit",
+            locator=f"{z20_repo}/commit/{vr2_commit}",
+            immutable=True,
+            version=vr2_commit,
+            rights="Repository original content is CC0-1.0; third-party inputs excluded.",
+        ),
+    ]
+    vr2_claim = claim(
+        natural=(
+            "The least n such that every red-blue edge-colouring of K_n "
+            "contains two vertex-disjoint monochromatic copies of K_4 is 20; "
+            "the copies need not have the same colour."
+        ),
+        latex=r"\mathrm{VR}_2(K_4)=20",
+        definitions=[
+            (
+                "VR_2(K_4)",
+                "The least n such that every red-blue edge-colouring of K_n has two pairwise vertex-disjoint monochromatic K_4 subgraphs.",
+            )
+        ],
+        quantifiers=["for every red-blue edge-colouring of K_n"],
+        claim_kind="full-result",
+        conditions=["The two monochromatic copies may have different colours."],
+        exclusions=["No enumeration or uniqueness claim for extremal colourings."],
+        non_implications=[],
+        targets=["exact two-copy vertex Ramsey number for K_4"],
+        structured_scope={"clique": "K_4", "copy_count": "2", "value": "20"},
+        aliases=["VR2(K4)=20", "two vertex-disjoint monochromatic K4s"],
+        problem_refs=[
+            {
+                "id": "VR_2(K_4)",
+                "scheme": "vertex-ramsey",
+            }
+        ],
+        sources=vr2_sources,
+        claim_provenance=vr2_provenance,
+        dependency_targets=[
+            {"record_id": fixed_core["record_id"], "record_type": "claim-version"}
+        ],
+    )
+    vr2_evidence = external_evidence(
+        subject=vr2_claim,
+        issuer_id="repository:ipitchford/z20-cochromatic",
+        issuer_name="ipitchford/z20-cochromatic",
+        locator="https://doi.org/10.5281/zenodo.21647654",
+        digest=vr2_digest,
+        name="z20-vr2-k4-v0.1-candidate.zip",
+        coverage=[
+            "candidate paper",
+            "direct K_19 lower-bound verifier",
+            "pinned upper-bound dependency",
+        ],
+        limitations=[
+            "The upper bound reuses rather than independently reproduces fixed-core certificates.",
+            "No independent external reproduction, peer review, or end-to-end formalization is claimed.",
+        ],
+        replay_command="python3 applications/vr2-k4/verify_lower_bound.py",
+        expected_outputs=["disjoint monochromatic pair exists: False"],
+        rights="CC0-1.0 for original repository content; see source exclusions.",
+    )
+    vr2_vector = status_vector(
+        vr2_claim,
+        vr2_evidence,
+        issuer_id="repository:ipitchford/z20-cochromatic",
+        issuer_name="ipitchford/z20-cochromatic",
+        passing={
+            "canonical-problem-correspondence",
+            "formal-or-certificate-verification",
+            "provenance-quality",
+            "reproducibility",
+            "statement-precision",
+            "version-stability",
+        },
+        notes={
+            "proof-completeness": "Unrefereed candidate proof; complete correctness remains unestablished.",
+            "independent-reproduction": "The upper bound explicitly reuses the z(20) certificate layer.",
+            "semantic-scope-match": "The complete graph-to-CNF bridge is not independently audited.",
+        },
+    )
+    vr2_relation = depends_on(
+        vr2_claim,
+        fixed_core,
+        issuer_id="repository:ipitchford/z20-cochromatic",
+        issuer_name="ipitchford/z20-cochromatic",
+        limitation="The upper bound imports the exact fixed-core UNSAT pair; the semantic bridge remains separately qualified.",
+    )
+    vr2_records = (
+        [fixed_core, fixed_evidence]
+        + fixed_vector
+        + [
+            vr2_claim,
+            vr2_relation,
+            relation_status(
+                vr2_relation,
+                issuer_id="repository:ipitchford/z20-cochromatic",
+                issuer_name="ipitchford/z20-cochromatic",
+            ),
+            vr2_evidence,
+        ]
+        + vr2_vector
+    )
+    write_pack(
+        examples / "vr2-k4",
+        records=vr2_records,
+        created_at=CREATED,
+        primary_claim_record_id=vr2_claim["record_id"],
+    )
+
+    erdos_actors = [
+        actor("human:ian-pitchford", "Ian Pitchford", "human"),
+        actor("software:openai-codex", "OpenAI Codex", "software"),
+        actor("human:nat-sothanaphan", "Nat Sothanaphan", "human"),
+        actor("human:mehtaab-sawhney", "Mehtaab Sawhney", "human"),
+    ]
+    erdos_provenance = provenance(
+        erdos_actors,
+        [
+            (
+                "software:openai-codex",
+                "proof, replay, and audit development",
+                "2026-07-28T00:00:00+00:00",
+            ),
+            (
+                "human:ian-pitchford",
+                "research direction, mediation, maintenance, and publication",
+                "2026-07-28T00:00:00+00:00",
+            ),
+            (
+                "human:nat-sothanaphan",
+                "external explicit-threshold theorem cited as input",
+                "2026-03-24T00:00:00+00:00",
+            ),
+            (
+                "human:mehtaab-sawhney",
+                "external analytic input cited by the source repository",
+                "2026-07-28T00:00:00+00:00",
+            ),
+        ],
+    )
+    tail_pdf_digest = (
+        "sha256:8162113a571dc2283fc77de1cdf36e7abf424eeec952aa27cf82a4f44b3a796f"
+    )
+    tail_claim = claim(
+        natural=(
+            "For every integer N at least 264000000000000000, the maximum "
+            "size f(N) of an admissible subset is at most floor((N+18)/25)."
+        ),
+        latex=(
+            r"N\ge264000000000000000\Longrightarrow "
+            r"f(N)\le\left\lfloor\frac{N+18}{25}\right\rfloor"
+        ),
+        definitions=[
+            (
+                "admissible",
+                "A subset A of {1,...,N} such that ab+1 is nonsquarefree for every a,b in A, including a=b.",
+            ),
+            ("f(N)", "The maximum cardinality of an admissible subset."),
+        ],
+        quantifiers=["for every integer N >= 264000000000000000"],
+        claim_kind="asymptotic-result",
+        conditions=[],
+        exclusions=[],
+        non_implications=[],
+        targets=["explicit high-threshold upper bound"],
+        structured_scope={
+            "lower_endpoint": "264000000000000000",
+            "range": "unbounded above",
+        },
+        aliases=["Sothanaphan explicit threshold for Erdős 848"],
+        problem_refs=[
+            {
+                "id": "848",
+                "locator": "https://www.erdosproblems.com/848",
+                "scheme": "erdos-problems",
+            }
+        ],
+        sources=[
+            source(
+                kind="other",
+                locator="https://drive.google.com/file/d/1ujhm4_WYpgRV_rd1rJXIfHyvx16COEKe/view",
+                immutable=False,
+                version="2026-03-24",
+                digest=tail_pdf_digest,
+                rights="Third-party source; not relicensed by ClaimPack.",
+            )
+        ],
+        claim_provenance=erdos_provenance,
+        issued_at=CREATED,
+        rights_exclusions=["The source theorem and PDF remain third-party material."],
+    )
+    erdos_digest = (
+        "sha256:fcd83b8986bf55784cf97513513d628af1fa5fe3bb0a2bdb869e1307dbbb8060"
+    )
+    erdos_commit = "56b27ae765f04195dc867db5e1c52750d5f721ae"
+    erdos_repo = "https://github.com/ipitchford/erdos-848-all-n"
+    erdos_sources = [
+        source(
+            kind="doi-version",
+            locator="https://doi.org/10.5281/zenodo.21647629",
+            immutable=True,
+            version="0.1-candidate",
+            digest=erdos_digest,
+            rights="Repository original content is CC0-1.0; third-party analytic inputs excluded.",
+        ),
+        source(
+            kind="git-commit",
+            locator=f"{erdos_repo}/commit/{erdos_commit}",
+            immutable=True,
+            version=erdos_commit,
+            rights="Repository original content is CC0-1.0; third-party analytic inputs excluded.",
+        ),
+    ]
+    erdos_claim = claim(
+        natural=(
+            "For every positive integer N, the maximum size f(N) of a subset "
+            "A of {1,...,N} such that ab+1 is nonsquarefree for every a,b in "
+            "A, including a=b, equals floor((N+18)/25)."
+        ),
+        latex=(
+            r"f(N)=\left\lfloor\frac{N+18}{25}\right\rfloor"
+            r"\quad\text{for every }N\ge1"
+        ),
+        definitions=[
+            (
+                "nonsquarefree",
+                "Divisible by the square of at least one prime.",
+            ),
+            (
+                "f(N)",
+                "The largest cardinality of A subset {1,...,N} for which ab+1 is nonsquarefree for every ordered choice a,b in A, including a=b.",
+            ),
+        ],
+        quantifiers=[
+            "for every positive integer N",
+            "for every a,b in A including a=b",
+        ],
+        claim_kind="full-result",
+        conditions=["Positive integer N; diagonal pairs a=b are included."],
+        exclusions=["No uniqueness claim for extremal sets."],
+        non_implications=[],
+        targets=["exact extremal value for every positive N"],
+        structured_scope={"N": "all positive integers", "formula_denominator": "25"},
+        aliases=["Erdős Problem 848 all-N formula", "f(N)=floor((N+18)/25)"],
+        problem_refs=[
+            {
+                "id": "848",
+                "locator": "https://www.erdosproblems.com/848",
+                "scheme": "erdos-problems",
+            }
+        ],
+        sources=erdos_sources,
+        claim_provenance=erdos_provenance,
+        dependency_targets=[
+            {"record_id": tail_claim["record_id"], "record_type": "claim-version"}
+        ],
+    )
+    erdos_evidence = external_evidence(
+        subject=erdos_claim,
+        issuer_id="repository:ipitchford/erdos-848-all-n",
+        issuer_name="ipitchford/erdos-848-all-n",
+        locator="https://doi.org/10.5281/zenodo.21647629",
+        digest=erdos_digest,
+        name="erdos-848-all-n.zip",
+        coverage=[
+            "candidate all-N proof",
+            "finite certificates",
+            "18-stage local replay",
+        ],
+        limitations=[
+            "The high range imports a pinned third-party analytic theorem.",
+            "A gapless range ledger does not by itself establish the component bounds.",
+            "No independent external reproduction, peer review, or end-to-end formalization is claimed.",
+        ],
+        replay_command="make verify",
+        expected_outputs=["complete fresh-extraction release replay passes all stages"],
+        rights="CC0-1.0 for original repository content; third-party inputs excluded.",
+    )
+    tail_evidence = external_evidence(
+        subject=tail_claim,
+        issuer_id="repository:ipitchford/erdos-848-all-n",
+        issuer_name="ipitchford/erdos-848-all-n",
+        locator="https://drive.google.com/file/d/1ujhm4_WYpgRV_rd1rJXIfHyvx16COEKe/view",
+        digest=tail_pdf_digest,
+        name="explicit-threshold-note.pdf",
+        coverage=["source-pinned explicit high-threshold theorem"],
+        limitations=[
+            "The analytic argument remains a mathematical input.",
+            "This seed does not independently verify the analytic proof.",
+            "The source is third-party and not bundled.",
+        ],
+        replay_command=(
+            "python3 audit/verify_high_threshold_numerics_v1.py "
+            "--source-pdf /path/to/official-threshold-note.pdf"
+        ),
+        expected_outputs=["directed exact-arithmetic numerical appendix checks pass"],
+        rights="Third-party source; not relicensed by ClaimPack.",
+        media_type="application/pdf",
+    )
+    tail_vector = status_vector(
+        tail_claim,
+        tail_evidence,
+        issuer_id="repository:ipitchford/erdos-848-all-n",
+        issuer_name="ipitchford/erdos-848-all-n",
+        passing={
+            "canonical-problem-correspondence",
+            "provenance-quality",
+            "statement-precision",
+            "version-stability",
+        },
+        notes={
+            "proof-completeness": "The analytic source is imported, not independently checked by this package.",
+            "reproducibility": "Only a directed numerical appendix replay is repository-reported.",
+        },
+    )
+    erdos_vector = status_vector(
+        erdos_claim,
+        erdos_evidence,
+        issuer_id="repository:ipitchford/erdos-848-all-n",
+        issuer_name="ipitchford/erdos-848-all-n",
+        passing={
+            "canonical-problem-correspondence",
+            "formal-or-certificate-verification",
+            "provenance-quality",
+            "reproducibility",
+            "statement-precision",
+            "version-stability",
+        },
+        notes={
+            "proof-completeness": "Unrefereed candidate stitched proof; complete correctness remains unestablished.",
+            "independent-reproduction": "No independent external reproduction is claimed.",
+            "semantic-scope-match": "The semantic bridge across all component ranges is not end-to-end formalized.",
+        },
+    )
+    erdos_relation = depends_on(
+        erdos_claim,
+        tail_claim,
+        issuer_id="repository:ipitchford/erdos-848-all-n",
+        issuer_name="ipitchford/erdos-848-all-n",
+        limitation="The all-N conclusion imports the source-pinned analytic high-threshold theorem.",
+    )
+    erdos_records = (
+        [tail_claim, tail_evidence]
+        + tail_vector
+        + [
+            erdos_claim,
+            erdos_relation,
+            relation_status(
+                erdos_relation,
+                issuer_id="repository:ipitchford/erdos-848-all-n",
+                issuer_name="ipitchford/erdos-848-all-n",
+            ),
+            erdos_evidence,
+        ]
+        + erdos_vector
+    )
+    write_pack(
+        examples / "erdos848",
+        records=erdos_records,
+        created_at=CREATED,
+        primary_claim_record_id=erdos_claim["record_id"],
+    )
+
+    package_paths = [examples / "z20", examples / "vr2-k4", examples / "erdos848"]
+    catalog_entries: dict[str, dict[str, Any]] = {}
+    for package_path in package_paths:
+        pack = validate_pack(str(package_path))
+        for item in pack.claims():
+            entry = catalog_entries.setdefault(
+                item["record_id"],
+                {
+                    "aliases": item["aliases"],
+                    "assessment_record_ids": [],
+                    "author_claimed_status": "source-reported status; inspect assessment overlays",
+                    "canonical_status": "unassessed",
+                    "claim_id": item["claim_id"],
+                    "claim_kind": item["scope"]["claim_kind"],
+                    "claim_record_id": item["record_id"],
+                    "formal_verification_status": "source-reported only; inspect exact assessment records",
+                    "human_review_status": "no independent human review documented by the seed",
+                    "independent_reproduction_status": "none documented by the seed",
+                    "latex": item["statement"]["latex"],
+                    "natural": item["statement"]["natural"],
+                    "novelty_status": "unassessed",
+                    "objection_record_ids": [],
+                    "packages": [],
+                    "search_fingerprint": search_fingerprint(
+                        item["statement"]["natural"]
+                    ),
+                    "sources": item["sources"],
+                    "system_assessment": "not evaluated by the static catalog",
+                    "status_updated_at": CREATED,
+                },
+            )
+            entry["packages"].append(
+                {
+                    "package_root": pack.package_root,
+                    "path": package_path.relative_to(root).as_posix(),
+                    "primary": item is pack.primary_claim(),
+                }
+            )
+            for record in pack.records.values():
+                if (
+                    record["record_type"] == "assessment"
+                    and record["target"]["record_id"] == item["record_id"]
+                ):
+                    entry["assessment_record_ids"].append(record["record_id"])
+                    if record["assessment_kind"] == "objection":
+                        entry["objection_record_ids"].append(record["record_id"])
+    for entry in catalog_entries.values():
+        entry["assessment_record_ids"] = sorted(set(entry["assessment_record_ids"]))
+        entry["objection_record_ids"] = sorted(set(entry["objection_record_ids"]))
+    catalog: dict[str, Any] = {
+        "catalog_head": "",
+        "entries": [catalog_entries[key] for key in sorted(catalog_entries)],
+        "generated_at": CREATED,
+        "schema_version": "claimpack-static-catalog/0.1",
+        "search_fingerprint_profile": "NFKC-casefold-whitespace/v0.1",
+    }
+    projection = dict(catalog)
+    projection.pop("catalog_head")
+    catalog["catalog_head"] = ni_sha256(canonical_bytes(projection))
+    (catalog_dir / "catalog.json").write_bytes(pretty_bytes(catalog))
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--root", type=Path, default=Path.cwd())
+    args = parser.parse_args()
+    build(args.root.resolve())
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,81 @@
+{
+  "assessment_kinds": [
+    "author-status",
+    "automated-check",
+    "correction",
+    "correspondence",
+    "novelty-search",
+    "objection",
+    "registry-status",
+    "reproduction",
+    "response",
+    "retraction",
+    "review",
+    "withdrawal"
+  ],
+  "authentication_rule": "Package status is only claimed-verified or unverified; consumer-authenticated record IDs are separate policy inputs.",
+  "claim_kinds": [
+    "asymptotic-result",
+    "conditional-result",
+    "conjecture",
+    "counterexample",
+    "finite-case",
+    "formalisation-only",
+    "full-result",
+    "independent-reproduction",
+    "partial-result",
+    "rediscovery",
+    "strategy-obstruction",
+    "stronger-result",
+    "unsupported-claim"
+  ],
+  "decisions": [
+    "ALLOW",
+    "DENY",
+    "UNKNOWN"
+  ],
+  "dimensions": [
+    "canonical-problem-correspondence",
+    "dependency-closure",
+    "formal-or-certificate-verification",
+    "independent-reproduction",
+    "known-objections",
+    "novelty-audit",
+    "proof-completeness",
+    "provenance-quality",
+    "reproducibility",
+    "semantic-scope-match",
+    "statement-precision",
+    "version-stability"
+  ],
+  "edge_direction": "Earlier ClaimVersion records may be targeted by later Relation, Evidence, Assessment, and UseReceipt overlays; earlier records never enumerate later overlays.",
+  "identity_profiles": {
+    "claim_id": "SHA-256 ni URI over protocol_version, record_type, exact statement, and exact scope",
+    "package_root": "SHA-256 ni URI over restricted-canonical manifest without package_root",
+    "record_id": "SHA-256 ni URI over the entire restricted-canonical record without record_id",
+    "search_fingerprint": "versioned lossy retrieval aid; never an identity"
+  },
+  "manifest_version": "claimpack-manifest/0.1",
+  "protocol_version": "0.1.0",
+  "record_types": [
+    "claim-version",
+    "evidence",
+    "relation",
+    "assessment",
+    "use-receipt"
+  ],
+  "relation_kinds": [
+    "cites",
+    "counterexample-to",
+    "depends-on",
+    "equivalent-to",
+    "formalizes",
+    "refutes",
+    "rediscovery-of",
+    "reproduces",
+    "specializes",
+    "strengthens"
+  ],
+  "schema_version": "claimpack-vocabulary/0.1",
+  "structural_assurance": "Conformance and hash validity do not certify truth, novelty, completeness, reproduction, peer review, or fitness for use."
+}

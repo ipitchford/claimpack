@@ -1,0 +1,52 @@
+{
+  "artifacts": [
+    {
+      "digest": "sha256:fcd83b8986bf55784cf97513513d628af1fa5fe3bb0a2bdb869e1307dbbb8060",
+      "embedded": false,
+      "locator": "https://doi.org/10.5281/zenodo.21647629",
+      "media_type": "application/zip",
+      "name": "erdos-848-all-n.zip",
+      "rights": "CC0-1.0 for original repository content; third-party inputs excluded."
+    }
+  ],
+  "coverage": [
+    "candidate all-N proof",
+    "finite certificates",
+    "18-stage local replay"
+  ],
+  "evidence_kind": "manuscript",
+  "issued_at": "2026-07-29T12:00:00+00:00",
+  "issuer": {
+    "display_name": "ipitchford/erdos-848-all-n",
+    "id": "repository:ipitchford/erdos-848-all-n",
+    "kind": "organization"
+  },
+  "limitations": [
+    "The high range imports a pinned third-party analytic theorem.",
+    "A gapless range ledger does not by itself establish the component bounds.",
+    "No independent external reproduction, peer review, or end-to-end formalization is claimed.",
+    "Referenced archive is not embedded in this seed ClaimPack."
+  ],
+  "method": "Reference-only binding to the exact public release archive and its repository-reported assurance boundary.",
+  "protocol_version": "0.1.0",
+  "record_id": "ni:///sha-256;vDzOo1R3sLNnw8nfOseExsDzH1yXRs2Fc7PFt-Z5gbY",
+  "record_type": "evidence",
+  "replay": {
+    "command": "make verify",
+    "display_only": true,
+    "environment_digest": "",
+    "expected_outputs": [
+      "complete fresh-extraction release replay passes all stages"
+    ],
+    "resource_budget": {
+      "cpu": "source-repository dependent",
+      "disk": "source-repository dependent",
+      "network": "forbidden in core ClaimPack consumption",
+      "wall_time": "source-repository dependent"
+    }
+  },
+  "subject": {
+    "record_id": "ni:///sha-256;-MUohLpChLnBM6VZlDD8Tilw1ufDjferUkZvrUWEg34",
+    "record_type": "claim-version"
+  }
+}

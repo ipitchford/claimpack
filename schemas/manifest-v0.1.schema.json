@@ -1,0 +1,96 @@
+{
+  "$id": "urn:claimpack:schema:manifest:0.1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifacts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "media_type": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "media_type",
+          "path",
+          "sha256"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "created_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "extensions": {
+      "type": "object"
+    },
+    "package_root": {
+      "pattern": "^ni:///sha-256;[A-Za-z0-9_-]{43}$",
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "media_type": {
+            "const": "application/json"
+          },
+          "path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "record_id": {
+            "pattern": "^ni:///sha-256;[A-Za-z0-9_-]{43}$",
+            "type": "string"
+          },
+          "record_type": {
+            "enum": [
+              "assessment",
+              "claim-version",
+              "evidence",
+              "relation",
+              "use-receipt"
+            ]
+          },
+          "sha256": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "media_type",
+          "path",
+          "record_id",
+          "record_type",
+          "sha256"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "claimpack-manifest/0.1"
+    }
+  },
+  "required": [
+    "artifacts",
+    "created_at",
+    "package_root",
+    "records",
+    "schema_version"
+  ],
+  "title": "ClaimPack v0.1 manifest preflight",
+  "type": "object"
+}

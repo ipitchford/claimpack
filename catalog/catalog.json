@@ -1,0 +1,300 @@
+{
+  "catalog_head": "ni:///sha-256;koh09no_ncwJgSFuEnS4Y9fNIdn3YcTzPFRRlelIPF8",
+  "entries": [
+    {
+      "aliases": [
+        "Erdős Problem 848 all-N formula",
+        "f(N)=floor((N+18)/25)"
+      ],
+      "assessment_record_ids": [
+        "ni:///sha-256;1bl2YBpIBsSxDafyTkb8yuTtWpJpk0u_zscE20C3OX0",
+        "ni:///sha-256;A8-4Mfi86FE8NtaRKRMjeHiKdx19ELZakQ-cy4FMYcw",
+        "ni:///sha-256;FejOTD43QJSHP1reVdbO2Eu9HGISXawg9OlTridBI0k",
+        "ni:///sha-256;Ha6k5sa06YQgkEAsT___5zrIoypOox80L1hImY4KQik",
+        "ni:///sha-256;K5enixjsxWEIdwFzwYElV6_Yr5wOlyOnsvtvw9ZGqSQ",
+        "ni:///sha-256;ZzVhEZB-59218YxdhJmKaU1opixHVs90GKyzCEPhzpk",
+        "ni:///sha-256;dA5IvIf-Oe8doSPVnuRnVapc3abRB2I1Yj3m9dcfKac",
+        "ni:///sha-256;eKLlFTPizzmVF1fKY9-rrpB-9j4S1W7Kf84wgmVNE_c",
+        "ni:///sha-256;elmF1qs9V_CxvvAzO5vQfYCiAOczz7CU5ww-79nTK1c",
+        "ni:///sha-256;kuDLzJ9aE5uV4vP2lLcEt5mbus6UDbnnOZl_hmB2KZc",
+        "ni:///sha-256;w1cHtajLlCqqYybMam6p3ChMZ58pzdTP67hPQfIXgZs",
+        "ni:///sha-256;xob9qiHNNHa8aALa-iYXHKtHiNTVAtsxhyvYWW6Imlg"
+      ],
+      "author_claimed_status": "source-reported status; inspect assessment overlays",
+      "canonical_status": "unassessed",
+      "claim_id": "ni:///sha-256;uq0CpkvtJk1BMan7aaViTjjY4lLDwSL8uk2hHJvE1m8",
+      "claim_kind": "full-result",
+      "claim_record_id": "ni:///sha-256;-MUohLpChLnBM6VZlDD8Tilw1ufDjferUkZvrUWEg34",
+      "formal_verification_status": "source-reported only; inspect exact assessment records",
+      "human_review_status": "no independent human review documented by the seed",
+      "independent_reproduction_status": "none documented by the seed",
+      "latex": "f(N)=\\left\\lfloor\\frac{N+18}{25}\\right\\rfloor\\quad\\text{for every }N\\ge1",
+      "natural": "For every positive integer N, the maximum size f(N) of a subset A of {1,...,N} such that ab+1 is nonsquarefree for every a,b in A, including a=b, equals floor((N+18)/25).",
+      "novelty_status": "unassessed",
+      "objection_record_ids": [],
+      "packages": [
+        {
+          "package_root": "ni:///sha-256;HdKwXmxdjS-bofAsGXc_XbG0WKIUWKoT86wU5RTx5Bc",
+          "path": "examples/erdos848",
+          "primary": true
+        }
+      ],
+      "search_fingerprint": "sha256:c6a01c1cd8ac6e1ad9060f3974a507f229cf1f7b663b6b92b6bd8f93e1b85168",
+      "sources": [
+        {
+          "digest": "sha256:fcd83b8986bf55784cf97513513d628af1fa5fe3bb0a2bdb869e1307dbbb8060",
+          "immutable": true,
+          "kind": "doi-version",
+          "locator": "https://doi.org/10.5281/zenodo.21647629",
+          "rights": "Repository original content is CC0-1.0; third-party analytic inputs excluded.",
+          "version": "0.1-candidate"
+        },
+        {
+          "immutable": true,
+          "kind": "git-commit",
+          "locator": "https://github.com/ipitchford/erdos-848-all-n/commit/56b27ae765f04195dc867db5e1c52750d5f721ae",
+          "rights": "Repository original content is CC0-1.0; third-party analytic inputs excluded.",
+          "version": "56b27ae765f04195dc867db5e1c52750d5f721ae"
+        }
+      ],
+      "status_updated_at": "2026-07-29T12:00:00+00:00",
+      "system_assessment": "not evaluated by the static catalog"
+    },
+    {
+      "aliases": [
+        "VR2(K4)=20",
+        "two vertex-disjoint monochromatic K4s"
+      ],
+      "assessment_record_ids": [
+        "ni:///sha-256;6EAKjAOrn9E6yiiCHpnvQeKJi-PmsPzFB-ONRrXulcU",
+        "ni:///sha-256;B7VLynXgUi8DuUHkYxbwbLmrq9XQ1T69kcjXPIWlBkE",
+        "ni:///sha-256;BtjGIXse-6PcsOZqEdZ1dN0phj095cwTpqgypAetqKw",
+        "ni:///sha-256;OtZo7-XjZb3Y5aGT7-xF6VOH147ar7m2964dhHurlPM",
+        "ni:///sha-256;T1bdYIg1xZz8ig7tmvG-M8-cHSkKxZaHLslodtanLUA",
+        "ni:///sha-256;VE0bDUCi9VAqG6ax0_Kb7L9VuAt0QnYDvtuFXqK8n74",
+        "ni:///sha-256;XM3bzFHSkFF1UrbDD5FsmtZm_IxUVVL8gzcORomjGxI",
+        "ni:///sha-256;_xPQMQbEQytkyAw-YZLcoQCR2GSyRsvWz7pZFCuC6QA",
+        "ni:///sha-256;boGtvYBnNcodQslaubvh48ZsJ_i7yYIDD1D98SqPnic",
+        "ni:///sha-256;l7UfybRz41pUelmj5yKjO8rS88Btns3J-LjMCCEo07M",
+        "ni:///sha-256;nK6VsBX7iDvXM1BaE6kerMQTzIdAX_-ORVrsBeM9kc0",
+        "ni:///sha-256;y8ZaHielLLmCYyebiH6fkVCbyQ5rRC0B_pXYrbZ2S04"
+      ],
+      "author_claimed_status": "source-reported status; inspect assessment overlays",
+      "canonical_status": "unassessed",
+      "claim_id": "ni:///sha-256;cDwAiv3p8UiaXGlcLfx5Ef_2Kgf1NM3j9XhkxGxFkis",
+      "claim_kind": "full-result",
+      "claim_record_id": "ni:///sha-256;Jjoy1p3I8qSMqdLADk0J-22POPmczuNN_aQo4YCMTRY",
+      "formal_verification_status": "source-reported only; inspect exact assessment records",
+      "human_review_status": "no independent human review documented by the seed",
+      "independent_reproduction_status": "none documented by the seed",
+      "latex": "\\mathrm{VR}_2(K_4)=20",
+      "natural": "The least n such that every red-blue edge-colouring of K_n contains two vertex-disjoint monochromatic copies of K_4 is 20; the copies need not have the same colour.",
+      "novelty_status": "unassessed",
+      "objection_record_ids": [],
+      "packages": [
+        {
+          "package_root": "ni:///sha-256;Q3GoAq97GN-Q7B-vgySsFkDb_KzqVn4xJkvaLs6E-lg",
+          "path": "examples/vr2-k4",
+          "primary": true
+        }
+      ],
+      "search_fingerprint": "sha256:8b2a923de7e2837008520d0f344db1e838b12515794e1fcc2f22517632e9267d",
+      "sources": [
+        {
+          "digest": "sha256:e14178610233f9e5960da06162e07f3a0ce9aa65799dff3d456958a417997f4f",
+          "immutable": true,
+          "kind": "doi-version",
+          "locator": "https://doi.org/10.5281/zenodo.21647654",
+          "rights": "Repository original content is CC0-1.0; third-party inputs excluded.",
+          "version": "0.1-candidate"
+        },
+        {
+          "immutable": true,
+          "kind": "git-commit",
+          "locator": "https://github.com/ipitchford/z20-cochromatic/commit/b303d7d61d1a4cdf6ff0f1c18eee40eded0583cc",
+          "rights": "Repository original content is CC0-1.0; third-party inputs excluded.",
+          "version": "b303d7d61d1a4cdf6ff0f1c18eee40eded0583cc"
+        }
+      ],
+      "status_updated_at": "2026-07-29T12:00:00+00:00",
+      "system_assessment": "not evaluated by the static catalog"
+    },
+    {
+      "aliases": [
+        "Sothanaphan explicit threshold for Erdős 848"
+      ],
+      "assessment_record_ids": [
+        "ni:///sha-256;3PrWiw0O4ABlBM-voq09lQLGSE37Kt5YJDken4Hrwts",
+        "ni:///sha-256;7iKf6JwqlKNpUoEuzdIdNsa-ThU_ARhhAY-TiaVerV8",
+        "ni:///sha-256;LsvSOlyQKXL_M0hMD2lF_kVP2SZwduZjLHJMDt7-VH0",
+        "ni:///sha-256;MAaEcyTdzGkpv8vaiI9duQe0hk0uuJqLWw9BNIgUgxg",
+        "ni:///sha-256;P41KvE6QcSH6PhYs8d4ttIsIdARcCcYfmRNUadCt1qs",
+        "ni:///sha-256;Y2Me5Lyutnhs1B88XoVnMXCsnMx1qEbCKaRuxsF1Qsc",
+        "ni:///sha-256;YaXWSSuUZnR0vfC82gcHMfwTXX755S75FefEsEA6FVQ",
+        "ni:///sha-256;_bmaT3eHsVZ1KzQiwQoo4VmpBJY20EG5x0K5cvZ721M",
+        "ni:///sha-256;bpfsTRbRwP2MFhQpYGbaMDb74_ZgSM-9GEKz1FQHfCk",
+        "ni:///sha-256;ej2J-C9JbRe1Dq7vODf4_kxmw__ZlONzeuG1X1JaqKE",
+        "ni:///sha-256;isfoz7HeGxYw9-EuWfxsXb_kSMbvwEVcrTeIJSV5lW4",
+        "ni:///sha-256;juw3BAf6GAMwxqQl79jNP_OmLHlCRNEN1ifsX_XcVJo"
+      ],
+      "author_claimed_status": "source-reported status; inspect assessment overlays",
+      "canonical_status": "unassessed",
+      "claim_id": "ni:///sha-256;Av5awzyq6wrhnkFKVpCt3D7wPAvIRRjszuYVUnIGKL4",
+      "claim_kind": "asymptotic-result",
+      "claim_record_id": "ni:///sha-256;MK31Eb9d1biD_ui3A4200UYdJsO4oQ9iyegKG00oflY",
+      "formal_verification_status": "source-reported only; inspect exact assessment records",
+      "human_review_status": "no independent human review documented by the seed",
+      "independent_reproduction_status": "none documented by the seed",
+      "latex": "N\\ge264000000000000000\\Longrightarrow f(N)\\le\\left\\lfloor\\frac{N+18}{25}\\right\\rfloor",
+      "natural": "For every integer N at least 264000000000000000, the maximum size f(N) of an admissible subset is at most floor((N+18)/25).",
+      "novelty_status": "unassessed",
+      "objection_record_ids": [],
+      "packages": [
+        {
+          "package_root": "ni:///sha-256;HdKwXmxdjS-bofAsGXc_XbG0WKIUWKoT86wU5RTx5Bc",
+          "path": "examples/erdos848",
+          "primary": false
+        }
+      ],
+      "search_fingerprint": "sha256:59afad63067fb2b410eff06a5f2022b0b961235e48ba884dcb7645187a9e8726",
+      "sources": [
+        {
+          "digest": "sha256:8162113a571dc2283fc77de1cdf36e7abf424eeec952aa27cf82a4f44b3a796f",
+          "immutable": false,
+          "kind": "other",
+          "locator": "https://drive.google.com/file/d/1ujhm4_WYpgRV_rd1rJXIfHyvx16COEKe/view",
+          "rights": "Third-party source; not relicensed by ClaimPack.",
+          "version": "2026-03-24"
+        }
+      ],
+      "status_updated_at": "2026-07-29T12:00:00+00:00",
+      "system_assessment": "not evaluated by the static catalog"
+    },
+    {
+      "aliases": [
+        "z(20)=6",
+        "20-vertex cochromatic number"
+      ],
+      "assessment_record_ids": [
+        "ni:///sha-256;2t_J0svlSPkMWn71wcsechasrFAv_3JvvRXPv1whnDE",
+        "ni:///sha-256;NJsyyLkvDfKTffTGDVdzYNOE8Zz6SQbqGVQi5V6FO6I",
+        "ni:///sha-256;NrOwDwKbATOChuea4ij43YjcKniGudYj7AcVvh--3NE",
+        "ni:///sha-256;OPfu-ifJYEP24EOf_JWR3SDcpvFw_ZitEy7036Ywzqg",
+        "ni:///sha-256;UALj2P7-pruhRGy4y8kPaHOGuC80v63L9FuVlTo2KHI",
+        "ni:///sha-256;XbnqJprHuPPATNslkVmWbG5M53JrizbbeOS0WEaM_8k",
+        "ni:///sha-256;aJD1PeAKEvYVINGkaNCADfnMsEwPahnacJHYQ57GaRg",
+        "ni:///sha-256;lJmmwLHysPSjmAqEPjhofBtUlJE2Sm8ZqWQ-pJ2Qfds",
+        "ni:///sha-256;oOF52Zzf71FsgI_vyby3q1RJfN2TwUXOhOMINH2J438",
+        "ni:///sha-256;pNZDK8ZboFWA-j4caNhnhGxq6n5ac7ra9SQaOLmKqyY",
+        "ni:///sha-256;pU7nONMEcDyHuVPrVlzj2_6t0hIC9JUbQM07XhvX79s",
+        "ni:///sha-256;sx4L16xoY-pA8W9IYDnmpDuUoxbC-ZN8_53H8jJbz-U"
+      ],
+      "author_claimed_status": "source-reported status; inspect assessment overlays",
+      "canonical_status": "unassessed",
+      "claim_id": "ni:///sha-256;Z-cg7u8IqgNBCzyBxktrKSXpD7XWXhkiYwHAPVza6aQ",
+      "claim_kind": "full-result",
+      "claim_record_id": "ni:///sha-256;WxeUJp9uXJEjKkxuyUKJmy3y_Gku57eV058jEQu3vfY",
+      "formal_verification_status": "source-reported only; inspect exact assessment records",
+      "human_review_status": "no independent human review documented by the seed",
+      "independent_reproduction_status": "none documented by the seed",
+      "latex": "z(20)=6",
+      "natural": "The maximum cochromatic number among graphs on 20 vertices is 6.",
+      "novelty_status": "unassessed",
+      "objection_record_ids": [],
+      "packages": [
+        {
+          "package_root": "ni:///sha-256;qMJxdeZaeOoJ0NiWTJoHhSOPEPI5055jRP7E0x14Ce8",
+          "path": "examples/z20",
+          "primary": true
+        }
+      ],
+      "search_fingerprint": "sha256:84ab42222593fb24dcf97fc87d14304fbf33cbe87792983eb6b719eb408e0918",
+      "sources": [
+        {
+          "digest": "sha256:2b92e5febf5deaeb86db96ef37ddd7df33ac4022453090291c72633fda0310e5",
+          "immutable": true,
+          "kind": "doi-version",
+          "locator": "https://doi.org/10.5281/zenodo.21647645",
+          "rights": "Repository original content is CC0-1.0; third-party inputs excluded.",
+          "version": "candidate-2026-07-26"
+        },
+        {
+          "immutable": true,
+          "kind": "git-commit",
+          "locator": "https://github.com/ipitchford/z20-cochromatic/commit/3c7e520fdc0615f5c700761c2b1e5108dcc836e7",
+          "rights": "Repository original content is CC0-1.0; third-party inputs excluded.",
+          "version": "3c7e520fdc0615f5c700761c2b1e5108dcc836e7"
+        }
+      ],
+      "status_updated_at": "2026-07-29T12:00:00+00:00",
+      "system_assessment": "not evaluated by the static catalog"
+    },
+    {
+      "aliases": [
+        "z20 fixed-core UNSAT pair",
+        "two Ramsey-core refutations"
+      ],
+      "assessment_record_ids": [
+        "ni:///sha-256;2-RXPSEzDPaV8E9sFs965dqhnlRMyJnOhHydjWAMRuw",
+        "ni:///sha-256;9J7-ZypukTKSPCuQygsMNW6SM8B285mdSRp1eTJaq2o",
+        "ni:///sha-256;DLJ8FST6im6nybCrK_-TA3gDrSqr0jKaXcG8EBu1OdY",
+        "ni:///sha-256;O-f3Ah6H1v2YcL3xJrnaR46ojP5uixJtf8E_kH-HBXw",
+        "ni:///sha-256;YGY08_x-gemTfXgV5k_1xoHHl0TTO0fOcZ0yDLuAbV0",
+        "ni:///sha-256;eGCtF9YQ2a4KK9Jki4seObGQvlaTZotgCrTLXgJiGqI",
+        "ni:///sha-256;evbJHQfFu4Hu-O2gEuXHlJQwvkg9VC6Au2DYPk6_t-o",
+        "ni:///sha-256;jdHjR8L6VLpfJ2-GCkNhLzmBU2ReUTVOD75mjq46RBQ",
+        "ni:///sha-256;nUcYJPfS5aUT-Is6mQ_RJrda5_kQh-6n4egabS40Zu0",
+        "ni:///sha-256;tXNmbNzG6c747Sr3YD9uxpFJNxINYU1iTXRiq9lF-6g",
+        "ni:///sha-256;uLcW2yu9Xhz8y9GEHF5kC_MO2jkFMWaUGreLEOj4DRI",
+        "ni:///sha-256;vnKGGoGUUGL0MfynFWbRQV55uwG0QxWpLjAgmOJGxnk"
+      ],
+      "author_claimed_status": "source-reported status; inspect assessment overlays",
+      "canonical_status": "unassessed",
+      "claim_id": "ni:///sha-256;XZiVDafrILfPSxDvR1kHHCr5Cfk_gEKmC-WAOzVi9xg",
+      "claim_kind": "finite-case",
+      "claim_record_id": "ni:///sha-256;c8vx_FwTuRdgffinQn-EndbsZP3gtZGwIBtTiVAdeK0",
+      "formal_verification_status": "source-reported only; inspect exact assessment records",
+      "human_review_status": "no independent human review documented by the seed",
+      "independent_reproduction_status": "none documented by the seed",
+      "latex": "\\operatorname{UNSAT}(F_{\\mathrm{core}\\,0})\\ \\land\\ \\operatorname{UNSAT}(F_{\\mathrm{core}\\,1})",
+      "natural": "For each of the two order-16 (4,4)-Ramsey cores used in the pinned z(20) release, the exact fixed-core CNF over the 64 cross edges is unsatisfiable.",
+      "novelty_status": "unassessed",
+      "objection_record_ids": [],
+      "packages": [
+        {
+          "package_root": "ni:///sha-256;qMJxdeZaeOoJ0NiWTJoHhSOPEPI5055jRP7E0x14Ce8",
+          "path": "examples/z20",
+          "primary": false
+        },
+        {
+          "package_root": "ni:///sha-256;Q3GoAq97GN-Q7B-vgySsFkDb_KzqVn4xJkvaLs6E-lg",
+          "path": "examples/vr2-k4",
+          "primary": false
+        }
+      ],
+      "search_fingerprint": "sha256:1567ddd1eccf21a4eddb87d880dd8defc4a67a67282662f9cf39f5f5bfb19d8d",
+      "sources": [
+        {
+          "digest": "sha256:2b92e5febf5deaeb86db96ef37ddd7df33ac4022453090291c72633fda0310e5",
+          "immutable": true,
+          "kind": "doi-version",
+          "locator": "https://doi.org/10.5281/zenodo.21647645",
+          "rights": "Repository original content is CC0-1.0; third-party inputs excluded.",
+          "version": "candidate-2026-07-26"
+        },
+        {
+          "immutable": true,
+          "kind": "git-commit",
+          "locator": "https://github.com/ipitchford/z20-cochromatic/commit/3c7e520fdc0615f5c700761c2b1e5108dcc836e7",
+          "rights": "Repository original content is CC0-1.0; third-party inputs excluded.",
+          "version": "3c7e520fdc0615f5c700761c2b1e5108dcc836e7"
+        }
+      ],
+      "status_updated_at": "2026-07-29T12:00:00+00:00",
+      "system_assessment": "not evaluated by the static catalog"
+    }
+  ],
+  "generated_at": "2026-07-29T12:00:00+00:00",
+  "schema_version": "claimpack-static-catalog/0.1",
+  "search_fingerprint_profile": "NFKC-casefold-whitespace/v0.1"
+}

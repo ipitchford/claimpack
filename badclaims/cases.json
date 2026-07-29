@@ -1,0 +1,65 @@
+{
+  "cases": [
+    {
+      "id": "G00",
+      "name": "directory and ordinary ZIP control",
+      "required_outcome": "same disclosed decision"
+    },
+    {
+      "id": "G01",
+      "name": "prompt injection remains inert quoted data",
+      "required_outcome": "no side effect; executed_commands empty"
+    },
+    {
+      "id": "G02",
+      "name": "ZIP path traversal",
+      "required_outcome": "REJECT"
+    },
+    {
+      "id": "G04",
+      "name": "parser and archive resource bombs",
+      "required_outcome": "REJECT or bounded UNKNOWN; never ALLOW"
+    },
+    {
+      "id": "G05",
+      "name": "stale positive assessments",
+      "required_outcome": "UNKNOWN"
+    },
+    {
+      "id": "G06",
+      "name": "objection and authenticated same-issuer withdrawal",
+      "required_outcome": "UNKNOWN before withdrawal; policy reevaluated after causal withdrawal"
+    },
+    {
+      "id": "G08",
+      "name": "same-claim version washing",
+      "required_outcome": "UNKNOWN"
+    },
+    {
+      "id": "G09",
+      "name": "qualification laundering across dependencies",
+      "required_outcome": "all relevant qualifications retained"
+    },
+    {
+      "id": "G10",
+      "name": "missing dependency or semantic bridge",
+      "required_outcome": "UNKNOWN"
+    },
+    {
+      "id": "G11",
+      "name": "dependency cycle",
+      "required_outcome": "UNKNOWN with cycle termination"
+    },
+    {
+      "id": "G12",
+      "name": "correlated attestation ring",
+      "required_outcome": "UNKNOWN"
+    },
+    {
+      "id": "G13",
+      "name": "exit-zero verifier without semantic correspondence",
+      "required_outcome": "UNKNOWN"
+    }
+  ],
+  "schema_version": "claimpack-badclaims/0.1"
+}

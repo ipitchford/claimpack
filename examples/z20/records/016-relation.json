@@ -1,0 +1,34 @@
+{
+  "issued_at": "2026-07-29T12:00:00+00:00",
+  "issuer": {
+    "display_name": "ipitchford/z20-cochromatic",
+    "id": "repository:ipitchford/z20-cochromatic",
+    "kind": "organization"
+  },
+  "load_bearing": true,
+  "protocol_version": "0.1.0",
+  "record_id": "ni:///sha-256;5qWc6Kpfd7C9AUqs7ovZBiDhWcRUqa4uUj0er9HMHGs",
+  "record_type": "relation",
+  "relation": "depends-on",
+  "semantic_alignment": {
+    "definition_map": [
+      {
+        "note": "Repository-reported dependency mapping.",
+        "source_term": "imported result",
+        "target_term": "exact dependency ClaimVersion"
+      }
+    ],
+    "limitations": [
+      "The exact SAT subclaim is load-bearing, but the graph-to-CNF bridge remains separately assessed."
+    ],
+    "status": "partial"
+  },
+  "source": {
+    "record_id": "ni:///sha-256;WxeUJp9uXJEjKkxuyUKJmy3y_Gku57eV058jEQu3vfY",
+    "record_type": "claim-version"
+  },
+  "target": {
+    "record_id": "ni:///sha-256;c8vx_FwTuRdgffinQn-EndbsZP3gtZGwIBtTiVAdeK0",
+    "record_type": "claim-version"
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "aliases": [
+    "Erdős Problem 848 all-N formula",
+    "f(N)=floor((N+18)/25)"
+  ],
+  "claim_id": "ni:///sha-256;uq0CpkvtJk1BMan7aaViTjjY4lLDwSL8uk2hHJvE1m8",
+  "claim_version": "0.1-candidate",
+  "dependency_targets": [
+    {
+      "record_id": "ni:///sha-256;MK31Eb9d1biD_ui3A4200UYdJsO4oQ9iyegKG00oflY",
+      "record_type": "claim-version"
+    }
+  ],
+  "formal_statements": [],
+  "issued_at": "2026-07-29T12:00:00+00:00",
+  "lineage": [],
+  "problem_refs": [
+    {
+      "id": "848",
+      "locator": "https://www.erdosproblems.com/848",
+      "scheme": "erdos-problems"
+    }
+  ],
+  "protocol_version": "0.1.0",
+  "provenance": {
+    "actors": [
+      {
+        "display_name": "Ian Pitchford",
+        "id": "human:ian-pitchford",
+        "kind": "human"
+      },
+      {
+        "display_name": "OpenAI Codex",
+        "id": "software:openai-codex",
+        "kind": "software"
+      },
+      {
+        "display_name": "Nat Sothanaphan",
+        "id": "human:nat-sothanaphan",
+        "kind": "human"
+      },
+      {
+        "display_name": "Mehtaab Sawhney",
+        "id": "human:mehtaab-sawhney",
+        "kind": "human"
+      }
+    ],
+    "roles": [
+      {
+        "actor_id": "software:openai-codex",
+        "date": "2026-07-28T00:00:00+00:00",
+        "role": "proof, replay, and audit development"
+      },
+      {
+        "actor_id": "human:ian-pitchford",
+        "date": "2026-07-28T00:00:00+00:00",
+        "role": "research direction, mediation, maintenance, and publication"
+      },
+      {
+        "actor_id": "human:nat-sothanaphan",
+        "date": "2026-03-24T00:00:00+00:00",
+        "role": "external explicit-threshold theorem cited as input"
+      },
+      {
+        "actor_id": "human:mehtaab-sawhney",
+        "date": "2026-07-28T00:00:00+00:00",
+        "role": "external analytic input cited by the source repository"
+      }
+    ]
+  },
+  "record_id": "ni:///sha-256;-MUohLpChLnBM6VZlDD8Tilw1ufDjferUkZvrUWEg34",
+  "record_type": "claim-version",
+  "rights": {
+    "exclusions": [],
+    "license": "CC0-1.0",
+    "scope": "This ClaimPack record and original source-repository content only to the extent the rights holder may dedicate it."
+  },
+  "scope": {
+    "claim_kind": "full-result",
+    "conditions": [
+      "Positive integer N; diagonal pairs a=b are included."
+    ],
+    "exclusions": [
+      "No uniqueness claim for extremal sets."
+    ],
+    "non_implications": [],
+    "scope_note": "",
+    "structured_scope": {
+      "N": "all positive integers",
+      "formula_denominator": "25"
+    },
+    "targets": [
+      "exact extremal value for every positive N"
+    ]
+  },
+  "sources": [
+    {
+      "digest": "sha256:fcd83b8986bf55784cf97513513d628af1fa5fe3bb0a2bdb869e1307dbbb8060",
+      "immutable": true,
+      "kind": "doi-version",
+      "locator": "https://doi.org/10.5281/zenodo.21647629",
+      "rights": "Repository original content is CC0-1.0; third-party analytic inputs excluded.",
+      "version": "0.1-candidate"
+    },
+    {
+      "immutable": true,
+      "kind": "git-commit",
+      "locator": "https://github.com/ipitchford/erdos-848-all-n/commit/56b27ae765f04195dc867db5e1c52750d5f721ae",
+      "rights": "Repository original content is CC0-1.0; third-party analytic inputs excluded.",
+      "version": "56b27ae765f04195dc867db5e1c52750d5f721ae"
+    }
+  ],
+  "statement": {
+    "definitions": [
+      {
+        "meaning": "Divisible by the square of at least one prime.",
+        "term": "nonsquarefree"
+      },
+      {
+        "meaning": "The largest cardinality of A subset {1,...,N} for which ab+1 is nonsquarefree for every ordered choice a,b in A, including a=b.",
+        "term": "f(N)"
+      }
+    ],
+    "language": "en",
+    "latex": "f(N)=\\left\\lfloor\\frac{N+18}{25}\\right\\rfloor\\quad\\text{for every }N\\ge1",
+    "natural": "For every positive integer N, the maximum size f(N) of a subset A of {1,...,N} such that ab+1 is nonsquarefree for every a,b in A, including a=b, equals floor((N+18)/25).",
+    "quantifiers": [
+      "for every positive integer N",
+      "for every a,b in A including a=b"
+    ]
+  }
+}

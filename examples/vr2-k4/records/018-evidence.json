@@ -1,0 +1,51 @@
+{
+  "artifacts": [
+    {
+      "digest": "sha256:e14178610233f9e5960da06162e07f3a0ce9aa65799dff3d456958a417997f4f",
+      "embedded": false,
+      "locator": "https://doi.org/10.5281/zenodo.21647654",
+      "media_type": "application/zip",
+      "name": "z20-vr2-k4-v0.1-candidate.zip",
+      "rights": "CC0-1.0 for original repository content; see source exclusions."
+    }
+  ],
+  "coverage": [
+    "candidate paper",
+    "direct K_19 lower-bound verifier",
+    "pinned upper-bound dependency"
+  ],
+  "evidence_kind": "manuscript",
+  "issued_at": "2026-07-29T12:00:00+00:00",
+  "issuer": {
+    "display_name": "ipitchford/z20-cochromatic",
+    "id": "repository:ipitchford/z20-cochromatic",
+    "kind": "organization"
+  },
+  "limitations": [
+    "The upper bound reuses rather than independently reproduces fixed-core certificates.",
+    "No independent external reproduction, peer review, or end-to-end formalization is claimed.",
+    "Referenced archive is not embedded in this seed ClaimPack."
+  ],
+  "method": "Reference-only binding to the exact public release archive and its repository-reported assurance boundary.",
+  "protocol_version": "0.1.0",
+  "record_id": "ni:///sha-256;uklWwtnxcUwUzK3k90yfXP7Qo0ahlMPtfATHJF0gfqM",
+  "record_type": "evidence",
+  "replay": {
+    "command": "python3 applications/vr2-k4/verify_lower_bound.py",
+    "display_only": true,
+    "environment_digest": "",
+    "expected_outputs": [
+      "disjoint monochromatic pair exists: False"
+    ],
+    "resource_budget": {
+      "cpu": "source-repository dependent",
+      "disk": "source-repository dependent",
+      "network": "forbidden in core ClaimPack consumption",
+      "wall_time": "source-repository dependent"
+    }
+  },
+  "subject": {
+    "record_id": "ni:///sha-256;Jjoy1p3I8qSMqdLADk0J-22POPmczuNN_aQo4YCMTRY",
+    "record_type": "claim-version"
+  }
+}

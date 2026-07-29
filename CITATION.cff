@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: >-
+  Cite this as a pre-release research-infrastructure prototype, not as an
+  authority certifying any indexed scientific claim.
+title: >-
+  ClaimPack: a consumer-first protocol for exact, evidence-bounded scientific
+  claim transfer between research agents
+type: software
+authors:
+  - name: Ian Pitchford
+  - name: OpenAI Codex
+version: 0.1.0-dev
+date-released: 2026-07-29
+license: CC0-1.0
+keywords:
+  - AI-assisted research
+  - scientific provenance
+  - research agents
+  - reproducibility
+  - evidence graph
+  - content-addressed claims
+preferred-citation:
+  type: unpublished
+  title: >-
+    ClaimPack: a consumer-first protocol for exact, evidence-bounded scientific
+    claim transfer between research agents
+  authors:
+    - name: Ian Pitchford
+    - name: OpenAI Codex
+  year: 2026
+  version: 0.1.0-dev
