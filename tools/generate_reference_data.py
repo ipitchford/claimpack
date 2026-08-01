@@ -85,13 +85,14 @@ def claim(
     sources: list[dict[str, Any]],
     claim_provenance: dict[str, Any],
     dependency_targets: list[dict[str, str]] | None = None,
+    claim_version: str = "0.1-candidate",
     issued_at: str = ISSUED,
     rights_exclusions: list[str] | None = None,
 ) -> dict[str, Any]:
     return seal_record(
         {
             "aliases": aliases,
-            "claim_version": "0.1-candidate",
+            "claim_version": claim_version,
             "dependency_targets": dependency_targets or [],
             "formal_statements": [],
             "issued_at": issued_at,
@@ -1062,7 +1063,1103 @@ def build(root: Path) -> None:
         primary_claim_record_id=erdos_claim["record_id"],
     )
 
-    package_paths = [examples / "z20", examples / "vr2-k4", examples / "erdos848"]
+    degree_actors = [
+        actor("human:ian-pitchford", "Ian Pitchford", "human"),
+        actor(
+            "organization:openai-codex-anthropic-models",
+            "OpenAI Codex / Anthropic models",
+            "organization",
+        ),
+        actor("software:openai-codex", "OpenAI Codex", "software"),
+    ]
+    degree_provenance = provenance(
+        degree_actors,
+        [
+            (
+                "organization:openai-codex-anthropic-models",
+                "repository-reported manuscript attribution",
+                "2026-07-27T00:00:00+00:00",
+            ),
+            (
+                "human:ian-pitchford",
+                "research direction, mediation, maintenance, and publication",
+                "2026-07-27T00:00:00+00:00",
+            ),
+            ("software:openai-codex", "ClaimPack encoding", CREATED),
+        ],
+    )
+    degree_repo = "https://github.com/ipitchford/degree-difference-affine-slices"
+    degree_commit = "38bb6c2054fd1e231233ee9c1bbd8ebf7b666685"
+    degree_digest = (
+        "sha256:8d0b0cfb3b43e3b7c7f32f62506ae66e824890e15a981b8498d41a07b4c2fe43"
+    )
+    degree_sources = [
+        source(
+            kind="doi-version",
+            locator="https://doi.org/10.5281/zenodo.21647593",
+            immutable=True,
+            version="0.1-candidate",
+            digest=degree_digest,
+            rights=(
+                "Repository original content is CC0-1.0 to the extent held; "
+                "third-party material is excluded."
+            ),
+        ),
+        source(
+            kind="git-commit",
+            locator=f"{degree_repo}/commit/{degree_commit}",
+            immutable=True,
+            version=degree_commit,
+            rights=(
+                "Repository original content is CC0-1.0 to the extent held; "
+                "third-party material is excluded."
+            ),
+        ),
+    ]
+    degree_theorem = claim(
+        natural=(
+            "Let r,s>=1 and choose the standard monomial coefficient orders "
+            "on V_r, V_s, and V_{r+s}. For Phi_{r,s}(A,B)=(AB,Res(A,B)), "
+            "det D Phi_{r,s}=(-1)^{s(r+1)}(r-s)Res(A,B)^2. In particular, "
+            "if r!=s, Phi_{r,s} is etale on the coprime locus {Res!=0}. "
+            "For nonzero ell in V_{r+s}^*, if r!=s, projectivisation is a "
+            "finite etale mu_{|s-r|}-torsor from the normalized slice "
+            "tilde X_{r,s,ell} to U_{r,s,ell}; the induced multiplication "
+            "map has generic degree |s-r| binom(r+s,r); and, if the "
+            "resultant divisor R_{r,s} and multiplication-hyperplane divisor "
+            "S_{r,s,ell} are prime, Cl(U_{r,s,ell}) is isomorphic to "
+            "Z/|s-r|Z."
+        ),
+        latex=(
+            r"\begin{gathered}"
+            r"r,s\ge1,\qquad "
+            r"\Phi_{r,s}(A,B)=(AB,\operatorname{Res}(A,B)),\\"
+            r"\det D\Phi_{r,s}=(-1)^{s(r+1)}(r-s)"
+            r"\operatorname{Res}(A,B)^2.\\"
+            r"r\ne s\Longrightarrow "
+            r"\widetilde X_{r,s,\ell}\longrightarrow U_{r,s,\ell}"
+            r"\text{ is a finite \acute{e}tale }\mu_{|s-r|}\text{-torsor},\\"
+            r"\deg(\widetilde X_{r,s,\ell}\to"
+            r"\{C\in V_{r+s}:\ell(C)=1\})"
+            r"=|s-r|\binom{r+s}{r},\\"
+            r"\mathcal R_{r,s},\mathcal S_{r,s,\ell}\text{ prime}"
+            r"\Longrightarrow\operatorname{Cl}(U_{r,s,\ell})"
+            r"\simeq\mathbb Z/|s-r|\mathbb Z."
+            r"\end{gathered}"
+        ),
+        definitions=[
+            (
+                "V_d",
+                "The vector space Sym^d(W^*) of binary forms of degree d for a two-dimensional complex vector space W.",
+            ),
+            (
+                "tilde X_{r,s,ell}",
+                "The pairs (A,B) satisfying Res(A,B)=1 and ell(AB)=1.",
+            ),
+            (
+                "U_{r,s,ell}",
+                "The complement of the resultant and multiplication-hyperplane divisors in P(V_r) x P(V_s).",
+            ),
+        ],
+        quantifiers=[
+            "for every pair of integers r,s >= 1",
+            "for every nonzero ell in V_{r+s}^* for the slice conclusions",
+        ],
+        claim_kind="stronger-result",
+        conditions=[
+            "The standard monomial coefficient orders and the manuscript's resultant convention are used.",
+            "The class-group conclusion assumes both named boundary divisors are prime.",
+        ],
+        exclusions=["Degree-zero factors are outside the stated theorem."],
+        non_implications=[],
+        targets=[
+            "Jacobian determinant",
+            "etale torsor",
+            "generic degree",
+            "divisor class group",
+        ],
+        structured_scope={
+            "base_field": "complex numbers for the geometric conclusions",
+            "factor_degrees": "all positive r,s",
+            "map": "binary-form product and resultant",
+        },
+        aliases=[
+            "degree-difference principle",
+            "binary-form product-resultant determinant theorem",
+        ],
+        problem_refs=[],
+        sources=degree_sources,
+        claim_provenance=degree_provenance,
+        issued_at="2026-07-27T21:33:47+00:00",
+    )
+    degree_cubic = claim(
+        natural=(
+            "Let 0!=ell in V_3^*, let Gamma={[M^3]:[M] in P(V_1)} be "
+            "the twisted cubic, let H_ell=P(ker ell), and let X_ell be the "
+            "normalized linear-quadratic slice. Over C, X_ell is isomorphic "
+            "to A^3 if and only if H_ell is tangent but not osculating to "
+            "Gamma. More precisely, three distinct intersection points give "
+            "X_ell not isomorphic to A^3 with class L^3-L; tangent "
+            "nonosculating contact gives X_ell isomorphic to A^3 with class "
+            "L^3; and osculating contact gives X_ell isomorphic to G_m x "
+            "A^2 with class L^3-L^2. Equivalently, the successful "
+            "functionals form the discriminant surface of binary cubics with "
+            "the triple-root curve removed."
+        ),
+        latex=(
+            r"\begin{gathered}"
+            r"0\ne\ell\in V_3^\vee,\quad "
+            r"\Gamma=\{[M^3]:[M]\in\mathbb P(V_1)\},\quad "
+            r"\mathcal H_\ell=\mathbb P(\ker\ell),\\"
+            r"X_\ell\simeq\mathbb A^3\Longleftrightarrow "
+            r"\mathcal H_\ell\text{ is tangent but not osculating to }\Gamma,\\"
+            r"(1,1,1):\ [X_\ell]=\mathbb L^3-\mathbb L,\ "
+            r"X_\ell\not\simeq\mathbb A^3;\qquad "
+            r"(2,1):\ X_\ell\simeq\mathbb A^3,\ "
+            r"[X_\ell]=\mathbb L^3;\\"
+            r"(3):\ X_\ell\simeq\mathbb G_m\times\mathbb A^2,\ "
+            r"[X_\ell]=\mathbb L^3-\mathbb L^2."
+            r"\end{gathered}"
+        ),
+        definitions=[
+            ("Gamma", "The twisted cubic of pure cubes in P(V_3)."),
+            ("H_ell", "The projective hyperplane P(ker ell)."),
+            (
+                "X_ell",
+                "The normalized linear-quadratic slice with resultant and ell(AB) both equal to one.",
+            ),
+        ],
+        quantifiers=["for every nonzero ell in V_3^*"],
+        claim_kind="full-result",
+        conditions=["The classification is over the complex numbers."],
+        exclusions=["No classification of higher-degree slices is included."],
+        non_implications=[],
+        targets=["complete cubic contact-orbit classification"],
+        structured_scope={
+            "base_field": "complex numbers",
+            "factor_degrees": "(1,2)",
+            "contact_types": "(1,1,1), (2,1), (3)",
+        },
+        aliases=[
+            "complete cubic classification",
+            "linear-quadratic affine-slice trichotomy",
+        ],
+        problem_refs=[],
+        sources=degree_sources,
+        claim_provenance=degree_provenance,
+        issued_at="2026-07-27T21:33:47+00:00",
+    )
+    degree_theorem_evidence = external_evidence(
+        subject=degree_theorem,
+        issuer_id="repository:ipitchford/degree-difference-affine-slices",
+        issuer_name="ipitchford/degree-difference-affine-slices",
+        locator="https://doi.org/10.5281/zenodo.21647593",
+        digest=degree_digest,
+        name="degree-difference-affine-slices.zip",
+        coverage=[
+            "candidate manuscript proof of the full degree-difference theorem",
+            "exact finite symbolic checks of the determinant identity",
+            "normal and optimized local replay with a negative control",
+        ],
+        limitations=[
+            "The all-degree theorem rests on the manuscript proof, not the finite symbolic checks.",
+            "The torsor, generic-degree, and class-group arguments are not encoded by the checker.",
+            "No independent external reproduction, human review, peer review, or formalisation is documented.",
+        ],
+        replay_command="make PYTHON=.venv/bin/python verify",
+        expected_outputs=[
+            "normal and optimized transcripts match verifier_output.txt",
+            "the deliberately wrong determinant expectation fails",
+        ],
+        rights="CC0-1.0 for original repository content to the extent held; source exclusions apply.",
+    )
+    degree_cubic_evidence = external_evidence(
+        subject=degree_cubic,
+        issuer_id="repository:ipitchford/degree-difference-affine-slices",
+        issuer_name="ipitchford/degree-difference-affine-slices",
+        locator="https://doi.org/10.5281/zenodo.21647593",
+        digest=degree_digest,
+        name="degree-difference-affine-slices.zip",
+        coverage=[
+            "candidate manuscript proof of the cubic classification",
+            "exact checks of the tangent affine parametrisation and explicit map",
+        ],
+        limitations=[
+            "The checker does not encode the orbit classification, motivic calculations, or affine-bundle arguments.",
+            "No independent external reproduction, human review, peer review, or formalisation is documented.",
+        ],
+        replay_command="make PYTHON=.venv/bin/python verify",
+        expected_outputs=[
+            "normal and optimized transcripts match verifier_output.txt",
+            "the deliberately wrong determinant expectation fails",
+        ],
+        rights="CC0-1.0 for original repository content to the extent held; source exclusions apply.",
+    )
+    degree_passing = {
+        "provenance-quality",
+        "reproducibility",
+        "statement-precision",
+        "version-stability",
+    }
+    degree_theorem_vector = status_vector(
+        degree_theorem,
+        degree_theorem_evidence,
+        issuer_id="repository:ipitchford/degree-difference-affine-slices",
+        issuer_name="ipitchford/degree-difference-affine-slices",
+        passing=degree_passing,
+        notes={
+            "formal-or-certificate-verification": (
+                "Only finite instances of the determinant identity are checked; "
+                "the full theorem is not formally or certificate verified."
+            ),
+            "independent-reproduction": "No independent external reproduction is documented.",
+            "novelty-audit": "No exhaustive novelty or priority determination was performed.",
+            "proof-completeness": "Proof completeness is repository-claimed in an unrefereed manuscript.",
+            "semantic-scope-match": "The checker covers selected formulas rather than the complete geometric theorem.",
+        },
+    )
+    degree_cubic_vector = status_vector(
+        degree_cubic,
+        degree_cubic_evidence,
+        issuer_id="repository:ipitchford/degree-difference-affine-slices",
+        issuer_name="ipitchford/degree-difference-affine-slices",
+        passing=degree_passing,
+        notes={
+            "formal-or-certificate-verification": "The cubic classification is not formally or certificate verified.",
+            "independent-reproduction": "No independent external reproduction is documented.",
+            "novelty-audit": "No exhaustive novelty or priority determination was performed.",
+            "proof-completeness": "Proof completeness is repository-claimed in an unrefereed manuscript.",
+            "semantic-scope-match": "Executable checks cover formulas surrounding only one contact orbit.",
+        },
+    )
+    degree_records = (
+        [degree_theorem, degree_theorem_evidence]
+        + degree_theorem_vector
+        + [degree_cubic, degree_cubic_evidence]
+        + degree_cubic_vector
+    )
+    write_pack(
+        examples / "degree-difference-affine-slices",
+        records=degree_records,
+        created_at=CREATED,
+        primary_claim_record_id=degree_theorem["record_id"],
+    )
+
+    exotic_actors = [
+        actor("human:ian-pitchford", "Ian Pitchford", "human"),
+        actor(
+            "organization:openai-codex-anthropic-models",
+            "OpenAI Codex / Anthropic models",
+            "organization",
+        ),
+        actor("software:openai-codex", "OpenAI Codex", "software"),
+    ]
+    exotic_provenance = provenance(
+        exotic_actors,
+        [
+            (
+                "organization:openai-codex-anthropic-models",
+                "repository-reported manuscript attribution",
+                "2026-07-28T00:00:00+00:00",
+            ),
+            (
+                "human:ian-pitchford",
+                "research direction, mediation, maintenance, and publication",
+                "2026-07-28T00:00:00+00:00",
+            ),
+            ("software:openai-codex", "ClaimPack encoding", CREATED),
+        ],
+    )
+    exotic_repo = (
+        "https://github.com/ipitchford/exotic-affine-spheres-quadratic-cubic"
+    )
+    exotic_commit = "e786cec53c6ea34142ff775f9ab30dd00d960770"
+    exotic_digest = (
+        "sha256:de92abd2033cf65a2412cb070edd388ae2c3fd0d85a08660954d45408343d737"
+    )
+    exotic_sources = [
+        source(
+            kind="doi-version",
+            locator="https://doi.org/10.5281/zenodo.21653108",
+            immutable=True,
+            version="0.1.1",
+            digest=exotic_digest,
+            rights=(
+                "Repository original content is CC0-1.0 to the extent held; "
+                "third-party material and the thread snapshot are excluded."
+            ),
+        ),
+        source(
+            kind="git-commit",
+            locator=f"{exotic_repo}/commit/{exotic_commit}",
+            immutable=True,
+            version=exotic_commit,
+            rights=(
+                "Repository original content is CC0-1.0 to the extent held; "
+                "third-party material and the thread snapshot are excluded."
+            ),
+        ),
+    ]
+    dubouloz_finston_source = source(
+        kind="doi-version",
+        locator="https://doi.org/10.1090/S1056-3911-2014-00612-3",
+        immutable=True,
+        version="2015",
+        rights="Third-party cited source; not relicensed by ClaimPack.",
+    )
+    peters_steenbrink_source = source(
+        kind="doi-version",
+        locator="https://doi.org/10.1007/978-3-540-77017-6",
+        immutable=True,
+        version="2008",
+        rights="Third-party cited source; not relicensed by ClaimPack.",
+    )
+    exotic_transverse = claim(
+        natural=(
+            "Every transverse normalized linear-quadratic slice is "
+            "isomorphic to X(4,4,-a^3+a^2b^2-b^3), the nontrivial "
+            "G_a-bundle over A^2 minus {0} represented by the Cech cocycle "
+            "-1/(ab^4)+1/(a^2b^2)-1/(a^4b). Its total space is an exotic "
+            "affine three-sphere and is not algebraically isomorphic to "
+            "SL_2(C)."
+        ),
+        latex=(
+            r"\begin{gathered}"
+            r"X_{\mathrm{transverse}}\simeq "
+            r"X(4,4,-a^3+a^2b^2-b^3),\\"
+            r"[t]=-{1\over ab^4}+{1\over a^2b^2}-{1\over a^4b}"
+            r"\in H^1(\mathbb A^2\setminus\{0\},\mathcal O),\\"
+            r"X_{\mathrm{transverse}}\not\simeq\operatorname{SL}_2(\mathbb C)."
+            r"\end{gathered}"
+        ),
+        definitions=[
+            (
+                "transverse normalized linear-quadratic slice",
+                "The (1,2) normalized slice attached to a cubic hyperplane meeting the twisted cubic in three distinct points.",
+            ),
+            (
+                "X(m,n,p)",
+                "The Dubouloz-Finston normal form for the indicated principal additive bundle over the punctured affine plane.",
+            ),
+        ],
+        quantifiers=["for every transverse normalized linear-quadratic slice"],
+        claim_kind="full-result",
+        conditions=["The algebraic non-isomorphism conclusion is over the complex numbers."],
+        exclusions=["Tangent and osculating contact types are not classified by this theorem."],
+        non_implications=[],
+        targets=["transverse slice isomorphism type", "exotic affine three-sphere"],
+        structured_scope={
+            "base_field": "complex numbers",
+            "factor_degrees": "(1,2)",
+            "contact_type": "three distinct points",
+        },
+        aliases=[
+            "transverse exotic affine three-sphere",
+            "X(4,4,-a^3+a^2b^2-b^3)",
+        ],
+        problem_refs=[],
+        sources=exotic_sources + [dubouloz_finston_source],
+        claim_provenance=exotic_provenance,
+        dependency_targets=[
+            {"record_id": degree_cubic["record_id"], "record_type": "claim-version"}
+        ],
+        claim_version="0.1.1",
+        issued_at="2026-07-28T19:26:41+00:00",
+    )
+    exotic_universal = claim(
+        natural=(
+            "For every nonzero ell in V_5^*, the normalized quadratic-cubic "
+            "slice X_ell^{2,3} is not isomorphic to A^5. More precisely, if "
+            "L=[A^1] and the reduced degeneracy loci K,D_2,D_1,Z are those "
+            "defined in the manuscript, then [X_ell^{2,3}]=L^5-L^3-"
+            "L^3[K]+L([D_2]-[D_1])+L^2[Z] in K_0(Var_C), and the compactly "
+            "supported Hodge-Deligne polynomial of the right-hand side is "
+            "never (uv)^5."
+        ),
+        latex=(
+            r"\begin{gathered}"
+            r"0\ne\ell\in V_5^\vee\Longrightarrow "
+            r"X_\ell^{2,3}\not\simeq\mathbb A^5,\\"
+            r"[X_\ell^{2,3}]=\mathbb L^5-\mathbb L^3-\mathbb L^3[K]"
+            r"+\mathbb L([D_2]-[D_1])+\mathbb L^2[Z]"
+            r"\quad\text{in }K_0(\operatorname{Var}_{\mathbb C}),\\"
+            r"E_c(X_\ell^{2,3};u,v)\ne(uv)^5."
+            r"\end{gathered}"
+        ),
+        definitions=[
+            (
+                "X_ell^{2,3}",
+                "The pairs (A,B) of binary forms of degrees two and three satisfying Res(A,B)=1 and ell(AB)=1.",
+            ),
+            (
+                "K,D_2,D_1,Z",
+                "For C_ell:V_2 -> V_3^* given by A -> (B -> ell(AB)), "
+                "K=P(ker C_ell) in P(V_2); D_2 is the set of [A] in "
+                "P(V_2) with ell(A^2 V_1)=0; D_1 is the set of ([P],[Q]) "
+                "in P(V_1)^2 with ell(P^2 Q^2 V_1)=0; and Z is the set "
+                "of ([P],[Q]) in P(V_1)^2 with ell(P^2 Q V_2)=0. The "
+                "loci have their reduced projective structures, and each "
+                "displayed vanishing means that ell vanishes on the whole "
+                "indicated subspace.",
+            ),
+        ],
+        quantifiers=["for every nonzero ell in V_5^*"],
+        claim_kind="full-result",
+        conditions=["The Grothendieck-class and Hodge-Deligne conclusions are over the complex numbers."],
+        exclusions=["No assertion is made for the proposed (3,4) or general adjacent-degree extension."],
+        non_implications=[],
+        targets=["all quadratic-cubic normalized slices"],
+        structured_scope={
+            "base_field": "complex numbers",
+            "factor_degrees": "(2,3)",
+            "functionals": "all nonzero ell in V_5^*",
+        },
+        aliases=[
+            "universal quadratic-cubic exclusion",
+            "no normalized quadratic-cubic slice is affine five-space",
+        ],
+        problem_refs=[],
+        sources=exotic_sources + [peters_steenbrink_source],
+        claim_provenance=exotic_provenance,
+        claim_version="0.1.1",
+        issued_at="2026-07-28T19:26:41+00:00",
+    )
+    exotic_transverse_evidence = external_evidence(
+        subject=exotic_transverse,
+        issuer_id="repository:ipitchford/exotic-affine-spheres-quadratic-cubic",
+        issuer_name="ipitchford/exotic-affine-spheres-quadratic-cubic",
+        locator="https://doi.org/10.5281/zenodo.21653108",
+        digest=exotic_digest,
+        name="exotic-affine-spheres-quadratic-cubic-0.1.1.zip",
+        coverage=[
+            "candidate manuscript proof of the transverse identification",
+            "exact checks of local sections, fibre direction, transition function, and reduced Cech class",
+            "citation-robustness snapshot and release replay",
+        ],
+        limitations=[
+            "The script checks displayed algebra but does not formalise torsor descent.",
+            "The decisive non-isomorphism criterion is imported from Dubouloz-Finston.",
+            "The repository-reported model audit artifact is not included.",
+            "No independent external reproduction, human review, peer review, or formalisation is documented.",
+        ],
+        replay_command="make PYTHON=.venv/bin/python verify",
+        expected_outputs=[
+            "verification transcript and generated CSV files match",
+            "optimized execution fails closed and the ablation is rejected",
+        ],
+        rights="CC0-1.0 for original repository content to the extent held; source exclusions apply.",
+    )
+    exotic_universal_evidence = external_evidence(
+        subject=exotic_universal,
+        issuer_id="repository:ipitchford/exotic-affine-spheres-quadratic-cubic",
+        issuer_name="ipitchford/exotic-affine-spheres-quadratic-cubic",
+        locator="https://doi.org/10.5281/zenodo.21653108",
+        digest=exotic_digest,
+        name="exotic-affine-spheres-quadratic-cubic-0.1.1.zip",
+        coverage=[
+            "candidate manuscript class-stratification and Hodge-Deligne proof",
+            "finite-field realization for the stated fields",
+            "generated-table comparison, fixtures, and point-count ablation",
+        ],
+        limitations=[
+            "Finite-field censuses do not prove the complex Grothendieck-ring identity.",
+            "The verifier does not encode mixed Hodge theory or the complete geometric stratification.",
+            "The repository-reported model audit artifact is not included.",
+            "No independent external reproduction, human review, peer review, or formalisation is documented.",
+        ],
+        replay_command="make PYTHON=.venv/bin/python verify",
+        expected_outputs=[
+            "verification transcript and generated CSV files match",
+            "optimized execution fails closed and the ablation is rejected",
+        ],
+        rights="CC0-1.0 for original repository content to the extent held; source exclusions apply.",
+    )
+    exotic_passing = {
+        "provenance-quality",
+        "reproducibility",
+        "statement-precision",
+        "version-stability",
+    }
+    exotic_transverse_vector = status_vector(
+        exotic_transverse,
+        exotic_transverse_evidence,
+        issuer_id="repository:ipitchford/exotic-affine-spheres-quadratic-cubic",
+        issuer_name="ipitchford/exotic-affine-spheres-quadratic-cubic",
+        passing=exotic_passing,
+        notes={
+            "formal-or-certificate-verification": "The transverse theorem is not formally or certificate verified.",
+            "independent-reproduction": "No independent external reproduction is documented.",
+            "novelty-audit": "No complete novelty determination was performed.",
+            "proof-completeness": "Proof completeness is repository-claimed in an unrefereed manuscript.",
+            "semantic-scope-match": "The exact algebraic checks do not formalise the imported non-isomorphism criterion.",
+        },
+    )
+    exotic_universal_vector = status_vector(
+        exotic_universal,
+        exotic_universal_evidence,
+        issuer_id="repository:ipitchford/exotic-affine-spheres-quadratic-cubic",
+        issuer_name="ipitchford/exotic-affine-spheres-quadratic-cubic",
+        passing=exotic_passing,
+        notes={
+            "formal-or-certificate-verification": "The universal exclusion is not formally or certificate verified.",
+            "independent-reproduction": "No independent external reproduction is documented.",
+            "novelty-audit": "No complete novelty determination was performed.",
+            "proof-completeness": "Proof completeness is repository-claimed in an unrefereed manuscript.",
+            "semantic-scope-match": "Finite-field checks do not establish the all-functional complex theorem.",
+        },
+    )
+    exotic_degree_relation = depends_on(
+        exotic_transverse,
+        degree_cubic,
+        issuer_id="repository:ipitchford/exotic-affine-spheres-quadratic-cubic",
+        issuer_name="ipitchford/exotic-affine-spheres-quadratic-cubic",
+        limitation=(
+            "The source imports the pinned cubic contact-orbit classification; "
+            "this seed does not independently establish that correspondence."
+        ),
+    )
+    exotic_records = (
+        [degree_cubic, degree_cubic_evidence]
+        + degree_cubic_vector
+        + [
+            exotic_transverse,
+            exotic_degree_relation,
+            relation_status(
+                exotic_degree_relation,
+                issuer_id="repository:ipitchford/exotic-affine-spheres-quadratic-cubic",
+                issuer_name="ipitchford/exotic-affine-spheres-quadratic-cubic",
+            ),
+            exotic_transverse_evidence,
+        ]
+        + exotic_transverse_vector
+        + [exotic_universal, exotic_universal_evidence]
+        + exotic_universal_vector
+    )
+    write_pack(
+        examples / "exotic-affine-spheres-quadratic-cubic",
+        records=exotic_records,
+        created_at=CREATED,
+        primary_claim_record_id=exotic_universal["record_id"],
+    )
+
+    reducible_actors = [
+        actor("human:ian-pitchford", "Ian Pitchford", "human"),
+        actor(
+            "ai:openai-codex-5.6-sol",
+            "OpenAI Codex 5.6 Sol",
+            "ai-system",
+            model_family="Codex 5.6 Sol",
+            model_provider="OpenAI",
+        ),
+        actor(
+            "ai:anthropic-fable-5",
+            "Anthropic Fable 5",
+            "ai-system",
+            model_family="Fable 5",
+            model_provider="Anthropic",
+        ),
+        actor("software:openai-codex", "OpenAI Codex", "software"),
+    ]
+    reducible_provenance = provenance(
+        reducible_actors,
+        [
+            (
+                "ai:openai-codex-5.6-sol",
+                "repository-reported proof, verification, and synthesis",
+                "2026-07-28T00:00:00+00:00",
+            ),
+            (
+                "ai:anthropic-fable-5",
+                "repository-reported research route and model-led audit",
+                "2026-07-28T00:00:00+00:00",
+            ),
+            (
+                "human:ian-pitchford",
+                "research direction, mediation, maintenance, and publication",
+                "2026-07-28T00:00:00+00:00",
+            ),
+            ("software:openai-codex", "ClaimPack encoding", CREATED),
+        ],
+    )
+    reducible_repo = (
+        "https://github.com/ipitchford/"
+        "reducible-incidence-divisors-affine-slices"
+    )
+    reducible_commit = "5b01190b37d5a8c43073a0eb5f1e5c94c65864ad"
+    reducible_digest = (
+        "sha256:b733f4db720495fc9654e83a45fc7d77edc9a72a225b919e436cdf2ce924fbc9"
+    )
+    reducible_sources = [
+        source(
+            kind="doi-version",
+            locator="https://doi.org/10.5281/zenodo.21653119",
+            immutable=True,
+            version="1.0.1",
+            digest=reducible_digest,
+            rights=(
+                "Repository original content is CC0-1.0 to the extent held; "
+                "third-party sources, audit inputs, and the thread snapshot "
+                "retain their own rights."
+            ),
+        ),
+        source(
+            kind="git-commit",
+            locator=f"{reducible_repo}/commit/{reducible_commit}",
+            immutable=True,
+            version=reducible_commit,
+            rights=(
+                "Repository original content is CC0-1.0 to the extent held; "
+                "third-party sources, audit inputs, and the thread snapshot "
+                "retain their own rights."
+            ),
+        ),
+    ]
+    reducibility_literature_sources = [
+        source(
+            kind="doi-version",
+            locator="https://doi.org/10.4310/MRL.2013.v20.n4.a10",
+            immutable=True,
+            version="2013",
+            rights="Third-party cited source; not relicensed by ClaimPack.",
+        ),
+        source(
+            kind="doi-version",
+            locator="https://doi.org/10.1016/j.jsc.2010.08.001",
+            immutable=True,
+            version="2011",
+            rights="Third-party cited source; not relicensed by ClaimPack.",
+        ),
+    ]
+    hodge_source = source(
+        kind="doi-version",
+        locator="https://doi.org/10.1007/978-3-540-77017-6",
+        immutable=True,
+        version="2008",
+        rights="Third-party cited source; not relicensed by ClaimPack.",
+    )
+    reducibility_claim = claim(
+        natural=(
+            "Let m>=2 and 0!=ell in V_{2m+1}^*. The marked-common-root "
+            "divisor D_ell is reducible set-theoretically if and only if "
+            "[ell] lies in the tangent developable of the rational normal "
+            "curve nu_{2m+1}. More precisely: an evaluation functional gives "
+            "three reduced irreducible components; a functional on a "
+            "punctured tangent line gives exactly two; a genuine two-point "
+            "secant functional gives an irreducible divisor; and every "
+            "functional with middle-catalecticant rank at least three gives "
+            "an irreducible divisor."
+        ),
+        latex=(
+            r"\begin{gathered}"
+            r"m\ge2,\quad0\ne\ell\in V_{2m+1}^\vee,\\"
+            r"D_\ell\text{ reducible}\Longleftrightarrow "
+            r"[\ell]\in\tau(\nu_{2m+1}),\\"
+            r"\ell=\lambda\operatorname{ev}_u\Rightarrow "
+            r"\#\operatorname{Irr}(D_\ell{}_{\mathrm{red}})=3,\\"
+            r"[\ell]\in\tau(\nu_{2m+1})\setminus\nu_{2m+1}"
+            r"\Rightarrow\#\operatorname{Irr}(D_\ell{}_{\mathrm{red}})=2,\\"
+            r"\ell=a\operatorname{ev}_u+b\operatorname{ev}_v,\ u\ne v,\ ab\ne0"
+            r"\Rightarrow D_\ell\text{ irreducible},\\"
+            r"\operatorname{rank}C_\ell\ge3\Rightarrow "
+            r"D_\ell\text{ irreducible}."
+            r"\end{gathered}"
+        ),
+        definitions=[
+            (
+                "D_ell",
+                "The divisor ell(P^2 A' B')=0 on P(V_1) x P(V_{m-1}) x P(V_m).",
+            ),
+            (
+                "nu_{2m+1}",
+                "The rational normal curve of projective evaluation functionals in P(V_{2m+1}^*).",
+            ),
+            (
+                "C_ell",
+                "The middle catalecticant A maps to the functional B maps to ell(AB).",
+            ),
+        ],
+        quantifiers=[
+            "for every integer m >= 2",
+            "for every nonzero ell in V_{2m+1}^*",
+        ],
+        claim_kind="stronger-result",
+        conditions=[
+            "Reducibility is set-theoretic and component counts use reduced structures.",
+            "The theorem is over the complex numbers.",
+        ],
+        exclusions=["Positive-characteristic analogues are outside the theorem."],
+        non_implications=[],
+        targets=["marked-common-root incidence divisor", "tangent developable"],
+        structured_scope={
+            "base_field": "complex numbers",
+            "degrees": "(m,m+1), m>=2",
+            "reducibility_locus": "tangent developable of nu_{2m+1}",
+        },
+        aliases=[
+            "reducibility classification",
+            "marked-common-root incidence divisor theorem",
+        ],
+        problem_refs=[],
+        sources=reducible_sources + reducibility_literature_sources,
+        claim_provenance=reducible_provenance,
+        claim_version="1.0.1",
+        issued_at="2026-07-28T19:26:41+00:00",
+        rights_exclusions=["The cited classical literature remains third-party material."],
+    )
+    adjacent_hodge = claim(
+        natural=(
+            "Let m>=2, 0!=ell in V_{2m+1}^*, and rho=rank C_ell. Then "
+            "E_c(X_ell^{m,m+1};u,v)!=(uv)^{2m+1}. More precisely, for "
+            "rho=1 the polynomial is (uv)^{2m+1}-(uv)^{2m}; for "
+            "catalecticant rank two of two-point secant type the coefficient "
+            "of u^{2m-1}v^{2m-1} is -2; for rank two of first-jet type it is "
+            "-1; and for rho>=3 it is -1. Consequently X_ell^{m,m+1} is not "
+            "isomorphic to A^{2m+1} for every such m and ell."
+        ),
+        latex=(
+            r"\begin{gathered}"
+            r"m\ge2,\quad0\ne\ell\in V_{2m+1}^\vee,\quad"
+            r"\rho=\operatorname{rank}C_\ell,\\"
+            r"E_c(X_\ell^{m,m+1};u,v)\ne(uv)^{2m+1},\\"
+            r"\rho=1:\ E_c=(uv)^{2m+1}-(uv)^{2m};\\"
+            r"\rho=2\text{ secant}:\ [u^{2m-1}v^{2m-1}]E_c=-2;\quad"
+            r"\rho=2\text{ first jet}:\ [u^{2m-1}v^{2m-1}]E_c=-1;\\"
+            r"\rho\ge3:\ [u^{2m-1}v^{2m-1}]E_c=-1;\\"
+            r"X_\ell^{m,m+1}\not\simeq\mathbb A^{2m+1}."
+            r"\end{gathered}"
+        ),
+        definitions=[
+            (
+                "X_ell^{m,m+1}",
+                "The normalized slice Res(A,B)=1 and ell(AB)=1 for binary forms of degrees m and m+1.",
+            ),
+            ("E_c", "The compactly supported Hodge-Deligne polynomial."),
+            (
+                "C_ell",
+                "The middle catalecticant A maps to the functional B maps to ell(AB).",
+            ),
+        ],
+        quantifiers=[
+            "for every integer m >= 2",
+            "for every nonzero ell in V_{2m+1}^*",
+        ],
+        claim_kind="stronger-result",
+        conditions=["The Hodge-Deligne conclusion is over the complex numbers."],
+        exclusions=["The exceptional boundary m=1 is not included."],
+        non_implications=[],
+        targets=["all higher adjacent normalized slices"],
+        structured_scope={
+            "base_field": "complex numbers",
+            "degrees": "(m,m+1), m>=2",
+            "functionals": "all nonzero ell",
+        },
+        aliases=[
+            "adjacent Hodge defects",
+            "universal adjacent-degree exclusion",
+        ],
+        problem_refs=[],
+        sources=reducible_sources + [hodge_source],
+        claim_provenance=reducible_provenance,
+        dependency_targets=[
+            {
+                "record_id": reducibility_claim["record_id"],
+                "record_type": "claim-version",
+            }
+        ],
+        claim_version="1.0.1",
+        issued_at="2026-07-28T19:26:41+00:00",
+        rights_exclusions=["The cited Hodge-theory source remains third-party material."],
+    )
+    conditional_isolation = claim(
+        natural=(
+            "Let r,s>=1 and 0!=ell in V_{r+s}^*. If |r-s|>=2, then "
+            "X_ell^{r,s}(C) is not contractible. If {r,s}={m,m+1} with "
+            "m>=2, then X_ell^{r,s} is not isomorphic to A^{2m+1}. If r=s, "
+            "relative scaling gives positive-dimensional fibres and the "
+            "multiplication-resultant architecture cannot yield a Keller "
+            "map. Conditional on the complete cubic classification in the "
+            "pinned unrefereed degree-difference candidate, the tangent "
+            "nonosculating (1,2) slice and its swapped form are the unique "
+            "positive-bidegree normalized affine-space sources in this "
+            "architecture that carry a nonzero constant Jacobian determinant."
+        ),
+        latex=(
+            r"\begin{gathered}"
+            r"r,s\ge1,\quad0\ne\ell\in V_{r+s}^\vee,\\"
+            r"|r-s|\ge2\Rightarrow X_\ell^{r,s}(\mathbb C)"
+            r"\text{ is not contractible},\\"
+            r"\{r,s\}=\{m,m+1\},\ m\ge2\Rightarrow "
+            r"X_\ell^{r,s}\not\simeq\mathbb A^{2m+1},\\"
+            r"r=s\Rightarrow\text{positive-dimensional relative-scaling fibres},\\"
+            r"\text{conditional on the pinned complete cubic classification: }"
+            r"(1,2)_{\mathrm{tangent}}\text{ and }(2,1)_{\mathrm{tangent}}"
+            r"\text{ are the unique normalized affine-space sources in the scoped architecture}"
+            r"\text{ with nonzero constant Jacobian determinant}."
+            r"\end{gathered}"
+        ),
+        definitions=[
+            (
+                "X_ell^{r,s}",
+                "The normalized binary-form slice Res(A,B)=1 and ell(AB)=1.",
+            ),
+            (
+                "this architecture",
+                "The untrimmed positive-degree two-factor binary-form spaces, product-resultant map, and normalized linear slices defined in the source.",
+            ),
+        ],
+        quantifiers=[
+            "for every pair of integers r,s >= 1",
+            "for every nonzero ell in V_{r+s}^*",
+        ],
+        claim_kind="conditional-result",
+        conditions=[
+            "The final uniqueness conclusion assumes the pinned complete cubic classification.",
+            "The theorem is over the complex numbers.",
+        ],
+        exclusions=[
+            "Trimmed, nonlinear, quotient, multifactor, degree-zero, and positive-characteristic variants are outside the scoped architecture."
+        ],
+        non_implications=[],
+        targets=["complete positive two-factor affine-slice isolation"],
+        structured_scope={
+            "base_field": "complex numbers",
+            "architecture": "untrimmed positive-degree binary two-factor normalization",
+            "conditional_case": "complete cubic classification",
+        },
+        aliases=[
+            "conditional complete two-factor isolation",
+            "binary-factorisation affine-slice isolation",
+        ],
+        problem_refs=[],
+        sources=reducible_sources,
+        claim_provenance=reducible_provenance,
+        dependency_targets=[
+            {
+                "record_id": adjacent_hodge["record_id"],
+                "record_type": "claim-version",
+            },
+            {
+                "record_id": degree_theorem["record_id"],
+                "record_type": "claim-version",
+            },
+            {
+                "record_id": degree_cubic["record_id"],
+                "record_type": "claim-version",
+            },
+        ],
+        claim_version="1.0.1",
+        issued_at="2026-07-28T19:26:41+00:00",
+    )
+    reducibility_evidence = external_evidence(
+        subject=reducibility_claim,
+        issuer_id="repository:ipitchford/reducible-incidence-divisors-affine-slices",
+        issuer_name="ipitchford/reducible-incidence-divisors-affine-slices",
+        locator="https://doi.org/10.5281/zenodo.21653119",
+        digest=reducible_digest,
+        name="reducible-incidence-divisors-affine-slices-1.0.1.zip",
+        coverage=[
+            "candidate manuscript incidence-divisor proof",
+            "bounded exact Hankel and rank-two falsification tests",
+            "model-led audit and low-catalecticant supplement",
+        ],
+        limitations=[
+            "The bounded checkers do not prove complex irreducibility or secant exhaustion.",
+            "The cited classical rank-two inputs are not independently verified by this seed.",
+            "The model-led audit is repository-reported and not independent external review.",
+            "No independent expert human review, peer review, or formalisation is documented.",
+        ],
+        replay_command=(
+            "make PYTHON=.venv/bin/python "
+            "CFFCONVERT=.venv/bin/cffconvert release-replay"
+        ),
+        expected_outputs=[
+            "manifest inventory matches before and after replay",
+            "normal, optimized, and semantic-control outputs match",
+        ],
+        rights="CC0-1.0 for original repository content to the extent held; source exclusions apply.",
+    )
+    adjacent_hodge_evidence = external_evidence(
+        subject=adjacent_hodge,
+        issuer_id="repository:ipitchford/reducible-incidence-divisors-affine-slices",
+        issuer_name="ipitchford/reducible-incidence-divisors-affine-slices",
+        locator="https://doi.org/10.5281/zenodo.21653119",
+        digest=reducible_digest,
+        name="reducible-incidence-divisors-affine-slices-1.0.1.zip",
+        coverage=[
+            "candidate manuscript Hodge-Deligne proof",
+            "exact diagnostic-coefficient bookkeeping",
+            "8,653-functional finite-field census and positive and negative controls",
+        ],
+        limitations=[
+            "Finite-field counts do not prove the complex theorem.",
+            "The code does not formalise mixed Hodge theory or the component-count bridge.",
+            "The model-led audit is repository-reported and not independent external review.",
+            "No independent expert human review, peer review, or formalisation is documented.",
+        ],
+        replay_command=(
+            "make PYTHON=.venv/bin/python "
+            "CFFCONVERT=.venv/bin/cffconvert release-replay"
+        ),
+        expected_outputs=[
+            "manifest inventory matches before and after replay",
+            "normal, optimized, and semantic-control outputs match",
+        ],
+        rights="CC0-1.0 for original repository content to the extent held; source exclusions apply.",
+    )
+    isolation_evidence = external_evidence(
+        subject=conditional_isolation,
+        issuer_id="repository:ipitchford/reducible-incidence-divisors-affine-slices",
+        issuer_name="ipitchford/reducible-incidence-divisors-affine-slices",
+        locator="https://doi.org/10.5281/zenodo.21653119",
+        digest=reducible_digest,
+        name="reducible-incidence-divisors-affine-slices-1.0.1.zip",
+        coverage=[
+            "candidate manuscript synthesis across the three degree-difference regimes",
+            "exact references to the pinned upstream ClaimVersions",
+        ],
+        limitations=[
+            "The uniqueness conclusion is explicitly conditional on the pinned cubic classification.",
+            "The deterministic checkers do not directly encode the isolation theorem.",
+            "No independent expert human review, peer review, or formalisation is documented.",
+        ],
+        replay_command=(
+            "make PYTHON=.venv/bin/python "
+            "CFFCONVERT=.venv/bin/cffconvert release-replay"
+        ),
+        expected_outputs=[
+            "manifest inventory matches before and after replay",
+            "normal, optimized, and semantic-control outputs match",
+        ],
+        rights="CC0-1.0 for original repository content to the extent held; source exclusions apply.",
+    )
+    reducible_passing = {
+        "provenance-quality",
+        "reproducibility",
+        "statement-precision",
+        "version-stability",
+    }
+    reducibility_vector = status_vector(
+        reducibility_claim,
+        reducibility_evidence,
+        issuer_id="repository:ipitchford/reducible-incidence-divisors-affine-slices",
+        issuer_name="ipitchford/reducible-incidence-divisors-affine-slices",
+        passing=reducible_passing,
+        notes={
+            "formal-or-certificate-verification": "The geometric classification is not formally or certificate verified.",
+            "independent-reproduction": "No independent external reproduction is documented.",
+            "novelty-audit": "No literature-wide novelty or priority determination was performed.",
+            "proof-completeness": "Proof completeness is repository-claimed in an unrefereed manuscript.",
+            "semantic-scope-match": "Bounded exact tests do not establish the complex irreducibility theorem.",
+        },
+    )
+    adjacent_hodge_vector = status_vector(
+        adjacent_hodge,
+        adjacent_hodge_evidence,
+        issuer_id="repository:ipitchford/reducible-incidence-divisors-affine-slices",
+        issuer_name="ipitchford/reducible-incidence-divisors-affine-slices",
+        passing=reducible_passing,
+        notes={
+            "formal-or-certificate-verification": "The Hodge-Deligne theorem is not formally or certificate verified.",
+            "independent-reproduction": "No independent external reproduction is documented.",
+            "novelty-audit": "No literature-wide novelty or priority determination was performed.",
+            "proof-completeness": "Proof completeness is repository-claimed in an unrefereed manuscript.",
+            "semantic-scope-match": "The census checks consequences rather than the all-degree complex theorem.",
+        },
+    )
+    isolation_vector = status_vector(
+        conditional_isolation,
+        isolation_evidence,
+        issuer_id="repository:ipitchford/reducible-incidence-divisors-affine-slices",
+        issuer_name="ipitchford/reducible-incidence-divisors-affine-slices",
+        passing=reducible_passing,
+        notes={
+            "dependency-closure": "The conclusion retains explicit unrefereed upstream dependencies.",
+            "formal-or-certificate-verification": "The conditional isolation theorem is not formally or certificate verified.",
+            "independent-reproduction": "No independent external reproduction is documented.",
+            "novelty-audit": "No literature-wide novelty or priority determination was performed.",
+            "proof-completeness": "Proof completeness is repository-claimed and dependency-conditioned.",
+            "semantic-scope-match": "The complete synthesis and upstream correspondence have not been independently audited.",
+        },
+    )
+    adjacent_reducibility_relation = depends_on(
+        adjacent_hodge,
+        reducibility_claim,
+        issuer_id="repository:ipitchford/reducible-incidence-divisors-affine-slices",
+        issuer_name="ipitchford/reducible-incidence-divisors-affine-slices",
+        limitation=(
+            "The Hodge diagnostic uses the repository-reported component counts "
+            "from the reducibility classification."
+        ),
+    )
+    isolation_dependencies = [
+        (
+            adjacent_hodge,
+            "The adjacent-degree branch imports the exact Hodge-defect theorem proved in the same manuscript.",
+        ),
+        (
+            degree_theorem,
+            "The isolation conclusion imports the pinned determinant and degree-difference framework.",
+        ),
+        (
+            degree_cubic,
+            "The final uniqueness clause is explicitly conditional on the pinned complete cubic classification.",
+        ),
+    ]
+    isolation_relations = [
+        depends_on(
+            conditional_isolation,
+            target,
+            issuer_id="repository:ipitchford/reducible-incidence-divisors-affine-slices",
+            issuer_name="ipitchford/reducible-incidence-divisors-affine-slices",
+            limitation=limitation,
+        )
+        for target, limitation in isolation_dependencies
+    ]
+    reducible_records = (
+        [degree_theorem, degree_theorem_evidence]
+        + degree_theorem_vector
+        + [degree_cubic, degree_cubic_evidence]
+        + degree_cubic_vector
+        + [reducibility_claim, reducibility_evidence]
+        + reducibility_vector
+        + [
+            adjacent_hodge,
+            adjacent_reducibility_relation,
+            relation_status(
+                adjacent_reducibility_relation,
+                issuer_id="repository:ipitchford/reducible-incidence-divisors-affine-slices",
+                issuer_name="ipitchford/reducible-incidence-divisors-affine-slices",
+            ),
+            adjacent_hodge_evidence,
+        ]
+        + adjacent_hodge_vector
+        + [conditional_isolation, isolation_evidence]
+        + isolation_vector
+        + isolation_relations
+        + [
+            relation_status(
+                relation,
+                issuer_id="repository:ipitchford/reducible-incidence-divisors-affine-slices",
+                issuer_name="ipitchford/reducible-incidence-divisors-affine-slices",
+            )
+            for relation in isolation_relations
+        ]
+    )
+    write_pack(
+        examples / "reducible-incidence-divisors-affine-slices",
+        records=reducible_records,
+        created_at=CREATED,
+        primary_claim_record_id=adjacent_hodge["record_id"],
+    )
+
+    package_paths = [
+        examples / "z20",
+        examples / "vr2-k4",
+        examples / "erdos848",
+        examples / "degree-difference-affine-slices",
+        examples / "exotic-affine-spheres-quadratic-cubic",
+        examples / "reducible-incidence-divisors-affine-slices",
+    ]
     catalog_entries: dict[str, dict[str, Any]] = {}
     for package_path in package_paths:
         pack = validate_pack(str(package_path))

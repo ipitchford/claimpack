@@ -1,0 +1,57 @@
+{
+  "aliases": ["REPLACE_WITH_SEARCH_ALIAS"],
+  "claim_version": "REPLACE_WITH_SOURCE_VERSION",
+  "dependency_targets": [],
+  "formal_statements": [],
+  "issued_at": "REPLACE_WITH_ISO_8601_TIMESTAMP",
+  "lineage": [],
+  "problem_refs": [],
+  "protocol_version": "0.1.0",
+  "provenance": {
+    "actors": [
+      {
+        "display_name": "REPLACE_WITH_CONTRIBUTOR",
+        "id": "REPLACE_WITH_STABLE_ACTOR_ID",
+        "kind": "human"
+      }
+    ],
+    "roles": [
+      {
+        "actor_id": "REPLACE_WITH_STABLE_ACTOR_ID",
+        "date": "REPLACE_WITH_ISO_8601_TIMESTAMP",
+        "role": "REPLACE_WITH_EXACT_ROLE"
+      }
+    ]
+  },
+  "record_type": "claim-version",
+  "rights": {
+    "exclusions": [],
+    "license": "CC0-1.0",
+    "scope": "REPLACE_WITH_EXACT_RIGHTS_SCOPE"
+  },
+  "scope": {
+    "claim_kind": "unsupported-claim",
+    "conditions": [],
+    "exclusions": [],
+    "non_implications": [],
+    "scope_note": "REPLACE_WITH_SCOPE_NOTE",
+    "structured_scope": {},
+    "targets": ["REPLACE_WITH_TARGET"]
+  },
+  "sources": [
+    {
+      "immutable": true,
+      "kind": "git-commit",
+      "locator": "REPLACE_WITH_IMMUTABLE_SOURCE_URL",
+      "rights": "REPLACE_WITH_SOURCE_RIGHTS",
+      "version": "REPLACE_WITH_COMMIT_OR_VERSION"
+    }
+  ],
+  "statement": {
+    "definitions": [],
+    "language": "en",
+    "latex": "REPLACE_WITH_LATEX",
+    "natural": "REPLACE_WITH_EXACT_NATURAL_LANGUAGE_STATEMENT",
+    "quantifiers": []
+  }
+}

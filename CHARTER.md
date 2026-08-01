@@ -57,7 +57,7 @@ given ordinary repositories alone at:
 
 ## Governance boundary
 
-This local prototype has no claim to standards authority. A future public
+This public candidate prototype has no claim to standards authority. A future
 specification should have versioned governance, security, contribution,
 deprecation, catalogue-admission, privacy, and succession policies. Cheap
 forking reduces institutional capture but does not eliminate governance.

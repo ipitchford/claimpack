@@ -11,6 +11,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from . import __version__
 from .canonical import pretty_bytes, read_limited_file, strict_loads
 from .catalog import diff_catalogs
 from .errors import ClaimPackError
@@ -299,6 +300,7 @@ def _parser() -> argparse.ArgumentParser:
         prog="claimpack",
         description="Offline, non-executing ClaimPack v0.1 consumer",
     )
+    parser.add_argument("--version", action="version", version=f"%(prog)s {__version__}")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     validate = subparsers.add_parser("validate")
@@ -349,7 +351,7 @@ def _parser() -> argparse.ArgumentParser:
     decide.add_argument("--objection-search-complete", action="store_true")
     decide.add_argument("--objection-search-context", default="")
     decide.add_argument("--consumer-name", default="claimpack")
-    decide.add_argument("--consumer-version", default="0.1.0.dev0")
+    decide.add_argument("--consumer-version", default=__version__)
     decide.add_argument("--consumer-run-id", default="")
     decide.add_argument("--consumer-model", default="")
     decide.add_argument("--parent-receipt-id", default="")

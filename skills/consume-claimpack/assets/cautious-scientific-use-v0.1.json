@@ -1,0 +1,69 @@
+{
+  "adverse_issuers": [
+    "*"
+  ],
+  "dimensions": {
+    "canonical-problem-correspondence": {
+      "accepted_issuers": ["independent-reviewer"],
+      "required": true
+    },
+    "dependency-closure": {
+      "accepted_issuers": ["independent-reviewer"],
+      "required": true
+    },
+    "formal-or-certificate-verification": {
+      "accepted_issuers": ["independent-reviewer"],
+      "required": true
+    },
+    "independent-reproduction": {
+      "accepted_issuers": ["independent-reviewer"],
+      "required": true
+    },
+    "known-objections": {
+      "accepted_issuers": ["independent-reviewer"],
+      "required": true
+    },
+    "novelty-audit": {
+      "accepted_issuers": ["independent-reviewer"],
+      "required": true
+    },
+    "proof-completeness": {
+      "accepted_issuers": ["independent-reviewer"],
+      "required": true
+    },
+    "provenance-quality": {
+      "accepted_issuers": ["independent-reviewer"],
+      "required": true
+    },
+    "reproducibility": {
+      "accepted_issuers": ["independent-reviewer"],
+      "required": true
+    },
+    "semantic-scope-match": {
+      "accepted_issuers": ["independent-reviewer"],
+      "required": true
+    },
+    "statement-precision": {
+      "accepted_issuers": ["independent-reviewer"],
+      "required": true
+    },
+    "version-stability": {
+      "accepted_issuers": ["independent-reviewer"],
+      "required": true
+    }
+  },
+  "limits": {
+    "assessment_count": "512",
+    "dependency_depth": "16",
+    "dependency_nodes": "128"
+  },
+  "max_assessment_age_days": "3650",
+  "open_objection_effect": "unknown",
+  "policy_digest": "sha256:47268c3fd169b5a33dc0828ed11f520429b4db3420e250492d021202c2e52d54",
+  "policy_id": "claimpack:cautious-scientific-use:v0.1",
+  "policy_version": "0.1",
+  "require_authenticated_positive": true,
+  "require_complete_objection_search": true,
+  "require_embedded_evidence_for_positive": true,
+  "require_evidence_for_positive": true
+}

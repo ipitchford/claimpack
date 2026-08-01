@@ -1,0 +1,58 @@
+name: verify
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: astral-sh/setup-uv@v6
+      - name: Verify ClaimPack core, generated data, seeds, and gauntlet
+        run: make verify
+      - name: Verify optimized-mode behavior
+        run: make verify-optimized
+      - name: Build distribution
+        run: uv build
+      - name: Smoke-test fresh wheel
+        run: |
+          python -m venv /tmp/claimpack-wheel
+          /tmp/claimpack-wheel/bin/python -m pip install dist/*.whl
+          cd /tmp
+          /tmp/claimpack-wheel/bin/claimpack --version
+          /tmp/claimpack-wheel/bin/claimpack --help
+
+  agent-skills:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Validate consumer skill
+        run: >-
+          uvx --from skills-ref==0.1.1 agentskills validate
+          skills/consume-claimpack
+      - name: Validate producer skill
+        run: >-
+          uvx --from skills-ref==0.1.1 agentskills validate
+          skills/publish-claimpack
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Verify two-skill installer discovery
+        env:
+          CI: "1"
+          NO_COLOR: "1"
+        run: |
+          output="$(npx --yes skills@1.5.21 add . --list)"
+          printf '%s\n' "$output"
+          printf '%s\n' "$output" | grep -F "Found 2 skills"
+          printf '%s\n' "$output" | grep -F "consume-claimpack"
+          printf '%s\n' "$output" | grep -F "publish-claimpack"

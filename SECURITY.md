@@ -22,6 +22,18 @@ aliasing, malformed archive/parser crashes, and directory check/use races.
 Do not include real secrets or weaponized payloads. A text marker and temporary
 path are sufficient to demonstrate unintended execution.
 
-This local prototype has no private security mailbox. Before public release, a
-maintainer must add one and define supported versions. Until then, keep
-unpublished high-impact details local to the repository owner.
+## Supported versions
+
+The latest tagged candidate release receives security fixes. Earlier
+developmental snapshots are unsupported.
+
+## Reporting
+
+Use GitHub private vulnerability reporting for sensitive reports. If that is
+unavailable, open a GitHub issue containing no exploit, credential, private
+data, or weaponized payload and ask the maintainer to establish a private
+channel. Public issues are appropriate for non-sensitive hardening proposals.
+
+If a release has an external disclosure channel, use it only for public-facing
+summaries and only through environment-provided credentials. Never place keys
+in tracked files, command examples, receipts, or package artifacts.

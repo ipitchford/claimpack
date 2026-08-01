@@ -1,0 +1,118 @@
+{
+  "aliases": [
+    "universal quadratic-cubic exclusion",
+    "no normalized quadratic-cubic slice is affine five-space"
+  ],
+  "claim_id": "ni:///sha-256;xOVckH4uZ96baKo3neAzm7yelN-4ap8cREGWNPW4fRA",
+  "claim_version": "0.1.1",
+  "dependency_targets": [],
+  "formal_statements": [],
+  "issued_at": "2026-07-28T19:26:41+00:00",
+  "lineage": [],
+  "problem_refs": [],
+  "protocol_version": "0.1.0",
+  "provenance": {
+    "actors": [
+      {
+        "display_name": "Ian Pitchford",
+        "id": "human:ian-pitchford",
+        "kind": "human"
+      },
+      {
+        "display_name": "OpenAI Codex / Anthropic models",
+        "id": "organization:openai-codex-anthropic-models",
+        "kind": "organization"
+      },
+      {
+        "display_name": "OpenAI Codex",
+        "id": "software:openai-codex",
+        "kind": "software"
+      }
+    ],
+    "roles": [
+      {
+        "actor_id": "organization:openai-codex-anthropic-models",
+        "date": "2026-07-28T00:00:00+00:00",
+        "role": "repository-reported manuscript attribution"
+      },
+      {
+        "actor_id": "human:ian-pitchford",
+        "date": "2026-07-28T00:00:00+00:00",
+        "role": "research direction, mediation, maintenance, and publication"
+      },
+      {
+        "actor_id": "software:openai-codex",
+        "date": "2026-07-29T12:00:00+00:00",
+        "role": "ClaimPack encoding"
+      }
+    ]
+  },
+  "record_id": "ni:///sha-256;NL03Ca0XN805qQ9dy00FubtyO9ohIVWX-H4k5yPNFJY",
+  "record_type": "claim-version",
+  "rights": {
+    "exclusions": [],
+    "license": "CC0-1.0",
+    "scope": "This ClaimPack record and original source-repository content only to the extent the rights holder may dedicate it."
+  },
+  "scope": {
+    "claim_kind": "full-result",
+    "conditions": [
+      "The Grothendieck-class and Hodge-Deligne conclusions are over the complex numbers."
+    ],
+    "exclusions": [
+      "No assertion is made for the proposed (3,4) or general adjacent-degree extension."
+    ],
+    "non_implications": [],
+    "scope_note": "",
+    "structured_scope": {
+      "base_field": "complex numbers",
+      "factor_degrees": "(2,3)",
+      "functionals": "all nonzero ell in V_5^*"
+    },
+    "targets": [
+      "all quadratic-cubic normalized slices"
+    ]
+  },
+  "sources": [
+    {
+      "digest": "sha256:de92abd2033cf65a2412cb070edd388ae2c3fd0d85a08660954d45408343d737",
+      "immutable": true,
+      "kind": "doi-version",
+      "locator": "https://doi.org/10.5281/zenodo.21653108",
+      "rights": "Repository original content is CC0-1.0 to the extent held; third-party material and the thread snapshot are excluded.",
+      "version": "0.1.1"
+    },
+    {
+      "immutable": true,
+      "kind": "git-commit",
+      "locator": "https://github.com/ipitchford/exotic-affine-spheres-quadratic-cubic/commit/e786cec53c6ea34142ff775f9ab30dd00d960770",
+      "rights": "Repository original content is CC0-1.0 to the extent held; third-party material and the thread snapshot are excluded.",
+      "version": "e786cec53c6ea34142ff775f9ab30dd00d960770"
+    },
+    {
+      "immutable": true,
+      "kind": "doi-version",
+      "locator": "https://doi.org/10.1007/978-3-540-77017-6",
+      "rights": "Third-party cited source; not relicensed by ClaimPack.",
+      "version": "2008"
+    }
+  ],
+  "statement": {
+    "definitions": [
+      {
+        "meaning": "The pairs (A,B) of binary forms of degrees two and three satisfying Res(A,B)=1 and ell(AB)=1.",
+        "term": "X_ell^{2,3}"
+      },
+      {
+        "meaning": "For C_ell:V_2 -> V_3^* given by A -> (B -> ell(AB)), K=P(ker C_ell) in P(V_2); D_2 is the set of [A] in P(V_2) with ell(A^2 V_1)=0; D_1 is the set of ([P],[Q]) in P(V_1)^2 with ell(P^2 Q^2 V_1)=0; and Z is the set of ([P],[Q]) in P(V_1)^2 with ell(P^2 Q V_2)=0. The loci have their reduced projective structures, and each displayed vanishing means that ell vanishes on the whole indicated subspace.",
+        "term": "K,D_2,D_1,Z"
+      }
+    ],
+    "language": "en",
+    "latex": "\\begin{gathered}0\\ne\\ell\\in V_5^\\vee\\Longrightarrow X_\\ell^{2,3}\\not\\simeq\\mathbb A^5,\\\\[X_\\ell^{2,3}]=\\mathbb L^5-\\mathbb L^3-\\mathbb L^3[K]+\\mathbb L([D_2]-[D_1])+\\mathbb L^2[Z]\\quad\\text{in }K_0(\\operatorname{Var}_{\\mathbb C}),\\\\E_c(X_\\ell^{2,3};u,v)\\ne(uv)^5.\\end{gathered}",
+    "natural": "For every nonzero ell in V_5^*, the normalized quadratic-cubic slice X_ell^{2,3} is not isomorphic to A^5. More precisely, if L=[A^1] and the reduced degeneracy loci K,D_2,D_1,Z are those defined in the manuscript, then [X_ell^{2,3}]=L^5-L^3-L^3[K]+L([D_2]-[D_1])+L^2[Z] in K_0(Var_C), and the compactly supported Hodge-Deligne polynomial of the right-hand side is never (uv)^5.",
+    "quantifiers": [
+      "for every nonzero ell in V_5^*"
+    ]
+  }
+}

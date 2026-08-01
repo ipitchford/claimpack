@@ -1,6 +1,10 @@
 # ClaimPack
 
-> **Status: local pre-release research-infrastructure prototype.**
+[![verify](https://github.com/ipitchford/claimpack/actions/workflows/verify.yml/badge.svg)](https://github.com/ipitchford/claimpack/actions/workflows/verify.yml)
+[![Agent Skills](https://skills.sh/b/ipitchford/claimpack)](https://skills.sh/ipitchford/claimpack)
+[![CC0 1.0](https://img.shields.io/badge/license-CC0--1.0-blue.svg)](LICENSE)
+
+> **Status: public candidate research-infrastructure release.**
 > This repository does not certify that any scientific claim is true.
 
 ClaimPack is a consumer-first protocol for transferring an exact scientific
@@ -22,6 +26,65 @@ The answer is one of:
 
 `ALLOW` is a policy decision, not a truth label.
 
+## Install the two Agent Skills
+
+The repository ships separate trusted consumer and producer skills in the open
+Agent Skills format. Install both into a supported agent with:
+
+```sh
+npx skills add ipitchford/claimpack \
+  --skill consume-claimpack \
+  --skill publish-claimpack
+```
+
+Install only the fail-closed consumer when publication support is unnecessary:
+
+```sh
+npx skills add ipitchford/claimpack --skill consume-claimpack
+```
+
+Review skill contents before installation and pin a release or commit when the
+workflow is load-bearing. Installing a skill makes instructions available to
+an agent; it does not authenticate any ClaimPack or certify a scientific
+claim.
+
+For an immutable installation, clone the candidate tag and install the two
+skills from that checkout:
+
+```sh
+git clone --depth 1 --branch v0.1.0-candidate.1 \
+  https://github.com/ipitchford/claimpack.git
+npx skills add ./claimpack \
+  --skill consume-claimpack \
+  --skill publish-claimpack
+```
+
+## Install the CLI
+
+The dependency-free Python consumer requires Python 3.11 or newer. Clone the
+immutable candidate tag and install the CLI locally:
+
+```sh
+git clone --depth 1 --branch v0.1.0-candidate.1 \
+  https://github.com/ipitchford/claimpack.git
+python3 -m pip install ./claimpack
+```
+
+The release and skill version `0.1.0-candidate.1` corresponds exactly to the
+PEP 440 Python distribution version `0.1.0rc1`; UseReceipts report the latter.
+
+Then validate and inspect one reference pack:
+
+```sh
+claimpack validate claimpack/examples/z20
+claimpack inspect claimpack/examples/z20
+```
+
+When using the CLI outside a repository checkout, pass a local ClaimPack path.
+The `examples/` and top-level `policies/` directories are repository resources
+rather than installed Python package data; the consumer skill separately
+bundles its cautious example policy.
+
 ## Current prototype
 
 The v0.1 proof of concept contains:
@@ -35,9 +98,9 @@ The v0.1 proof of concept contains:
 - a three-state policy evaluator;
 - a semantically monotone local seen-ledger preventing a previously observed
   adverse record from silently disappearing;
-- a consumer skill;
-- a 12-case, catalogue-aligned adversarial “badclaims” gauntlet; and
-- real reference-only seed packages for candidate mathematics; and
+- separate installable consumer and producer Agent Skills;
+- a 12-case, catalogue-aligned adversarial “badclaims” gauntlet;
+- real reference-only seed packages for candidate mathematics;
 - an offline randomized A/B experiment builder and deterministic scorer that
   receives no explicit condition field, with a documented commitment-masking
   defect that must be fixed before comparative use.
@@ -109,7 +172,7 @@ load-bearing research input.
 limitations, semantic-alignment records, and assessment authentication and
 independence fields. Inspection never executes a quoted command.
 
-The cautious policy intentionally returns `UNKNOWN` for all three reference
+The cautious policy intentionally returns `UNKNOWN` for all six reference
 seeds. Their assessments are repository-reported, their archives are referenced
 rather than embedded, and no complete objection-search or consumer
 authentication context is supplied. This is the expected safe result.
@@ -134,11 +197,16 @@ The generated, reference-only packs bind exact public candidate releases:
 | `examples/z20` | \(z(20)=6\) | Zenodo `21647645`, archive SHA-256 pinned |
 | `examples/vr2-k4` | \(\mathrm{VR}_2(K_4)=20\) | Zenodo `21647654`, archive SHA-256 pinned |
 | `examples/erdos848` | \(f(N)=\lfloor(N+18)/25\rfloor\) for all positive \(N\) | Zenodo `21647629`, archive SHA-256 pinned |
+| `examples/degree-difference-affine-slices` | Product-resultant degree-difference theorem and complete cubic classification | Zenodo `21647593`, archive SHA-256 pinned |
+| `examples/exotic-affine-spheres-quadratic-cubic` | Transverse exotic three-sphere identification and universal quadratic-cubic exclusion | Zenodo `21653108`, archive SHA-256 pinned |
+| `examples/reducible-incidence-divisors-affine-slices` | Incidence-divisor classification, adjacent Hodge defects, and conditional isolation theorem | Zenodo `21653119`, archive SHA-256 pinned |
 
 The z(20) and VR2 packs reuse one byte-identical ClaimVersion for the exact
 two-fixed-core UNSAT subclaim. The Erdős 848 pack separately records its
-load-bearing imported high-threshold theorem. This prevents a whole-paper
-dependency from hiding the smaller statement actually reused.
+load-bearing imported high-threshold theorem. The exotic and reducible packs
+likewise name the precise degree-difference and cubic-classification claims
+they reuse. This prevents a whole-paper dependency from hiding the smaller
+statement actually imported.
 
 Run `python3 -m tools.check_generated` to regenerate all seeds, the cautious
 policy, and `catalog/catalog.json` in a temporary directory and compare every
@@ -170,12 +238,14 @@ claim.
 
 - `SPEC.md` — normative protocol and decision semantics;
 - `schemas/` — machine-readable manifest preflight and vocabulary;
-- `SKILL.md` — safe consumer-agent procedure;
-- `PUBLISH_SKILL.md` — producer-agent packaging procedure;
+- `skills/consume-claimpack/` — installable safe consumer-agent procedure;
+- `skills/publish-claimpack/` — installable producer-agent procedure;
+- `tools/send_press_notice_email.py` — optional external email-notice helper;
+- `DISTRIBUTION.md` — public dissemination and channel guidance;
 - `catalog/catalog.json` — immutable static discovery snapshot;
-- `badclaims/` and `gauntlet/` — adversarial behavior contract; and
+- `badclaims/` and `gauntlet/` — adversarial behavior contract;
 - `evaluation/COMMITMENT_MASKING_ERRATUM.md` — known experiment commitment
-  leak and required correction; and
+  leak and required correction;
 - `DESIGN_INPUTS.md` — provenance and unverified-input boundary.
 
 ## Non-goals

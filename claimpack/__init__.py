@@ -3,6 +3,7 @@
 from .ids import claim_id_for, record_id_for
 from .policy import Decision, evaluate_pack
 from .validate import validate_pack
+from .version import __version__
 
 __all__ = [
     "Decision",
@@ -11,5 +12,3 @@ __all__ = [
     "record_id_for",
     "validate_pack",
 ]
-
-__version__ = "0.1.0.dev0"

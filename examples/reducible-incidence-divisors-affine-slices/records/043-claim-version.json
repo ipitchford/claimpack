@@ -1,0 +1,144 @@
+{
+  "aliases": [
+    "adjacent Hodge defects",
+    "universal adjacent-degree exclusion"
+  ],
+  "claim_id": "ni:///sha-256;7wV20SW1VjqzO2MJwLRjy93gidN10nje-Jl3lHLuspA",
+  "claim_version": "1.0.1",
+  "dependency_targets": [
+    {
+      "record_id": "ni:///sha-256;xHpxUzjaok3i7Ac44k2UOVGMIrgK6j2T-1QgurwBDAM",
+      "record_type": "claim-version"
+    }
+  ],
+  "formal_statements": [],
+  "issued_at": "2026-07-28T19:26:41+00:00",
+  "lineage": [],
+  "problem_refs": [],
+  "protocol_version": "0.1.0",
+  "provenance": {
+    "actors": [
+      {
+        "display_name": "Ian Pitchford",
+        "id": "human:ian-pitchford",
+        "kind": "human"
+      },
+      {
+        "display_name": "OpenAI Codex 5.6 Sol",
+        "id": "ai:openai-codex-5.6-sol",
+        "kind": "ai-system",
+        "model_family": "Codex 5.6 Sol",
+        "model_provider": "OpenAI"
+      },
+      {
+        "display_name": "Anthropic Fable 5",
+        "id": "ai:anthropic-fable-5",
+        "kind": "ai-system",
+        "model_family": "Fable 5",
+        "model_provider": "Anthropic"
+      },
+      {
+        "display_name": "OpenAI Codex",
+        "id": "software:openai-codex",
+        "kind": "software"
+      }
+    ],
+    "roles": [
+      {
+        "actor_id": "ai:openai-codex-5.6-sol",
+        "date": "2026-07-28T00:00:00+00:00",
+        "role": "repository-reported proof, verification, and synthesis"
+      },
+      {
+        "actor_id": "ai:anthropic-fable-5",
+        "date": "2026-07-28T00:00:00+00:00",
+        "role": "repository-reported research route and model-led audit"
+      },
+      {
+        "actor_id": "human:ian-pitchford",
+        "date": "2026-07-28T00:00:00+00:00",
+        "role": "research direction, mediation, maintenance, and publication"
+      },
+      {
+        "actor_id": "software:openai-codex",
+        "date": "2026-07-29T12:00:00+00:00",
+        "role": "ClaimPack encoding"
+      }
+    ]
+  },
+  "record_id": "ni:///sha-256;fYYFbxy8A7KxihhKUEM6NRkaapRATE_I1gWxEoJz1ew",
+  "record_type": "claim-version",
+  "rights": {
+    "exclusions": [
+      "The cited Hodge-theory source remains third-party material."
+    ],
+    "license": "CC0-1.0",
+    "scope": "This ClaimPack record and original source-repository content only to the extent the rights holder may dedicate it."
+  },
+  "scope": {
+    "claim_kind": "stronger-result",
+    "conditions": [
+      "The Hodge-Deligne conclusion is over the complex numbers."
+    ],
+    "exclusions": [
+      "The exceptional boundary m=1 is not included."
+    ],
+    "non_implications": [],
+    "scope_note": "",
+    "structured_scope": {
+      "base_field": "complex numbers",
+      "degrees": "(m,m+1), m>=2",
+      "functionals": "all nonzero ell"
+    },
+    "targets": [
+      "all higher adjacent normalized slices"
+    ]
+  },
+  "sources": [
+    {
+      "digest": "sha256:b733f4db720495fc9654e83a45fc7d77edc9a72a225b919e436cdf2ce924fbc9",
+      "immutable": true,
+      "kind": "doi-version",
+      "locator": "https://doi.org/10.5281/zenodo.21653119",
+      "rights": "Repository original content is CC0-1.0 to the extent held; third-party sources, audit inputs, and the thread snapshot retain their own rights.",
+      "version": "1.0.1"
+    },
+    {
+      "immutable": true,
+      "kind": "git-commit",
+      "locator": "https://github.com/ipitchford/reducible-incidence-divisors-affine-slices/commit/5b01190b37d5a8c43073a0eb5f1e5c94c65864ad",
+      "rights": "Repository original content is CC0-1.0 to the extent held; third-party sources, audit inputs, and the thread snapshot retain their own rights.",
+      "version": "5b01190b37d5a8c43073a0eb5f1e5c94c65864ad"
+    },
+    {
+      "immutable": true,
+      "kind": "doi-version",
+      "locator": "https://doi.org/10.1007/978-3-540-77017-6",
+      "rights": "Third-party cited source; not relicensed by ClaimPack.",
+      "version": "2008"
+    }
+  ],
+  "statement": {
+    "definitions": [
+      {
+        "meaning": "The normalized slice Res(A,B)=1 and ell(AB)=1 for binary forms of degrees m and m+1.",
+        "term": "X_ell^{m,m+1}"
+      },
+      {
+        "meaning": "The compactly supported Hodge-Deligne polynomial.",
+        "term": "E_c"
+      },
+      {
+        "meaning": "The middle catalecticant A maps to the functional B maps to ell(AB).",
+        "term": "C_ell"
+      }
+    ],
+    "language": "en",
+    "latex": "\\begin{gathered}m\\ge2,\\quad0\\ne\\ell\\in V_{2m+1}^\\vee,\\quad\\rho=\\operatorname{rank}C_\\ell,\\\\E_c(X_\\ell^{m,m+1};u,v)\\ne(uv)^{2m+1},\\\\\\rho=1:\\ E_c=(uv)^{2m+1}-(uv)^{2m};\\\\\\rho=2\\text{ secant}:\\ [u^{2m-1}v^{2m-1}]E_c=-2;\\quad\\rho=2\\text{ first jet}:\\ [u^{2m-1}v^{2m-1}]E_c=-1;\\\\\\rho\\ge3:\\ [u^{2m-1}v^{2m-1}]E_c=-1;\\\\X_\\ell^{m,m+1}\\not\\simeq\\mathbb A^{2m+1}.\\end{gathered}",
+    "natural": "Let m>=2, 0!=ell in V_{2m+1}^*, and rho=rank C_ell. Then E_c(X_ell^{m,m+1};u,v)!=(uv)^{2m+1}. More precisely, for rho=1 the polynomial is (uv)^{2m+1}-(uv)^{2m}; for catalecticant rank two of two-point secant type the coefficient of u^{2m-1}v^{2m-1} is -2; for rank two of first-jet type it is -1; and for rho>=3 it is -1. Consequently X_ell^{m,m+1} is not isomorphic to A^{2m+1} for every such m and ell.",
+    "quantifiers": [
+      "for every integer m >= 2",
+      "for every nonzero ell in V_{2m+1}^*"
+    ]
+  }
+}

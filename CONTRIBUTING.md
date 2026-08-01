@@ -1,6 +1,6 @@
 # Contributing
 
-This is a pre-release protocol experiment. The most useful contributions are
+This is a candidate protocol experiment. The most useful contributions are
 small, reproducible failures of the consumer or specification.
 
 Please include:
@@ -21,5 +21,14 @@ Changes to status vocabulary must preserve separate issuer, date,
 authentication, evidence dimension, and scope fields. A new aggregate
 credibility or truth score is out of scope.
 
-Run `make verify` before proposing a change. Add a failing adversarial test
-first for security or qualification-fidelity defects.
+Run `make verify` and `make verify-optimized` before proposing a change. When a
+skill changes, also run:
+
+```sh
+uvx --from skills-ref==0.1.1 agentskills validate skills/consume-claimpack
+uvx --from skills-ref==0.1.1 agentskills validate skills/publish-claimpack
+npx --yes skills@1.5.21 add . --list
+```
+
+Add a failing adversarial test first for security or qualification-fidelity
+defects.

@@ -1,0 +1,54 @@
+{
+  "artifacts": [
+    {
+      "digest": "sha256:de92abd2033cf65a2412cb070edd388ae2c3fd0d85a08660954d45408343d737",
+      "embedded": false,
+      "locator": "https://doi.org/10.5281/zenodo.21653108",
+      "media_type": "application/zip",
+      "name": "exotic-affine-spheres-quadratic-cubic-0.1.1.zip",
+      "rights": "CC0-1.0 for original repository content to the extent held; source exclusions apply."
+    }
+  ],
+  "coverage": [
+    "candidate manuscript class-stratification and Hodge-Deligne proof",
+    "finite-field realization for the stated fields",
+    "generated-table comparison, fixtures, and point-count ablation"
+  ],
+  "evidence_kind": "manuscript",
+  "issued_at": "2026-07-29T12:00:00+00:00",
+  "issuer": {
+    "display_name": "ipitchford/exotic-affine-spheres-quadratic-cubic",
+    "id": "repository:ipitchford/exotic-affine-spheres-quadratic-cubic",
+    "kind": "organization"
+  },
+  "limitations": [
+    "Finite-field censuses do not prove the complex Grothendieck-ring identity.",
+    "The verifier does not encode mixed Hodge theory or the complete geometric stratification.",
+    "The repository-reported model audit artifact is not included.",
+    "No independent external reproduction, human review, peer review, or formalisation is documented.",
+    "Referenced archive is not embedded in this seed ClaimPack."
+  ],
+  "method": "Reference-only binding to the exact public release archive and its repository-reported assurance boundary.",
+  "protocol_version": "0.1.0",
+  "record_id": "ni:///sha-256;k0GDpavPl_Y2LQo5AFw9Yy06Dw4ovgYvKkZRD9ETmOI",
+  "record_type": "evidence",
+  "replay": {
+    "command": "make PYTHON=.venv/bin/python verify",
+    "display_only": true,
+    "environment_digest": "",
+    "expected_outputs": [
+      "verification transcript and generated CSV files match",
+      "optimized execution fails closed and the ablation is rejected"
+    ],
+    "resource_budget": {
+      "cpu": "source-repository dependent",
+      "disk": "source-repository dependent",
+      "network": "forbidden in core ClaimPack consumption",
+      "wall_time": "source-repository dependent"
+    }
+  },
+  "subject": {
+    "record_id": "ni:///sha-256;NL03Ca0XN805qQ9dy00FubtyO9ohIVWX-H4k5yPNFJY",
+    "record_type": "claim-version"
+  }
+}

@@ -1,19 +1,25 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77.0.3"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "claimpack"
-version = "0.1.0.dev0"
+version = "0.1.0rc1"
 description = "Consumer-first protocol for exact, evidence-bounded scientific claim transfer"
 readme = "README.md"
 requires-python = ">=3.11"
-license = { text = "CC0-1.0" }
+license = "CC0-1.0"
+license-files = ["LICENSE"]
 authors = [
   { name = "Ian Pitchford" },
   { name = "OpenAI Codex" },
 ]
 dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/ipitchford/claimpack"
+Repository = "https://github.com/ipitchford/claimpack"
+Issues = "https://github.com/ipitchford/claimpack/issues"
 
 [project.scripts]
 claimpack = "claimpack.cli:main"

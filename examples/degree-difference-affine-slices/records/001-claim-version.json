@@ -1,0 +1,120 @@
+{
+  "aliases": [
+    "degree-difference principle",
+    "binary-form product-resultant determinant theorem"
+  ],
+  "claim_id": "ni:///sha-256;2YnlMQMojvdBY5qY33uMJmO_d7zea8Uj-nGfyPUyyQ4",
+  "claim_version": "0.1-candidate",
+  "dependency_targets": [],
+  "formal_statements": [],
+  "issued_at": "2026-07-27T21:33:47+00:00",
+  "lineage": [],
+  "problem_refs": [],
+  "protocol_version": "0.1.0",
+  "provenance": {
+    "actors": [
+      {
+        "display_name": "Ian Pitchford",
+        "id": "human:ian-pitchford",
+        "kind": "human"
+      },
+      {
+        "display_name": "OpenAI Codex / Anthropic models",
+        "id": "organization:openai-codex-anthropic-models",
+        "kind": "organization"
+      },
+      {
+        "display_name": "OpenAI Codex",
+        "id": "software:openai-codex",
+        "kind": "software"
+      }
+    ],
+    "roles": [
+      {
+        "actor_id": "organization:openai-codex-anthropic-models",
+        "date": "2026-07-27T00:00:00+00:00",
+        "role": "repository-reported manuscript attribution"
+      },
+      {
+        "actor_id": "human:ian-pitchford",
+        "date": "2026-07-27T00:00:00+00:00",
+        "role": "research direction, mediation, maintenance, and publication"
+      },
+      {
+        "actor_id": "software:openai-codex",
+        "date": "2026-07-29T12:00:00+00:00",
+        "role": "ClaimPack encoding"
+      }
+    ]
+  },
+  "record_id": "ni:///sha-256;ukCJErI26rVkXt9rTP-BKnuI_o-nAW4-OSUVoYbIVus",
+  "record_type": "claim-version",
+  "rights": {
+    "exclusions": [],
+    "license": "CC0-1.0",
+    "scope": "This ClaimPack record and original source-repository content only to the extent the rights holder may dedicate it."
+  },
+  "scope": {
+    "claim_kind": "stronger-result",
+    "conditions": [
+      "The standard monomial coefficient orders and the manuscript's resultant convention are used.",
+      "The class-group conclusion assumes both named boundary divisors are prime."
+    ],
+    "exclusions": [
+      "Degree-zero factors are outside the stated theorem."
+    ],
+    "non_implications": [],
+    "scope_note": "",
+    "structured_scope": {
+      "base_field": "complex numbers for the geometric conclusions",
+      "factor_degrees": "all positive r,s",
+      "map": "binary-form product and resultant"
+    },
+    "targets": [
+      "Jacobian determinant",
+      "etale torsor",
+      "generic degree",
+      "divisor class group"
+    ]
+  },
+  "sources": [
+    {
+      "digest": "sha256:8d0b0cfb3b43e3b7c7f32f62506ae66e824890e15a981b8498d41a07b4c2fe43",
+      "immutable": true,
+      "kind": "doi-version",
+      "locator": "https://doi.org/10.5281/zenodo.21647593",
+      "rights": "Repository original content is CC0-1.0 to the extent held; third-party material is excluded.",
+      "version": "0.1-candidate"
+    },
+    {
+      "immutable": true,
+      "kind": "git-commit",
+      "locator": "https://github.com/ipitchford/degree-difference-affine-slices/commit/38bb6c2054fd1e231233ee9c1bbd8ebf7b666685",
+      "rights": "Repository original content is CC0-1.0 to the extent held; third-party material is excluded.",
+      "version": "38bb6c2054fd1e231233ee9c1bbd8ebf7b666685"
+    }
+  ],
+  "statement": {
+    "definitions": [
+      {
+        "meaning": "The vector space Sym^d(W^*) of binary forms of degree d for a two-dimensional complex vector space W.",
+        "term": "V_d"
+      },
+      {
+        "meaning": "The pairs (A,B) satisfying Res(A,B)=1 and ell(AB)=1.",
+        "term": "tilde X_{r,s,ell}"
+      },
+      {
+        "meaning": "The complement of the resultant and multiplication-hyperplane divisors in P(V_r) x P(V_s).",
+        "term": "U_{r,s,ell}"
+      }
+    ],
+    "language": "en",
+    "latex": "\\begin{gathered}r,s\\ge1,\\qquad \\Phi_{r,s}(A,B)=(AB,\\operatorname{Res}(A,B)),\\\\\\det D\\Phi_{r,s}=(-1)^{s(r+1)}(r-s)\\operatorname{Res}(A,B)^2.\\\\r\\ne s\\Longrightarrow \\widetilde X_{r,s,\\ell}\\longrightarrow U_{r,s,\\ell}\\text{ is a finite \\acute{e}tale }\\mu_{|s-r|}\\text{-torsor},\\\\\\deg(\\widetilde X_{r,s,\\ell}\\to\\{C\\in V_{r+s}:\\ell(C)=1\\})=|s-r|\\binom{r+s}{r},\\\\\\mathcal R_{r,s},\\mathcal S_{r,s,\\ell}\\text{ prime}\\Longrightarrow\\operatorname{Cl}(U_{r,s,\\ell})\\simeq\\mathbb Z/|s-r|\\mathbb Z.\\end{gathered}",
+    "natural": "Let r,s>=1 and choose the standard monomial coefficient orders on V_r, V_s, and V_{r+s}. For Phi_{r,s}(A,B)=(AB,Res(A,B)), det D Phi_{r,s}=(-1)^{s(r+1)}(r-s)Res(A,B)^2. In particular, if r!=s, Phi_{r,s} is etale on the coprime locus {Res!=0}. For nonzero ell in V_{r+s}^*, if r!=s, projectivisation is a finite etale mu_{|s-r|}-torsor from the normalized slice tilde X_{r,s,ell} to U_{r,s,ell}; the induced multiplication map has generic degree |s-r| binom(r+s,r); and, if the resultant divisor R_{r,s} and multiplication-hyperplane divisor S_{r,s,ell} are prime, Cl(U_{r,s,ell}) is isomorphic to Z/|s-r|Z.",
+    "quantifiers": [
+      "for every pair of integers r,s >= 1",
+      "for every nonzero ell in V_{r+s}^* for the slice conclusions"
+    ]
+  }
+}

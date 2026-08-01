@@ -1,0 +1,46 @@
+{
+  "assessment_kind": "author-status",
+  "authentication": {
+    "status": "unverified"
+  },
+  "dimension": "independent-reproduction",
+  "evidence_refs": [
+    "ni:///sha-256;Hrr0RndO06gafVwPxw3ictq7gQeMxgzDyuVfLMD3Kcg"
+  ],
+  "independence": {
+    "actor": "same as repository-reported producer",
+    "code": "not independently reimplemented",
+    "communication_exposure": "shared release materials",
+    "coordination_parent": "repository publication workflow",
+    "data": "same release artifacts",
+    "environment": "repository-reported local environment",
+    "method": "repository self-report",
+    "model_provider": "not an independence claim",
+    "organization": "not independent"
+  },
+  "issued_at": "2026-07-29T12:00:00+00:00",
+  "issuer": {
+    "display_name": "ipitchford/degree-difference-affine-slices",
+    "id": "repository:ipitchford/degree-difference-affine-slices",
+    "kind": "organization"
+  },
+  "method": "Repository-reported status; not independent verification.",
+  "outcome": "unknown",
+  "protocol_version": "0.1.0",
+  "qualifications": [
+    "Repository-reported assessment; no external authentication.",
+    "A passing self-assessment is not an independent verification."
+  ],
+  "record_id": "ni:///sha-256;-HKcndobqJBiKc94Tk9VAqqmAIaHHMv5aXbeDhno2s0",
+  "record_type": "assessment",
+  "responds_to": [],
+  "stance": "neutral",
+  "summary": "No independent external reproduction is documented.",
+  "supersedes": [],
+  "target": {
+    "record_id": "ni:///sha-256;e4KmJmxZNpIiwxsySUXDXoyQRAOUf2CRCpPzwvUuMTI",
+    "record_type": "claim-version"
+  },
+  "target_claim_id": "ni:///sha-256;eOEoKPPS6zGsnijrO1-ggnWoegNb13LigIKO6RmQG0w",
+  "withdraws": []
+}

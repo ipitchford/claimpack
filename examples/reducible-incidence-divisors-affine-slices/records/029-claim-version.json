@@ -1,0 +1,148 @@
+{
+  "aliases": [
+    "reducibility classification",
+    "marked-common-root incidence divisor theorem"
+  ],
+  "claim_id": "ni:///sha-256;sxYzS5cJ3rEiYLV92ojE7AzsCDV8ZV1y_8JgkNYnAkY",
+  "claim_version": "1.0.1",
+  "dependency_targets": [],
+  "formal_statements": [],
+  "issued_at": "2026-07-28T19:26:41+00:00",
+  "lineage": [],
+  "problem_refs": [],
+  "protocol_version": "0.1.0",
+  "provenance": {
+    "actors": [
+      {
+        "display_name": "Ian Pitchford",
+        "id": "human:ian-pitchford",
+        "kind": "human"
+      },
+      {
+        "display_name": "OpenAI Codex 5.6 Sol",
+        "id": "ai:openai-codex-5.6-sol",
+        "kind": "ai-system",
+        "model_family": "Codex 5.6 Sol",
+        "model_provider": "OpenAI"
+      },
+      {
+        "display_name": "Anthropic Fable 5",
+        "id": "ai:anthropic-fable-5",
+        "kind": "ai-system",
+        "model_family": "Fable 5",
+        "model_provider": "Anthropic"
+      },
+      {
+        "display_name": "OpenAI Codex",
+        "id": "software:openai-codex",
+        "kind": "software"
+      }
+    ],
+    "roles": [
+      {
+        "actor_id": "ai:openai-codex-5.6-sol",
+        "date": "2026-07-28T00:00:00+00:00",
+        "role": "repository-reported proof, verification, and synthesis"
+      },
+      {
+        "actor_id": "ai:anthropic-fable-5",
+        "date": "2026-07-28T00:00:00+00:00",
+        "role": "repository-reported research route and model-led audit"
+      },
+      {
+        "actor_id": "human:ian-pitchford",
+        "date": "2026-07-28T00:00:00+00:00",
+        "role": "research direction, mediation, maintenance, and publication"
+      },
+      {
+        "actor_id": "software:openai-codex",
+        "date": "2026-07-29T12:00:00+00:00",
+        "role": "ClaimPack encoding"
+      }
+    ]
+  },
+  "record_id": "ni:///sha-256;xHpxUzjaok3i7Ac44k2UOVGMIrgK6j2T-1QgurwBDAM",
+  "record_type": "claim-version",
+  "rights": {
+    "exclusions": [
+      "The cited classical literature remains third-party material."
+    ],
+    "license": "CC0-1.0",
+    "scope": "This ClaimPack record and original source-repository content only to the extent the rights holder may dedicate it."
+  },
+  "scope": {
+    "claim_kind": "stronger-result",
+    "conditions": [
+      "Reducibility is set-theoretic and component counts use reduced structures.",
+      "The theorem is over the complex numbers."
+    ],
+    "exclusions": [
+      "Positive-characteristic analogues are outside the theorem."
+    ],
+    "non_implications": [],
+    "scope_note": "",
+    "structured_scope": {
+      "base_field": "complex numbers",
+      "degrees": "(m,m+1), m>=2",
+      "reducibility_locus": "tangent developable of nu_{2m+1}"
+    },
+    "targets": [
+      "marked-common-root incidence divisor",
+      "tangent developable"
+    ]
+  },
+  "sources": [
+    {
+      "digest": "sha256:b733f4db720495fc9654e83a45fc7d77edc9a72a225b919e436cdf2ce924fbc9",
+      "immutable": true,
+      "kind": "doi-version",
+      "locator": "https://doi.org/10.5281/zenodo.21653119",
+      "rights": "Repository original content is CC0-1.0 to the extent held; third-party sources, audit inputs, and the thread snapshot retain their own rights.",
+      "version": "1.0.1"
+    },
+    {
+      "immutable": true,
+      "kind": "git-commit",
+      "locator": "https://github.com/ipitchford/reducible-incidence-divisors-affine-slices/commit/5b01190b37d5a8c43073a0eb5f1e5c94c65864ad",
+      "rights": "Repository original content is CC0-1.0 to the extent held; third-party sources, audit inputs, and the thread snapshot retain their own rights.",
+      "version": "5b01190b37d5a8c43073a0eb5f1e5c94c65864ad"
+    },
+    {
+      "immutable": true,
+      "kind": "doi-version",
+      "locator": "https://doi.org/10.4310/MRL.2013.v20.n4.a10",
+      "rights": "Third-party cited source; not relicensed by ClaimPack.",
+      "version": "2013"
+    },
+    {
+      "immutable": true,
+      "kind": "doi-version",
+      "locator": "https://doi.org/10.1016/j.jsc.2010.08.001",
+      "rights": "Third-party cited source; not relicensed by ClaimPack.",
+      "version": "2011"
+    }
+  ],
+  "statement": {
+    "definitions": [
+      {
+        "meaning": "The divisor ell(P^2 A' B')=0 on P(V_1) x P(V_{m-1}) x P(V_m).",
+        "term": "D_ell"
+      },
+      {
+        "meaning": "The rational normal curve of projective evaluation functionals in P(V_{2m+1}^*).",
+        "term": "nu_{2m+1}"
+      },
+      {
+        "meaning": "The middle catalecticant A maps to the functional B maps to ell(AB).",
+        "term": "C_ell"
+      }
+    ],
+    "language": "en",
+    "latex": "\\begin{gathered}m\\ge2,\\quad0\\ne\\ell\\in V_{2m+1}^\\vee,\\\\D_\\ell\\text{ reducible}\\Longleftrightarrow [\\ell]\\in\\tau(\\nu_{2m+1}),\\\\\\ell=\\lambda\\operatorname{ev}_u\\Rightarrow \\#\\operatorname{Irr}(D_\\ell{}_{\\mathrm{red}})=3,\\\\[\\ell]\\in\\tau(\\nu_{2m+1})\\setminus\\nu_{2m+1}\\Rightarrow\\#\\operatorname{Irr}(D_\\ell{}_{\\mathrm{red}})=2,\\\\\\ell=a\\operatorname{ev}_u+b\\operatorname{ev}_v,\\ u\\ne v,\\ ab\\ne0\\Rightarrow D_\\ell\\text{ irreducible},\\\\\\operatorname{rank}C_\\ell\\ge3\\Rightarrow D_\\ell\\text{ irreducible}.\\end{gathered}",
+    "natural": "Let m>=2 and 0!=ell in V_{2m+1}^*. The marked-common-root divisor D_ell is reducible set-theoretically if and only if [ell] lies in the tangent developable of the rational normal curve nu_{2m+1}. More precisely: an evaluation functional gives three reduced irreducible components; a functional on a punctured tangent line gives exactly two; a genuine two-point secant functional gives an irreducible divisor; and every functional with middle-catalecticant rank at least three gives an irreducible divisor.",
+    "quantifiers": [
+      "for every integer m >= 2",
+      "for every nonzero ell in V_{2m+1}^*"
+    ]
+  }
+}

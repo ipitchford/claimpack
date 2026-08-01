@@ -1,13 +1,35 @@
 from __future__ import annotations
 
+import inspect
 import json
+import tomllib
 import unittest
 from pathlib import Path
+
+from claimpack import __version__
+from claimpack.cli import _parser
+from claimpack.receipt import create_use_receipt
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class MetadataTests(unittest.TestCase):
+    def test_runtime_version_is_consistent(self) -> None:
+        metadata = tomllib.loads(
+            (ROOT / "pyproject.toml").read_text(encoding="utf-8")
+        )
+        self.assertEqual(metadata["project"]["version"], __version__)
+        self.assertEqual(
+            inspect.signature(create_use_receipt)
+            .parameters["consumer_version"]
+            .default,
+            __version__,
+        )
+        parsed = _parser().parse_args(
+            ["decide", "pack", "--policy", "policy.json"]
+        )
+        self.assertEqual(parsed.consumer_version, __version__)
+
     def test_checked_in_json_documents_parse(self) -> None:
         paths = [
             ROOT / "badclaims/cases.json",

@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: >-
-  Cite this as a pre-release research-infrastructure prototype, not as an
+  Cite this as a candidate research-infrastructure release, not as an
   authority certifying any indexed scientific claim.
 title: >-
   ClaimPack: a consumer-first protocol for exact, evidence-bounded scientific
@@ -9,8 +9,8 @@ type: software
 authors:
   - name: Ian Pitchford
   - name: OpenAI Codex
-version: 0.1.0-dev
-date-released: 2026-07-29
+version: 0.1.0-candidate.1
+date-released: 2026-08-01
 license: CC0-1.0
 keywords:
   - AI-assisted research
@@ -28,4 +28,5 @@ preferred-citation:
     - name: Ian Pitchford
     - name: OpenAI Codex
   year: 2026
-  version: 0.1.0-dev
+  version: 0.1.0-candidate.1
+repository-code: https://github.com/ipitchford/claimpack

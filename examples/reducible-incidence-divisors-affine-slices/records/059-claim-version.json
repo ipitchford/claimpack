@@ -1,0 +1,140 @@
+{
+  "aliases": [
+    "conditional complete two-factor isolation",
+    "binary-factorisation affine-slice isolation"
+  ],
+  "claim_id": "ni:///sha-256;5CJftn3xNkybF2NCnp_CTBOmPDHTCVXC_rGTQWEeGd8",
+  "claim_version": "1.0.1",
+  "dependency_targets": [
+    {
+      "record_id": "ni:///sha-256;fYYFbxy8A7KxihhKUEM6NRkaapRATE_I1gWxEoJz1ew",
+      "record_type": "claim-version"
+    },
+    {
+      "record_id": "ni:///sha-256;ukCJErI26rVkXt9rTP-BKnuI_o-nAW4-OSUVoYbIVus",
+      "record_type": "claim-version"
+    },
+    {
+      "record_id": "ni:///sha-256;e4KmJmxZNpIiwxsySUXDXoyQRAOUf2CRCpPzwvUuMTI",
+      "record_type": "claim-version"
+    }
+  ],
+  "formal_statements": [],
+  "issued_at": "2026-07-28T19:26:41+00:00",
+  "lineage": [],
+  "problem_refs": [],
+  "protocol_version": "0.1.0",
+  "provenance": {
+    "actors": [
+      {
+        "display_name": "Ian Pitchford",
+        "id": "human:ian-pitchford",
+        "kind": "human"
+      },
+      {
+        "display_name": "OpenAI Codex 5.6 Sol",
+        "id": "ai:openai-codex-5.6-sol",
+        "kind": "ai-system",
+        "model_family": "Codex 5.6 Sol",
+        "model_provider": "OpenAI"
+      },
+      {
+        "display_name": "Anthropic Fable 5",
+        "id": "ai:anthropic-fable-5",
+        "kind": "ai-system",
+        "model_family": "Fable 5",
+        "model_provider": "Anthropic"
+      },
+      {
+        "display_name": "OpenAI Codex",
+        "id": "software:openai-codex",
+        "kind": "software"
+      }
+    ],
+    "roles": [
+      {
+        "actor_id": "ai:openai-codex-5.6-sol",
+        "date": "2026-07-28T00:00:00+00:00",
+        "role": "repository-reported proof, verification, and synthesis"
+      },
+      {
+        "actor_id": "ai:anthropic-fable-5",
+        "date": "2026-07-28T00:00:00+00:00",
+        "role": "repository-reported research route and model-led audit"
+      },
+      {
+        "actor_id": "human:ian-pitchford",
+        "date": "2026-07-28T00:00:00+00:00",
+        "role": "research direction, mediation, maintenance, and publication"
+      },
+      {
+        "actor_id": "software:openai-codex",
+        "date": "2026-07-29T12:00:00+00:00",
+        "role": "ClaimPack encoding"
+      }
+    ]
+  },
+  "record_id": "ni:///sha-256;5nhOT3cyu2_jUDqEdxOVTiyPxPZqu4mPhTIVNDSzd7o",
+  "record_type": "claim-version",
+  "rights": {
+    "exclusions": [],
+    "license": "CC0-1.0",
+    "scope": "This ClaimPack record and original source-repository content only to the extent the rights holder may dedicate it."
+  },
+  "scope": {
+    "claim_kind": "conditional-result",
+    "conditions": [
+      "The final uniqueness conclusion assumes the pinned complete cubic classification.",
+      "The theorem is over the complex numbers."
+    ],
+    "exclusions": [
+      "Trimmed, nonlinear, quotient, multifactor, degree-zero, and positive-characteristic variants are outside the scoped architecture."
+    ],
+    "non_implications": [],
+    "scope_note": "",
+    "structured_scope": {
+      "architecture": "untrimmed positive-degree binary two-factor normalization",
+      "base_field": "complex numbers",
+      "conditional_case": "complete cubic classification"
+    },
+    "targets": [
+      "complete positive two-factor affine-slice isolation"
+    ]
+  },
+  "sources": [
+    {
+      "digest": "sha256:b733f4db720495fc9654e83a45fc7d77edc9a72a225b919e436cdf2ce924fbc9",
+      "immutable": true,
+      "kind": "doi-version",
+      "locator": "https://doi.org/10.5281/zenodo.21653119",
+      "rights": "Repository original content is CC0-1.0 to the extent held; third-party sources, audit inputs, and the thread snapshot retain their own rights.",
+      "version": "1.0.1"
+    },
+    {
+      "immutable": true,
+      "kind": "git-commit",
+      "locator": "https://github.com/ipitchford/reducible-incidence-divisors-affine-slices/commit/5b01190b37d5a8c43073a0eb5f1e5c94c65864ad",
+      "rights": "Repository original content is CC0-1.0 to the extent held; third-party sources, audit inputs, and the thread snapshot retain their own rights.",
+      "version": "5b01190b37d5a8c43073a0eb5f1e5c94c65864ad"
+    }
+  ],
+  "statement": {
+    "definitions": [
+      {
+        "meaning": "The normalized binary-form slice Res(A,B)=1 and ell(AB)=1.",
+        "term": "X_ell^{r,s}"
+      },
+      {
+        "meaning": "The untrimmed positive-degree two-factor binary-form spaces, product-resultant map, and normalized linear slices defined in the source.",
+        "term": "this architecture"
+      }
+    ],
+    "language": "en",
+    "latex": "\\begin{gathered}r,s\\ge1,\\quad0\\ne\\ell\\in V_{r+s}^\\vee,\\\\|r-s|\\ge2\\Rightarrow X_\\ell^{r,s}(\\mathbb C)\\text{ is not contractible},\\\\\\{r,s\\}=\\{m,m+1\\},\\ m\\ge2\\Rightarrow X_\\ell^{r,s}\\not\\simeq\\mathbb A^{2m+1},\\\\r=s\\Rightarrow\\text{positive-dimensional relative-scaling fibres},\\\\\\text{conditional on the pinned complete cubic classification: }(1,2)_{\\mathrm{tangent}}\\text{ and }(2,1)_{\\mathrm{tangent}}\\text{ are the unique normalized affine-space sources in the scoped architecture}\\text{ with nonzero constant Jacobian determinant}.\\end{gathered}",
+    "natural": "Let r,s>=1 and 0!=ell in V_{r+s}^*. If |r-s|>=2, then X_ell^{r,s}(C) is not contractible. If {r,s}={m,m+1} with m>=2, then X_ell^{r,s} is not isomorphic to A^{2m+1}. If r=s, relative scaling gives positive-dimensional fibres and the multiplication-resultant architecture cannot yield a Keller map. Conditional on the complete cubic classification in the pinned unrefereed degree-difference candidate, the tangent nonosculating (1,2) slice and its swapped form are the unique positive-bidegree normalized affine-space sources in this architecture that carry a nonzero constant Jacobian determinant.",
+    "quantifiers": [
+      "for every pair of integers r,s >= 1",
+      "for every nonzero ell in V_{r+s}^*"
+    ]
+  }
+}

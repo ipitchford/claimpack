@@ -10,6 +10,7 @@ from .ids import record_id_for, sha256_label
 from .policy import PolicyEvaluation
 from .records import validate_record
 from .validate import ValidatedPack
+from .version import __version__
 
 
 def create_use_receipt(
@@ -20,7 +21,7 @@ def create_use_receipt(
     *,
     purpose: str,
     consumer_name: str = "claimpack",
-    consumer_version: str = "0.1.0.dev0",
+    consumer_version: str = __version__,
     consumer_run_id: str = "",
     consumer_model: str = "",
     consumer_role: str = "research-claim consumer",

@@ -171,7 +171,7 @@ def generate(repository_root: Path, output_root: Path) -> list[Path]:
     overlay_files = [
         _entry(
             repository_root,
-            "SKILL.md",
+            "skills/consume-claimpack/SKILL.md",
             "MATERIALS/supplement/CONSUMER_SKILL.md",
         ),
         _entry(

@@ -1,5 +1,5 @@
 {
-  "catalog_head": "ni:///sha-256;koh09no_ncwJgSFuEnS4Y9fNIdn3YcTzPFRRlelIPF8",
+  "catalog_head": "ni:///sha-256;sbbiD71QuDXfKhxws-Du_1innPDyBNuVE15c-Ta5PFQ",
   "entries": [
     {
       "aliases": [
@@ -55,6 +55,131 @@
           "locator": "https://github.com/ipitchford/erdos-848-all-n/commit/56b27ae765f04195dc867db5e1c52750d5f721ae",
           "rights": "Repository original content is CC0-1.0; third-party analytic inputs excluded.",
           "version": "56b27ae765f04195dc867db5e1c52750d5f721ae"
+        }
+      ],
+      "status_updated_at": "2026-07-29T12:00:00+00:00",
+      "system_assessment": "not evaluated by the static catalog"
+    },
+    {
+      "aliases": [
+        "conditional complete two-factor isolation",
+        "binary-factorisation affine-slice isolation"
+      ],
+      "assessment_record_ids": [
+        "ni:///sha-256;6Uy2J8ywkCsMQ0snc9zip70j5hiJhdNSlxINOlj5edU",
+        "ni:///sha-256;NEMsVxxuCeRNVSKwRbvOXFvSxpo_j-UNDZ6nzmkbWXk",
+        "ni:///sha-256;PR1bxqqvY79rMirOWRCBKHJqsorDM6Nbzp_jsSxxnMc",
+        "ni:///sha-256;W06LGWqh8HVC4HHW8tvxWuxQvUz7lMql3HWguufTUpY",
+        "ni:///sha-256;__utxSzK-vBS0RCzEaJFIbzgZclfYMVGwvsyt5nYLGg",
+        "ni:///sha-256;be0m_dbykuJ7NlCzdQ_55Et-i-MwElzWEtU3ElRJhE8",
+        "ni:///sha-256;fKOFWRjTjA6sIVmm35PEyi6tKkKkvBtu4oVF_z4pRZA",
+        "ni:///sha-256;pCfThnEikl2qexHiCCTE32LsY162F93zleOeJ74_xow",
+        "ni:///sha-256;qCtiIzZudA5CLRVBwiqMulHUKRqHVwL0jjKpfqOArks",
+        "ni:///sha-256;qvbsHT9n2AfGGv7ej4Q9To2hx-sZUqQCZCCR2de7EM8",
+        "ni:///sha-256;wrAEmJSAaz4Upm8-wINkgmZvlfP536mhXlkZ1xa3nPI",
+        "ni:///sha-256;y73fJAH7oy215nhfbcjm3GDhmEQ8Gk7_tNl-QryWIpA"
+      ],
+      "author_claimed_status": "source-reported status; inspect assessment overlays",
+      "canonical_status": "unassessed",
+      "claim_id": "ni:///sha-256;5CJftn3xNkybF2NCnp_CTBOmPDHTCVXC_rGTQWEeGd8",
+      "claim_kind": "conditional-result",
+      "claim_record_id": "ni:///sha-256;5nhOT3cyu2_jUDqEdxOVTiyPxPZqu4mPhTIVNDSzd7o",
+      "formal_verification_status": "source-reported only; inspect exact assessment records",
+      "human_review_status": "no independent human review documented by the seed",
+      "independent_reproduction_status": "none documented by the seed",
+      "latex": "\\begin{gathered}r,s\\ge1,\\quad0\\ne\\ell\\in V_{r+s}^\\vee,\\\\|r-s|\\ge2\\Rightarrow X_\\ell^{r,s}(\\mathbb C)\\text{ is not contractible},\\\\\\{r,s\\}=\\{m,m+1\\},\\ m\\ge2\\Rightarrow X_\\ell^{r,s}\\not\\simeq\\mathbb A^{2m+1},\\\\r=s\\Rightarrow\\text{positive-dimensional relative-scaling fibres},\\\\\\text{conditional on the pinned complete cubic classification: }(1,2)_{\\mathrm{tangent}}\\text{ and }(2,1)_{\\mathrm{tangent}}\\text{ are the unique normalized affine-space sources in the scoped architecture}\\text{ with nonzero constant Jacobian determinant}.\\end{gathered}",
+      "natural": "Let r,s>=1 and 0!=ell in V_{r+s}^*. If |r-s|>=2, then X_ell^{r,s}(C) is not contractible. If {r,s}={m,m+1} with m>=2, then X_ell^{r,s} is not isomorphic to A^{2m+1}. If r=s, relative scaling gives positive-dimensional fibres and the multiplication-resultant architecture cannot yield a Keller map. Conditional on the complete cubic classification in the pinned unrefereed degree-difference candidate, the tangent nonosculating (1,2) slice and its swapped form are the unique positive-bidegree normalized affine-space sources in this architecture that carry a nonzero constant Jacobian determinant.",
+      "novelty_status": "unassessed",
+      "objection_record_ids": [],
+      "packages": [
+        {
+          "package_root": "ni:///sha-256;HqZkyPBy34OpXnas8qQKrhyEL9AR4deTzMRqJMKi8tw",
+          "path": "examples/reducible-incidence-divisors-affine-slices",
+          "primary": false
+        }
+      ],
+      "search_fingerprint": "sha256:e68864f75538f939f8bbe6bbcb13874a8d9b3a869213588621d561456776dd84",
+      "sources": [
+        {
+          "digest": "sha256:b733f4db720495fc9654e83a45fc7d77edc9a72a225b919e436cdf2ce924fbc9",
+          "immutable": true,
+          "kind": "doi-version",
+          "locator": "https://doi.org/10.5281/zenodo.21653119",
+          "rights": "Repository original content is CC0-1.0 to the extent held; third-party sources, audit inputs, and the thread snapshot retain their own rights.",
+          "version": "1.0.1"
+        },
+        {
+          "immutable": true,
+          "kind": "git-commit",
+          "locator": "https://github.com/ipitchford/reducible-incidence-divisors-affine-slices/commit/5b01190b37d5a8c43073a0eb5f1e5c94c65864ad",
+          "rights": "Repository original content is CC0-1.0 to the extent held; third-party sources, audit inputs, and the thread snapshot retain their own rights.",
+          "version": "5b01190b37d5a8c43073a0eb5f1e5c94c65864ad"
+        }
+      ],
+      "status_updated_at": "2026-07-29T12:00:00+00:00",
+      "system_assessment": "not evaluated by the static catalog"
+    },
+    {
+      "aliases": [
+        "transverse exotic affine three-sphere",
+        "X(4,4,-a^3+a^2b^2-b^3)"
+      ],
+      "assessment_record_ids": [
+        "ni:///sha-256;-dZ-qgD-25HtzFVrH4rgeEv1Qoo24YMI6jLPA1cO9JU",
+        "ni:///sha-256;46J3Tzh7LCcTqGQZt_D6EzBBOMKU68rYc-UsAZ6q6yA",
+        "ni:///sha-256;A8RqJfDdbUCveb_Y3YQN7SiYsRH6iQbKcnNKnanH9pM",
+        "ni:///sha-256;B4U2fidrR-GAOLdPfHy_gaC1cu17InkhHeZggWDdFBk",
+        "ni:///sha-256;CWjEMt3HB6O0dVdMcorXVlFUpUGB2naZwV6IPTIln0c",
+        "ni:///sha-256;GTwxynZ201WRTt2KRZAUDzmT1E4V1fCYffZqr0tP4Kg",
+        "ni:///sha-256;TPVNPYZ445qBdLm97opAIdFgEJ6MKU7LASVKW8IL2Uw",
+        "ni:///sha-256;XtJ6RcB43_c1zO-jWUnS9XGBgpxvRCr3ltBGFIOt-aM",
+        "ni:///sha-256;ZMrAVn5KZu_UJhQ-pNDOeULaXUCpR4QQcT8a2tv97kc",
+        "ni:///sha-256;_RtydIGDNckPO3V3XR5TY0A8V--4SgbtfyDc7Yb2uJ8",
+        "ni:///sha-256;trrukVqoPkEpJI0zTeEvhAcsksURf-oHrop6ad8_8NM",
+        "ni:///sha-256;xLQxQe3znA9QQE-xdlzGz4kx_TkLXaORA1WcERUR6a4"
+      ],
+      "author_claimed_status": "source-reported status; inspect assessment overlays",
+      "canonical_status": "unassessed",
+      "claim_id": "ni:///sha-256;DH0vVa2vg0jxlJ7F_4jknLdDr6_U2LWI0BdDzYg43tg",
+      "claim_kind": "full-result",
+      "claim_record_id": "ni:///sha-256;6CJVmZckc9uvUHqEJK9goXPO1KqVRPQDmfaP-nya4fw",
+      "formal_verification_status": "source-reported only; inspect exact assessment records",
+      "human_review_status": "no independent human review documented by the seed",
+      "independent_reproduction_status": "none documented by the seed",
+      "latex": "\\begin{gathered}X_{\\mathrm{transverse}}\\simeq X(4,4,-a^3+a^2b^2-b^3),\\\\[t]=-{1\\over ab^4}+{1\\over a^2b^2}-{1\\over a^4b}\\in H^1(\\mathbb A^2\\setminus\\{0\\},\\mathcal O),\\\\X_{\\mathrm{transverse}}\\not\\simeq\\operatorname{SL}_2(\\mathbb C).\\end{gathered}",
+      "natural": "Every transverse normalized linear-quadratic slice is isomorphic to X(4,4,-a^3+a^2b^2-b^3), the nontrivial G_a-bundle over A^2 minus {0} represented by the Cech cocycle -1/(ab^4)+1/(a^2b^2)-1/(a^4b). Its total space is an exotic affine three-sphere and is not algebraically isomorphic to SL_2(C).",
+      "novelty_status": "unassessed",
+      "objection_record_ids": [],
+      "packages": [
+        {
+          "package_root": "ni:///sha-256;Du3Dbg1YN0ds4amIemi3liwh47_Jel2QxzavMUKZL08",
+          "path": "examples/exotic-affine-spheres-quadratic-cubic",
+          "primary": false
+        }
+      ],
+      "search_fingerprint": "sha256:5b03d7c0a148b8d67b68a13a7e88d3095cec2a498a73bef5d8a04bf51f24e8d5",
+      "sources": [
+        {
+          "digest": "sha256:de92abd2033cf65a2412cb070edd388ae2c3fd0d85a08660954d45408343d737",
+          "immutable": true,
+          "kind": "doi-version",
+          "locator": "https://doi.org/10.5281/zenodo.21653108",
+          "rights": "Repository original content is CC0-1.0 to the extent held; third-party material and the thread snapshot are excluded.",
+          "version": "0.1.1"
+        },
+        {
+          "immutable": true,
+          "kind": "git-commit",
+          "locator": "https://github.com/ipitchford/exotic-affine-spheres-quadratic-cubic/commit/e786cec53c6ea34142ff775f9ab30dd00d960770",
+          "rights": "Repository original content is CC0-1.0 to the extent held; third-party material and the thread snapshot are excluded.",
+          "version": "e786cec53c6ea34142ff775f9ab30dd00d960770"
+        },
+        {
+          "immutable": true,
+          "kind": "doi-version",
+          "locator": "https://doi.org/10.1090/S1056-3911-2014-00612-3",
+          "rights": "Third-party cited source; not relicensed by ClaimPack.",
+          "version": "2015"
         }
       ],
       "status_updated_at": "2026-07-29T12:00:00+00:00",
@@ -165,6 +290,72 @@
           "locator": "https://drive.google.com/file/d/1ujhm4_WYpgRV_rd1rJXIfHyvx16COEKe/view",
           "rights": "Third-party source; not relicensed by ClaimPack.",
           "version": "2026-03-24"
+        }
+      ],
+      "status_updated_at": "2026-07-29T12:00:00+00:00",
+      "system_assessment": "not evaluated by the static catalog"
+    },
+    {
+      "aliases": [
+        "universal quadratic-cubic exclusion",
+        "no normalized quadratic-cubic slice is affine five-space"
+      ],
+      "assessment_record_ids": [
+        "ni:///sha-256;-qNwOQdPXcOaWy6X2QtPQcZLsuUv1YfoFcY2PIN0jNI",
+        "ni:///sha-256;7OPYiPRKCYYS1FeieWTmJafIQD4N7RmuTo4Zb8a_4og",
+        "ni:///sha-256;8fILOj6Wmv9eGyJ_w46XgcL5VUEq9ieLheucTqEPzaE",
+        "ni:///sha-256;BuV-nt98p1y2fI2Dn-NF4NOE4uD4oxHWA53IJn5rmIY",
+        "ni:///sha-256;J352vmW_V0-Z24Pux3XTZu4ypCl9sstO6hQRv0o9WSc",
+        "ni:///sha-256;OKi7LWqAkSc0vh6Mw8W-B-jC0xGGvQ7VNiGwKeoUWE0",
+        "ni:///sha-256;SKpMOmKwMopgVqN88keurSuycQCLP_eb821k5FecgVM",
+        "ni:///sha-256;TS1X4oHIdne8xzLpZ9nfbPrq7Xgx7ih923dsv-g9Buc",
+        "ni:///sha-256;UUvr40kzAkDGx3MhuROWdRdzAXxKEm2vOoMm_ZnBa6M",
+        "ni:///sha-256;X-XiY9plOUHyLA9K16CrvU_LBab1_LsSHg4ya1eVuHE",
+        "ni:///sha-256;lf92gHYXpRrV4TwmknJVQakYiknqy5-XK0eDW8xWVB0",
+        "ni:///sha-256;tmt9hZUSUI3JU_OO7cvT72qqgQNHHVTHtXgg6YuHL5Q"
+      ],
+      "author_claimed_status": "source-reported status; inspect assessment overlays",
+      "canonical_status": "unassessed",
+      "claim_id": "ni:///sha-256;xOVckH4uZ96baKo3neAzm7yelN-4ap8cREGWNPW4fRA",
+      "claim_kind": "full-result",
+      "claim_record_id": "ni:///sha-256;NL03Ca0XN805qQ9dy00FubtyO9ohIVWX-H4k5yPNFJY",
+      "formal_verification_status": "source-reported only; inspect exact assessment records",
+      "human_review_status": "no independent human review documented by the seed",
+      "independent_reproduction_status": "none documented by the seed",
+      "latex": "\\begin{gathered}0\\ne\\ell\\in V_5^\\vee\\Longrightarrow X_\\ell^{2,3}\\not\\simeq\\mathbb A^5,\\\\[X_\\ell^{2,3}]=\\mathbb L^5-\\mathbb L^3-\\mathbb L^3[K]+\\mathbb L([D_2]-[D_1])+\\mathbb L^2[Z]\\quad\\text{in }K_0(\\operatorname{Var}_{\\mathbb C}),\\\\E_c(X_\\ell^{2,3};u,v)\\ne(uv)^5.\\end{gathered}",
+      "natural": "For every nonzero ell in V_5^*, the normalized quadratic-cubic slice X_ell^{2,3} is not isomorphic to A^5. More precisely, if L=[A^1] and the reduced degeneracy loci K,D_2,D_1,Z are those defined in the manuscript, then [X_ell^{2,3}]=L^5-L^3-L^3[K]+L([D_2]-[D_1])+L^2[Z] in K_0(Var_C), and the compactly supported Hodge-Deligne polynomial of the right-hand side is never (uv)^5.",
+      "novelty_status": "unassessed",
+      "objection_record_ids": [],
+      "packages": [
+        {
+          "package_root": "ni:///sha-256;Du3Dbg1YN0ds4amIemi3liwh47_Jel2QxzavMUKZL08",
+          "path": "examples/exotic-affine-spheres-quadratic-cubic",
+          "primary": true
+        }
+      ],
+      "search_fingerprint": "sha256:5ed9b21771b2dfa5b725e62e6a29a5ad29f09543761a28975044dec0752ffd4e",
+      "sources": [
+        {
+          "digest": "sha256:de92abd2033cf65a2412cb070edd388ae2c3fd0d85a08660954d45408343d737",
+          "immutable": true,
+          "kind": "doi-version",
+          "locator": "https://doi.org/10.5281/zenodo.21653108",
+          "rights": "Repository original content is CC0-1.0 to the extent held; third-party material and the thread snapshot are excluded.",
+          "version": "0.1.1"
+        },
+        {
+          "immutable": true,
+          "kind": "git-commit",
+          "locator": "https://github.com/ipitchford/exotic-affine-spheres-quadratic-cubic/commit/e786cec53c6ea34142ff775f9ab30dd00d960770",
+          "rights": "Repository original content is CC0-1.0 to the extent held; third-party material and the thread snapshot are excluded.",
+          "version": "e786cec53c6ea34142ff775f9ab30dd00d960770"
+        },
+        {
+          "immutable": true,
+          "kind": "doi-version",
+          "locator": "https://doi.org/10.1007/978-3-540-77017-6",
+          "rights": "Third-party cited source; not relicensed by ClaimPack.",
+          "version": "2008"
         }
       ],
       "status_updated_at": "2026-07-29T12:00:00+00:00",
@@ -288,6 +479,278 @@
           "locator": "https://github.com/ipitchford/z20-cochromatic/commit/3c7e520fdc0615f5c700761c2b1e5108dcc836e7",
           "rights": "Repository original content is CC0-1.0; third-party inputs excluded.",
           "version": "3c7e520fdc0615f5c700761c2b1e5108dcc836e7"
+        }
+      ],
+      "status_updated_at": "2026-07-29T12:00:00+00:00",
+      "system_assessment": "not evaluated by the static catalog"
+    },
+    {
+      "aliases": [
+        "complete cubic classification",
+        "linear-quadratic affine-slice trichotomy"
+      ],
+      "assessment_record_ids": [
+        "ni:///sha-256;-HKcndobqJBiKc94Tk9VAqqmAIaHHMv5aXbeDhno2s0",
+        "ni:///sha-256;3fOJhx2-eo60CWdrzi9Zg8LdAwjpGRDVfiPMEbGjhl0",
+        "ni:///sha-256;41ri7dreua7BGhzqOlDCwA0gOr12nb_kRyiTY-H_2e4",
+        "ni:///sha-256;6W5G5-TffYQPaMtYZi9FRRfNgEOUNkzwHMOLBMzHHmA",
+        "ni:///sha-256;8_u17mKCtRLVrwc8UM9oSbEbw_i92gIoPAW_a5g3_jo",
+        "ni:///sha-256;HFDaUSbuixq6k_1cckXP1tCIqXYPh8p3FRBjbuMud8g",
+        "ni:///sha-256;RiSg3Jr9pHknIBc8cgc2nFSgv6S6rvZq39CC0QbI7a4",
+        "ni:///sha-256;RweijNFpHra9qGKdrewyvyj1BM72PxwH_QPtB3NE4Zw",
+        "ni:///sha-256;Y697fvOpe8pr0hbg_uQ4iNqdn9tGz8DSPaMh0EEwTiE",
+        "ni:///sha-256;oERUyLlYJiYQX6HOzj7yR-atcUEk2TFKjzHGujBYfp4",
+        "ni:///sha-256;sIdvQwACEQ7alQIsVz9JM_3N4lakdkuIWfBsBEC-wpI",
+        "ni:///sha-256;xoXqh-LmraPrQksmu0Mu4OgahFn5E3arGvo8oLfl9gw"
+      ],
+      "author_claimed_status": "source-reported status; inspect assessment overlays",
+      "canonical_status": "unassessed",
+      "claim_id": "ni:///sha-256;eOEoKPPS6zGsnijrO1-ggnWoegNb13LigIKO6RmQG0w",
+      "claim_kind": "full-result",
+      "claim_record_id": "ni:///sha-256;e4KmJmxZNpIiwxsySUXDXoyQRAOUf2CRCpPzwvUuMTI",
+      "formal_verification_status": "source-reported only; inspect exact assessment records",
+      "human_review_status": "no independent human review documented by the seed",
+      "independent_reproduction_status": "none documented by the seed",
+      "latex": "\\begin{gathered}0\\ne\\ell\\in V_3^\\vee,\\quad \\Gamma=\\{[M^3]:[M]\\in\\mathbb P(V_1)\\},\\quad \\mathcal H_\\ell=\\mathbb P(\\ker\\ell),\\\\X_\\ell\\simeq\\mathbb A^3\\Longleftrightarrow \\mathcal H_\\ell\\text{ is tangent but not osculating to }\\Gamma,\\\\(1,1,1):\\ [X_\\ell]=\\mathbb L^3-\\mathbb L,\\ X_\\ell\\not\\simeq\\mathbb A^3;\\qquad (2,1):\\ X_\\ell\\simeq\\mathbb A^3,\\ [X_\\ell]=\\mathbb L^3;\\\\(3):\\ X_\\ell\\simeq\\mathbb G_m\\times\\mathbb A^2,\\ [X_\\ell]=\\mathbb L^3-\\mathbb L^2.\\end{gathered}",
+      "natural": "Let 0!=ell in V_3^*, let Gamma={[M^3]:[M] in P(V_1)} be the twisted cubic, let H_ell=P(ker ell), and let X_ell be the normalized linear-quadratic slice. Over C, X_ell is isomorphic to A^3 if and only if H_ell is tangent but not osculating to Gamma. More precisely, three distinct intersection points give X_ell not isomorphic to A^3 with class L^3-L; tangent nonosculating contact gives X_ell isomorphic to A^3 with class L^3; and osculating contact gives X_ell isomorphic to G_m x A^2 with class L^3-L^2. Equivalently, the successful functionals form the discriminant surface of binary cubics with the triple-root curve removed.",
+      "novelty_status": "unassessed",
+      "objection_record_ids": [],
+      "packages": [
+        {
+          "package_root": "ni:///sha-256;Np_aLDz3rMs1sQ1--lJqCUbuDeu40hUcbaZaosUq3CM",
+          "path": "examples/degree-difference-affine-slices",
+          "primary": false
+        },
+        {
+          "package_root": "ni:///sha-256;Du3Dbg1YN0ds4amIemi3liwh47_Jel2QxzavMUKZL08",
+          "path": "examples/exotic-affine-spheres-quadratic-cubic",
+          "primary": false
+        },
+        {
+          "package_root": "ni:///sha-256;HqZkyPBy34OpXnas8qQKrhyEL9AR4deTzMRqJMKi8tw",
+          "path": "examples/reducible-incidence-divisors-affine-slices",
+          "primary": false
+        }
+      ],
+      "search_fingerprint": "sha256:453c6580c14f3524920eb0d1f3abcdcf5f1388db387813b9b81e35ca4ea9234e",
+      "sources": [
+        {
+          "digest": "sha256:8d0b0cfb3b43e3b7c7f32f62506ae66e824890e15a981b8498d41a07b4c2fe43",
+          "immutable": true,
+          "kind": "doi-version",
+          "locator": "https://doi.org/10.5281/zenodo.21647593",
+          "rights": "Repository original content is CC0-1.0 to the extent held; third-party material is excluded.",
+          "version": "0.1-candidate"
+        },
+        {
+          "immutable": true,
+          "kind": "git-commit",
+          "locator": "https://github.com/ipitchford/degree-difference-affine-slices/commit/38bb6c2054fd1e231233ee9c1bbd8ebf7b666685",
+          "rights": "Repository original content is CC0-1.0 to the extent held; third-party material is excluded.",
+          "version": "38bb6c2054fd1e231233ee9c1bbd8ebf7b666685"
+        }
+      ],
+      "status_updated_at": "2026-07-29T12:00:00+00:00",
+      "system_assessment": "not evaluated by the static catalog"
+    },
+    {
+      "aliases": [
+        "adjacent Hodge defects",
+        "universal adjacent-degree exclusion"
+      ],
+      "assessment_record_ids": [
+        "ni:///sha-256;-4XDLDoyAQ-aeYfm4lQBY2s8xKnyQnw_w7lMpawBwzE",
+        "ni:///sha-256;86vKX2yHrMCfRxZXZsdNh3amZQrdxqQpqTm-z2mWf-c",
+        "ni:///sha-256;S76qSaCUEBUVPV6WGl6iQOVbucbeV8CxSHThpd2fsic",
+        "ni:///sha-256;TCC9a8jFx9lk0w2E6Vzou4yv3r7RugT7pfS4Hwqq068",
+        "ni:///sha-256;c6QcDM6un5XmoauqrBwin_ElrpdwHFNy-DHe2FVEtz8",
+        "ni:///sha-256;hA5mSpDejAWtke7VlIIL9mxrRnn6MKThR9313HLuRlE",
+        "ni:///sha-256;lJe1h1JskKXY46rxoq8ycR-kKc8Gj0F04Rv2ry7nOX8",
+        "ni:///sha-256;ncKIiLzQiu1b0e-9gZwEMoi1ZrK0vU3_tDKPnatJNxo",
+        "ni:///sha-256;rz4JaKRpAJcyDA1SmCqAwiojw3TIyH62bxlc8UhdWkk",
+        "ni:///sha-256;uhRJancqzW9gRQbgfW6E9LYCUfLVmqvO_wTuxzOBPz8",
+        "ni:///sha-256;vDM1PPKAku3bmdOC5MwQO_nc2Oyi8QacbD1pl085cRw",
+        "ni:///sha-256;yfLQ8zs971g8FLbX6JZmhfTSByIUsP7WR8746a-2zXg"
+      ],
+      "author_claimed_status": "source-reported status; inspect assessment overlays",
+      "canonical_status": "unassessed",
+      "claim_id": "ni:///sha-256;7wV20SW1VjqzO2MJwLRjy93gidN10nje-Jl3lHLuspA",
+      "claim_kind": "stronger-result",
+      "claim_record_id": "ni:///sha-256;fYYFbxy8A7KxihhKUEM6NRkaapRATE_I1gWxEoJz1ew",
+      "formal_verification_status": "source-reported only; inspect exact assessment records",
+      "human_review_status": "no independent human review documented by the seed",
+      "independent_reproduction_status": "none documented by the seed",
+      "latex": "\\begin{gathered}m\\ge2,\\quad0\\ne\\ell\\in V_{2m+1}^\\vee,\\quad\\rho=\\operatorname{rank}C_\\ell,\\\\E_c(X_\\ell^{m,m+1};u,v)\\ne(uv)^{2m+1},\\\\\\rho=1:\\ E_c=(uv)^{2m+1}-(uv)^{2m};\\\\\\rho=2\\text{ secant}:\\ [u^{2m-1}v^{2m-1}]E_c=-2;\\quad\\rho=2\\text{ first jet}:\\ [u^{2m-1}v^{2m-1}]E_c=-1;\\\\\\rho\\ge3:\\ [u^{2m-1}v^{2m-1}]E_c=-1;\\\\X_\\ell^{m,m+1}\\not\\simeq\\mathbb A^{2m+1}.\\end{gathered}",
+      "natural": "Let m>=2, 0!=ell in V_{2m+1}^*, and rho=rank C_ell. Then E_c(X_ell^{m,m+1};u,v)!=(uv)^{2m+1}. More precisely, for rho=1 the polynomial is (uv)^{2m+1}-(uv)^{2m}; for catalecticant rank two of two-point secant type the coefficient of u^{2m-1}v^{2m-1} is -2; for rank two of first-jet type it is -1; and for rho>=3 it is -1. Consequently X_ell^{m,m+1} is not isomorphic to A^{2m+1} for every such m and ell.",
+      "novelty_status": "unassessed",
+      "objection_record_ids": [],
+      "packages": [
+        {
+          "package_root": "ni:///sha-256;HqZkyPBy34OpXnas8qQKrhyEL9AR4deTzMRqJMKi8tw",
+          "path": "examples/reducible-incidence-divisors-affine-slices",
+          "primary": true
+        }
+      ],
+      "search_fingerprint": "sha256:0b5699e6175f061dd4397704d787be16eddd137b0082854d0478a51a046813db",
+      "sources": [
+        {
+          "digest": "sha256:b733f4db720495fc9654e83a45fc7d77edc9a72a225b919e436cdf2ce924fbc9",
+          "immutable": true,
+          "kind": "doi-version",
+          "locator": "https://doi.org/10.5281/zenodo.21653119",
+          "rights": "Repository original content is CC0-1.0 to the extent held; third-party sources, audit inputs, and the thread snapshot retain their own rights.",
+          "version": "1.0.1"
+        },
+        {
+          "immutable": true,
+          "kind": "git-commit",
+          "locator": "https://github.com/ipitchford/reducible-incidence-divisors-affine-slices/commit/5b01190b37d5a8c43073a0eb5f1e5c94c65864ad",
+          "rights": "Repository original content is CC0-1.0 to the extent held; third-party sources, audit inputs, and the thread snapshot retain their own rights.",
+          "version": "5b01190b37d5a8c43073a0eb5f1e5c94c65864ad"
+        },
+        {
+          "immutable": true,
+          "kind": "doi-version",
+          "locator": "https://doi.org/10.1007/978-3-540-77017-6",
+          "rights": "Third-party cited source; not relicensed by ClaimPack.",
+          "version": "2008"
+        }
+      ],
+      "status_updated_at": "2026-07-29T12:00:00+00:00",
+      "system_assessment": "not evaluated by the static catalog"
+    },
+    {
+      "aliases": [
+        "degree-difference principle",
+        "binary-form product-resultant determinant theorem"
+      ],
+      "assessment_record_ids": [
+        "ni:///sha-256;3Ehoacz2Of7oHk-HuDKJn4uvcFFmGEbW4pyM9Ep4UxA",
+        "ni:///sha-256;3lz8ECmhXtN87DuARUxlFJwBaOi72CiytbH1Oa_Sf5E",
+        "ni:///sha-256;6KTYNrfWjVNaGleBGwxGH8LsUzfWobBjgDJq7sq2jxA",
+        "ni:///sha-256;CzD9CDRpo9F6fyWlytooydlz5OI26aCNaLkQ2uR59Dw",
+        "ni:///sha-256;S-u_77bJA4WLg81-pRMrhcDVwjH1VJ5PuyccwshNyNA",
+        "ni:///sha-256;ShVeVuIfYAf-iGqF8yaHm3NLT8J9j1TMugC7__s5090",
+        "ni:///sha-256;TsP6NBqf-_ONMd2Clyo9XnBKpIj_ym9ulDVVqO-NY-I",
+        "ni:///sha-256;bpigjTZSbn6AKO4rRrEEPfPE8743BUvbsXU1mZff60M",
+        "ni:///sha-256;dUNpVeIJdpqwK9vOlDLYY5OPiofz4GuGqHV8e0sM6W8",
+        "ni:///sha-256;eSyHjCFCOIZpA3KpWX1KuXAjdBjhNAlo1TrlVQgH68Y",
+        "ni:///sha-256;uBjomf5cCdDYw7c1ztAzVMEuRABF8DsRzDio08KMrMQ",
+        "ni:///sha-256;ytyV6JHvjAy8kij17aNzyM4Wq-sh_j4iCjY8FPImmM4"
+      ],
+      "author_claimed_status": "source-reported status; inspect assessment overlays",
+      "canonical_status": "unassessed",
+      "claim_id": "ni:///sha-256;2YnlMQMojvdBY5qY33uMJmO_d7zea8Uj-nGfyPUyyQ4",
+      "claim_kind": "stronger-result",
+      "claim_record_id": "ni:///sha-256;ukCJErI26rVkXt9rTP-BKnuI_o-nAW4-OSUVoYbIVus",
+      "formal_verification_status": "source-reported only; inspect exact assessment records",
+      "human_review_status": "no independent human review documented by the seed",
+      "independent_reproduction_status": "none documented by the seed",
+      "latex": "\\begin{gathered}r,s\\ge1,\\qquad \\Phi_{r,s}(A,B)=(AB,\\operatorname{Res}(A,B)),\\\\\\det D\\Phi_{r,s}=(-1)^{s(r+1)}(r-s)\\operatorname{Res}(A,B)^2.\\\\r\\ne s\\Longrightarrow \\widetilde X_{r,s,\\ell}\\longrightarrow U_{r,s,\\ell}\\text{ is a finite \\acute{e}tale }\\mu_{|s-r|}\\text{-torsor},\\\\\\deg(\\widetilde X_{r,s,\\ell}\\to\\{C\\in V_{r+s}:\\ell(C)=1\\})=|s-r|\\binom{r+s}{r},\\\\\\mathcal R_{r,s},\\mathcal S_{r,s,\\ell}\\text{ prime}\\Longrightarrow\\operatorname{Cl}(U_{r,s,\\ell})\\simeq\\mathbb Z/|s-r|\\mathbb Z.\\end{gathered}",
+      "natural": "Let r,s>=1 and choose the standard monomial coefficient orders on V_r, V_s, and V_{r+s}. For Phi_{r,s}(A,B)=(AB,Res(A,B)), det D Phi_{r,s}=(-1)^{s(r+1)}(r-s)Res(A,B)^2. In particular, if r!=s, Phi_{r,s} is etale on the coprime locus {Res!=0}. For nonzero ell in V_{r+s}^*, if r!=s, projectivisation is a finite etale mu_{|s-r|}-torsor from the normalized slice tilde X_{r,s,ell} to U_{r,s,ell}; the induced multiplication map has generic degree |s-r| binom(r+s,r); and, if the resultant divisor R_{r,s} and multiplication-hyperplane divisor S_{r,s,ell} are prime, Cl(U_{r,s,ell}) is isomorphic to Z/|s-r|Z.",
+      "novelty_status": "unassessed",
+      "objection_record_ids": [],
+      "packages": [
+        {
+          "package_root": "ni:///sha-256;Np_aLDz3rMs1sQ1--lJqCUbuDeu40hUcbaZaosUq3CM",
+          "path": "examples/degree-difference-affine-slices",
+          "primary": true
+        },
+        {
+          "package_root": "ni:///sha-256;HqZkyPBy34OpXnas8qQKrhyEL9AR4deTzMRqJMKi8tw",
+          "path": "examples/reducible-incidence-divisors-affine-slices",
+          "primary": false
+        }
+      ],
+      "search_fingerprint": "sha256:6bbeda1144a8f0c9ab00183d1501b8368f11c9f5b27d6dfe9f07c5fae151207f",
+      "sources": [
+        {
+          "digest": "sha256:8d0b0cfb3b43e3b7c7f32f62506ae66e824890e15a981b8498d41a07b4c2fe43",
+          "immutable": true,
+          "kind": "doi-version",
+          "locator": "https://doi.org/10.5281/zenodo.21647593",
+          "rights": "Repository original content is CC0-1.0 to the extent held; third-party material is excluded.",
+          "version": "0.1-candidate"
+        },
+        {
+          "immutable": true,
+          "kind": "git-commit",
+          "locator": "https://github.com/ipitchford/degree-difference-affine-slices/commit/38bb6c2054fd1e231233ee9c1bbd8ebf7b666685",
+          "rights": "Repository original content is CC0-1.0 to the extent held; third-party material is excluded.",
+          "version": "38bb6c2054fd1e231233ee9c1bbd8ebf7b666685"
+        }
+      ],
+      "status_updated_at": "2026-07-29T12:00:00+00:00",
+      "system_assessment": "not evaluated by the static catalog"
+    },
+    {
+      "aliases": [
+        "reducibility classification",
+        "marked-common-root incidence divisor theorem"
+      ],
+      "assessment_record_ids": [
+        "ni:///sha-256;919eV0O0uGgeMmRE_8HJp4ddcBFFF_dFd8aqoBKRCF0",
+        "ni:///sha-256;9xqugJoBGu3ZVJCir0HPetDTlmYJGRILI5gKuzZ8h90",
+        "ni:///sha-256;F7g2mJdDiK2OhfokFIAyZ_YgxrzPO7W8SuZdiN9OntU",
+        "ni:///sha-256;LSOgIDSpkuSJltKDMyEdWtq1A92vySFQS5osFFxhOOk",
+        "ni:///sha-256;LqP35YDv1otqgyKw0LPTZ-SgGpAu6HK01uYBwtDk5pE",
+        "ni:///sha-256;UNa_q6K0VGggrT4Vz_0YM9pMs1xUavuN2qxAM3Vx0Rg",
+        "ni:///sha-256;XkSyEMwscHxUGPQgmEQylIjM4_mRy-HoTa2ZyGKgbao",
+        "ni:///sha-256;fl8e0rZ6WOvzZfxLyEYaT-1CNwJEgsBv271BSO5BXik",
+        "ni:///sha-256;sy94mQJA89aeVZpHRO0DCeDGs1Dq2dUCTErq7yCxxAY",
+        "ni:///sha-256;tX1z5ZvKVeD80aYw6sUvltT9N6Vkqv8AY2FiqqLzaZQ",
+        "ni:///sha-256;yNwNxDthMCtUhYWthvgwpQCodq-w5njX9HPtWovqNz4",
+        "ni:///sha-256;yeL-avhWSLDbOKsaEJb1pzZ4mn60tC4JX1P2g30zt-U"
+      ],
+      "author_claimed_status": "source-reported status; inspect assessment overlays",
+      "canonical_status": "unassessed",
+      "claim_id": "ni:///sha-256;sxYzS5cJ3rEiYLV92ojE7AzsCDV8ZV1y_8JgkNYnAkY",
+      "claim_kind": "stronger-result",
+      "claim_record_id": "ni:///sha-256;xHpxUzjaok3i7Ac44k2UOVGMIrgK6j2T-1QgurwBDAM",
+      "formal_verification_status": "source-reported only; inspect exact assessment records",
+      "human_review_status": "no independent human review documented by the seed",
+      "independent_reproduction_status": "none documented by the seed",
+      "latex": "\\begin{gathered}m\\ge2,\\quad0\\ne\\ell\\in V_{2m+1}^\\vee,\\\\D_\\ell\\text{ reducible}\\Longleftrightarrow [\\ell]\\in\\tau(\\nu_{2m+1}),\\\\\\ell=\\lambda\\operatorname{ev}_u\\Rightarrow \\#\\operatorname{Irr}(D_\\ell{}_{\\mathrm{red}})=3,\\\\[\\ell]\\in\\tau(\\nu_{2m+1})\\setminus\\nu_{2m+1}\\Rightarrow\\#\\operatorname{Irr}(D_\\ell{}_{\\mathrm{red}})=2,\\\\\\ell=a\\operatorname{ev}_u+b\\operatorname{ev}_v,\\ u\\ne v,\\ ab\\ne0\\Rightarrow D_\\ell\\text{ irreducible},\\\\\\operatorname{rank}C_\\ell\\ge3\\Rightarrow D_\\ell\\text{ irreducible}.\\end{gathered}",
+      "natural": "Let m>=2 and 0!=ell in V_{2m+1}^*. The marked-common-root divisor D_ell is reducible set-theoretically if and only if [ell] lies in the tangent developable of the rational normal curve nu_{2m+1}. More precisely: an evaluation functional gives three reduced irreducible components; a functional on a punctured tangent line gives exactly two; a genuine two-point secant functional gives an irreducible divisor; and every functional with middle-catalecticant rank at least three gives an irreducible divisor.",
+      "novelty_status": "unassessed",
+      "objection_record_ids": [],
+      "packages": [
+        {
+          "package_root": "ni:///sha-256;HqZkyPBy34OpXnas8qQKrhyEL9AR4deTzMRqJMKi8tw",
+          "path": "examples/reducible-incidence-divisors-affine-slices",
+          "primary": false
+        }
+      ],
+      "search_fingerprint": "sha256:4033389c352d63471d713a2f1df07803be691543da7dfad66034d55d51090c91",
+      "sources": [
+        {
+          "digest": "sha256:b733f4db720495fc9654e83a45fc7d77edc9a72a225b919e436cdf2ce924fbc9",
+          "immutable": true,
+          "kind": "doi-version",
+          "locator": "https://doi.org/10.5281/zenodo.21653119",
+          "rights": "Repository original content is CC0-1.0 to the extent held; third-party sources, audit inputs, and the thread snapshot retain their own rights.",
+          "version": "1.0.1"
+        },
+        {
+          "immutable": true,
+          "kind": "git-commit",
+          "locator": "https://github.com/ipitchford/reducible-incidence-divisors-affine-slices/commit/5b01190b37d5a8c43073a0eb5f1e5c94c65864ad",
+          "rights": "Repository original content is CC0-1.0 to the extent held; third-party sources, audit inputs, and the thread snapshot retain their own rights.",
+          "version": "5b01190b37d5a8c43073a0eb5f1e5c94c65864ad"
+        },
+        {
+          "immutable": true,
+          "kind": "doi-version",
+          "locator": "https://doi.org/10.4310/MRL.2013.v20.n4.a10",
+          "rights": "Third-party cited source; not relicensed by ClaimPack.",
+          "version": "2013"
+        },
+        {
+          "immutable": true,
+          "kind": "doi-version",
+          "locator": "https://doi.org/10.1016/j.jsc.2010.08.001",
+          "rights": "Third-party cited source; not relicensed by ClaimPack.",
+          "version": "2011"
         }
       ],
       "status_updated_at": "2026-07-29T12:00:00+00:00",

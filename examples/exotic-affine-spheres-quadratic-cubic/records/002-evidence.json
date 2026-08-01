@@ -1,0 +1,51 @@
+{
+  "artifacts": [
+    {
+      "digest": "sha256:8d0b0cfb3b43e3b7c7f32f62506ae66e824890e15a981b8498d41a07b4c2fe43",
+      "embedded": false,
+      "locator": "https://doi.org/10.5281/zenodo.21647593",
+      "media_type": "application/zip",
+      "name": "degree-difference-affine-slices.zip",
+      "rights": "CC0-1.0 for original repository content to the extent held; source exclusions apply."
+    }
+  ],
+  "coverage": [
+    "candidate manuscript proof of the cubic classification",
+    "exact checks of the tangent affine parametrisation and explicit map"
+  ],
+  "evidence_kind": "manuscript",
+  "issued_at": "2026-07-29T12:00:00+00:00",
+  "issuer": {
+    "display_name": "ipitchford/degree-difference-affine-slices",
+    "id": "repository:ipitchford/degree-difference-affine-slices",
+    "kind": "organization"
+  },
+  "limitations": [
+    "The checker does not encode the orbit classification, motivic calculations, or affine-bundle arguments.",
+    "No independent external reproduction, human review, peer review, or formalisation is documented.",
+    "Referenced archive is not embedded in this seed ClaimPack."
+  ],
+  "method": "Reference-only binding to the exact public release archive and its repository-reported assurance boundary.",
+  "protocol_version": "0.1.0",
+  "record_id": "ni:///sha-256;Hrr0RndO06gafVwPxw3ictq7gQeMxgzDyuVfLMD3Kcg",
+  "record_type": "evidence",
+  "replay": {
+    "command": "make PYTHON=.venv/bin/python verify",
+    "display_only": true,
+    "environment_digest": "",
+    "expected_outputs": [
+      "normal and optimized transcripts match verifier_output.txt",
+      "the deliberately wrong determinant expectation fails"
+    ],
+    "resource_budget": {
+      "cpu": "source-repository dependent",
+      "disk": "source-repository dependent",
+      "network": "forbidden in core ClaimPack consumption",
+      "wall_time": "source-repository dependent"
+    }
+  },
+  "subject": {
+    "record_id": "ni:///sha-256;e4KmJmxZNpIiwxsySUXDXoyQRAOUf2CRCpPzwvUuMTI",
+    "record_type": "claim-version"
+  }
+}

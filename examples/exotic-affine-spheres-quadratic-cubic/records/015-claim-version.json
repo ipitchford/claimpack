@@ -1,0 +1,124 @@
+{
+  "aliases": [
+    "transverse exotic affine three-sphere",
+    "X(4,4,-a^3+a^2b^2-b^3)"
+  ],
+  "claim_id": "ni:///sha-256;DH0vVa2vg0jxlJ7F_4jknLdDr6_U2LWI0BdDzYg43tg",
+  "claim_version": "0.1.1",
+  "dependency_targets": [
+    {
+      "record_id": "ni:///sha-256;e4KmJmxZNpIiwxsySUXDXoyQRAOUf2CRCpPzwvUuMTI",
+      "record_type": "claim-version"
+    }
+  ],
+  "formal_statements": [],
+  "issued_at": "2026-07-28T19:26:41+00:00",
+  "lineage": [],
+  "problem_refs": [],
+  "protocol_version": "0.1.0",
+  "provenance": {
+    "actors": [
+      {
+        "display_name": "Ian Pitchford",
+        "id": "human:ian-pitchford",
+        "kind": "human"
+      },
+      {
+        "display_name": "OpenAI Codex / Anthropic models",
+        "id": "organization:openai-codex-anthropic-models",
+        "kind": "organization"
+      },
+      {
+        "display_name": "OpenAI Codex",
+        "id": "software:openai-codex",
+        "kind": "software"
+      }
+    ],
+    "roles": [
+      {
+        "actor_id": "organization:openai-codex-anthropic-models",
+        "date": "2026-07-28T00:00:00+00:00",
+        "role": "repository-reported manuscript attribution"
+      },
+      {
+        "actor_id": "human:ian-pitchford",
+        "date": "2026-07-28T00:00:00+00:00",
+        "role": "research direction, mediation, maintenance, and publication"
+      },
+      {
+        "actor_id": "software:openai-codex",
+        "date": "2026-07-29T12:00:00+00:00",
+        "role": "ClaimPack encoding"
+      }
+    ]
+  },
+  "record_id": "ni:///sha-256;6CJVmZckc9uvUHqEJK9goXPO1KqVRPQDmfaP-nya4fw",
+  "record_type": "claim-version",
+  "rights": {
+    "exclusions": [],
+    "license": "CC0-1.0",
+    "scope": "This ClaimPack record and original source-repository content only to the extent the rights holder may dedicate it."
+  },
+  "scope": {
+    "claim_kind": "full-result",
+    "conditions": [
+      "The algebraic non-isomorphism conclusion is over the complex numbers."
+    ],
+    "exclusions": [
+      "Tangent and osculating contact types are not classified by this theorem."
+    ],
+    "non_implications": [],
+    "scope_note": "",
+    "structured_scope": {
+      "base_field": "complex numbers",
+      "contact_type": "three distinct points",
+      "factor_degrees": "(1,2)"
+    },
+    "targets": [
+      "transverse slice isomorphism type",
+      "exotic affine three-sphere"
+    ]
+  },
+  "sources": [
+    {
+      "digest": "sha256:de92abd2033cf65a2412cb070edd388ae2c3fd0d85a08660954d45408343d737",
+      "immutable": true,
+      "kind": "doi-version",
+      "locator": "https://doi.org/10.5281/zenodo.21653108",
+      "rights": "Repository original content is CC0-1.0 to the extent held; third-party material and the thread snapshot are excluded.",
+      "version": "0.1.1"
+    },
+    {
+      "immutable": true,
+      "kind": "git-commit",
+      "locator": "https://github.com/ipitchford/exotic-affine-spheres-quadratic-cubic/commit/e786cec53c6ea34142ff775f9ab30dd00d960770",
+      "rights": "Repository original content is CC0-1.0 to the extent held; third-party material and the thread snapshot are excluded.",
+      "version": "e786cec53c6ea34142ff775f9ab30dd00d960770"
+    },
+    {
+      "immutable": true,
+      "kind": "doi-version",
+      "locator": "https://doi.org/10.1090/S1056-3911-2014-00612-3",
+      "rights": "Third-party cited source; not relicensed by ClaimPack.",
+      "version": "2015"
+    }
+  ],
+  "statement": {
+    "definitions": [
+      {
+        "meaning": "The (1,2) normalized slice attached to a cubic hyperplane meeting the twisted cubic in three distinct points.",
+        "term": "transverse normalized linear-quadratic slice"
+      },
+      {
+        "meaning": "The Dubouloz-Finston normal form for the indicated principal additive bundle over the punctured affine plane.",
+        "term": "X(m,n,p)"
+      }
+    ],
+    "language": "en",
+    "latex": "\\begin{gathered}X_{\\mathrm{transverse}}\\simeq X(4,4,-a^3+a^2b^2-b^3),\\\\[t]=-{1\\over ab^4}+{1\\over a^2b^2}-{1\\over a^4b}\\in H^1(\\mathbb A^2\\setminus\\{0\\},\\mathcal O),\\\\X_{\\mathrm{transverse}}\\not\\simeq\\operatorname{SL}_2(\\mathbb C).\\end{gathered}",
+    "natural": "Every transverse normalized linear-quadratic slice is isomorphic to X(4,4,-a^3+a^2b^2-b^3), the nontrivial G_a-bundle over A^2 minus {0} represented by the Cech cocycle -1/(ab^4)+1/(a^2b^2)-1/(a^4b). Its total space is an exotic affine three-sphere and is not algebraically isomorphic to SL_2(C).",
+    "quantifiers": [
+      "for every transverse normalized linear-quadratic slice"
+    ]
+  }
+}

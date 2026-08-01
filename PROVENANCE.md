@@ -15,7 +15,8 @@ authorship determination.
   and source release; inclusion does not transfer authorship to this project.
 - **External human review of ClaimPack:** none yet.
 - **Independent implementation from the specification:** none yet.
-- **Public release:** none yet; this repository is local and pre-release.
+- **Public release:** candidate release maintained and published by Ian
+  Pitchford at `https://github.com/ipitchford/claimpack`.
 
 Model and provider names are provenance labels. They do not imply provider
 endorsement, corporate authorship, correctness, novelty, or standards

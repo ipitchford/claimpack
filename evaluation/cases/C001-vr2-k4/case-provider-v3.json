@@ -36,8 +36,8 @@
   "overlay_files": [
     {
       "destination": "MATERIALS/supplement/CONSUMER_SKILL.md",
-      "sha256": "sha256:efb1a37aff927db21eca51bef2837a4b1bdc18ca4316fb08298c808417d57a35",
-      "source": "SKILL.md"
+      "sha256": "sha256:24de91fab362cff6460cd950856da199dad696e7b8f9ba0d628a0c57d8d4b61a",
+      "source": "skills/consume-claimpack/SKILL.md"
     },
     {
       "destination": "MATERIALS/supplement/CAUTIOUS_POLICY.json",

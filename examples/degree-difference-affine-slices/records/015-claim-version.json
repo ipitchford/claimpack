@@ -1,0 +1,115 @@
+{
+  "aliases": [
+    "complete cubic classification",
+    "linear-quadratic affine-slice trichotomy"
+  ],
+  "claim_id": "ni:///sha-256;eOEoKPPS6zGsnijrO1-ggnWoegNb13LigIKO6RmQG0w",
+  "claim_version": "0.1-candidate",
+  "dependency_targets": [],
+  "formal_statements": [],
+  "issued_at": "2026-07-27T21:33:47+00:00",
+  "lineage": [],
+  "problem_refs": [],
+  "protocol_version": "0.1.0",
+  "provenance": {
+    "actors": [
+      {
+        "display_name": "Ian Pitchford",
+        "id": "human:ian-pitchford",
+        "kind": "human"
+      },
+      {
+        "display_name": "OpenAI Codex / Anthropic models",
+        "id": "organization:openai-codex-anthropic-models",
+        "kind": "organization"
+      },
+      {
+        "display_name": "OpenAI Codex",
+        "id": "software:openai-codex",
+        "kind": "software"
+      }
+    ],
+    "roles": [
+      {
+        "actor_id": "organization:openai-codex-anthropic-models",
+        "date": "2026-07-27T00:00:00+00:00",
+        "role": "repository-reported manuscript attribution"
+      },
+      {
+        "actor_id": "human:ian-pitchford",
+        "date": "2026-07-27T00:00:00+00:00",
+        "role": "research direction, mediation, maintenance, and publication"
+      },
+      {
+        "actor_id": "software:openai-codex",
+        "date": "2026-07-29T12:00:00+00:00",
+        "role": "ClaimPack encoding"
+      }
+    ]
+  },
+  "record_id": "ni:///sha-256;e4KmJmxZNpIiwxsySUXDXoyQRAOUf2CRCpPzwvUuMTI",
+  "record_type": "claim-version",
+  "rights": {
+    "exclusions": [],
+    "license": "CC0-1.0",
+    "scope": "This ClaimPack record and original source-repository content only to the extent the rights holder may dedicate it."
+  },
+  "scope": {
+    "claim_kind": "full-result",
+    "conditions": [
+      "The classification is over the complex numbers."
+    ],
+    "exclusions": [
+      "No classification of higher-degree slices is included."
+    ],
+    "non_implications": [],
+    "scope_note": "",
+    "structured_scope": {
+      "base_field": "complex numbers",
+      "contact_types": "(1,1,1), (2,1), (3)",
+      "factor_degrees": "(1,2)"
+    },
+    "targets": [
+      "complete cubic contact-orbit classification"
+    ]
+  },
+  "sources": [
+    {
+      "digest": "sha256:8d0b0cfb3b43e3b7c7f32f62506ae66e824890e15a981b8498d41a07b4c2fe43",
+      "immutable": true,
+      "kind": "doi-version",
+      "locator": "https://doi.org/10.5281/zenodo.21647593",
+      "rights": "Repository original content is CC0-1.0 to the extent held; third-party material is excluded.",
+      "version": "0.1-candidate"
+    },
+    {
+      "immutable": true,
+      "kind": "git-commit",
+      "locator": "https://github.com/ipitchford/degree-difference-affine-slices/commit/38bb6c2054fd1e231233ee9c1bbd8ebf7b666685",
+      "rights": "Repository original content is CC0-1.0 to the extent held; third-party material is excluded.",
+      "version": "38bb6c2054fd1e231233ee9c1bbd8ebf7b666685"
+    }
+  ],
+  "statement": {
+    "definitions": [
+      {
+        "meaning": "The twisted cubic of pure cubes in P(V_3).",
+        "term": "Gamma"
+      },
+      {
+        "meaning": "The projective hyperplane P(ker ell).",
+        "term": "H_ell"
+      },
+      {
+        "meaning": "The normalized linear-quadratic slice with resultant and ell(AB) both equal to one.",
+        "term": "X_ell"
+      }
+    ],
+    "language": "en",
+    "latex": "\\begin{gathered}0\\ne\\ell\\in V_3^\\vee,\\quad \\Gamma=\\{[M^3]:[M]\\in\\mathbb P(V_1)\\},\\quad \\mathcal H_\\ell=\\mathbb P(\\ker\\ell),\\\\X_\\ell\\simeq\\mathbb A^3\\Longleftrightarrow \\mathcal H_\\ell\\text{ is tangent but not osculating to }\\Gamma,\\\\(1,1,1):\\ [X_\\ell]=\\mathbb L^3-\\mathbb L,\\ X_\\ell\\not\\simeq\\mathbb A^3;\\qquad (2,1):\\ X_\\ell\\simeq\\mathbb A^3,\\ [X_\\ell]=\\mathbb L^3;\\\\(3):\\ X_\\ell\\simeq\\mathbb G_m\\times\\mathbb A^2,\\ [X_\\ell]=\\mathbb L^3-\\mathbb L^2.\\end{gathered}",
+    "natural": "Let 0!=ell in V_3^*, let Gamma={[M^3]:[M] in P(V_1)} be the twisted cubic, let H_ell=P(ker ell), and let X_ell be the normalized linear-quadratic slice. Over C, X_ell is isomorphic to A^3 if and only if H_ell is tangent but not osculating to Gamma. More precisely, three distinct intersection points give X_ell not isomorphic to A^3 with class L^3-L; tangent nonosculating contact gives X_ell isomorphic to A^3 with class L^3; and osculating contact gives X_ell isomorphic to G_m x A^2 with class L^3-L^2. Equivalently, the successful functionals form the discriminant surface of binary cubics with the triple-root curve removed.",
+    "quantifiers": [
+      "for every nonzero ell in V_3^*"
+    ]
+  }
+}
