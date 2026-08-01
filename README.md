@@ -1,7 +1,7 @@
 # ClaimPack
 
 [![verify](https://github.com/ipitchford/claimpack/actions/workflows/verify.yml/badge.svg)](https://github.com/ipitchford/claimpack/actions/workflows/verify.yml)
-[![Agent Skills](https://skills.sh/b/ipitchford/claimpack)](https://skills.sh/ipitchford/claimpack)
+[![Agent Skills](https://skills.sh/b/ipitchford/claimpack)](https://skills.sh/ipitchford/claimpack/consume-claimpack)
 [![CC0 1.0](https://img.shields.io/badge/license-CC0--1.0-blue.svg)](LICENSE)
 
 > **Status: public candidate research-infrastructure release.**
@@ -30,6 +30,9 @@ The answer is one of:
 
 The repository ships separate trusted consumer and producer skills in the open
 Agent Skills format. Install both into a supported agent with:
+
+- [`consume-claimpack` on skills.sh](https://skills.sh/ipitchford/claimpack/consume-claimpack)
+- [`publish-claimpack` on skills.sh](https://skills.sh/ipitchford/claimpack/publish-claimpack)
 
 ```sh
 npx skills add ipitchford/claimpack \
